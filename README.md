@@ -1,12 +1,12 @@
 # LightBi Hugo 
 
-![LightBi Hugo Theme Screenshot](https://github.com/halogenica/beautifulhugo/blob/master/images/screenshot.png)
+![LightBi Hugo Theme Screenshot](https://camo.githubusercontent.com/43ccd49145bd81b3a234b0ffd40892b04e8df662/68747470733a2f2f7777772e636f646269782e636f6d2f696d672f323032302f7365702f6c6967687462692d686f6d652d73637265656e2e706e67)
 
 ## Installation
 
     $ mkdir themes
     $ cd themes
-    $ git submodule add https://github.com/halogenica/beautifulhugo.git beautifulhugo
+    $ git submodule add hhttps://github.com/binokochumolvarghese/lightbi-hugo.git beautifulhugo
     
 
 See [the Hugo documentation](https://gohugo.io/themes/installing/) for more information.
@@ -31,7 +31,6 @@ enableGitInfo = true
   commit = "https://github.com/<username>/<siterepo>/tree/"
 ```
 
-See at [vincenttam/vincenttam.gitlab.io](https://gitlab.com/vincenttam/vincenttam.gitlab.io) for an example of how to add it to a continuous integration system.
 
 ## License
 
