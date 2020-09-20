@@ -1,0 +1,105 @@
+  {{ if eq .Type "page" }}
+    {{ partial "page_meta.html" . }}
+  {{ end }}
+
+  
+<footer>
+
+  <div class="container">
+    <div class="row"> 
+      <div class="col-md-12">
+        <ul class="list-inline list-group list-group-horizontal text-center footer-links d-flex justify-content-center flex-row"
+        >
+         
+          {{ range .Site.Data.beautifulhugo.social.social_icons }}
+            {{- if isset $.Site.Author .id }}
+              <li >
+                <a href="{{ printf .url (index $.Site.Author .id) }}" title="{{ .title }}" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-stack-2x"></i>
+                    <i class="{{ .icon }} fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            {{- end -}}
+          {{ end }}
+          {{ if .Site.Params.rss }}
+          <li>
+            <a href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+    </div>
+  </div>
+
+
+        <div class="row"> 
+          <div class="col-md-12">
+        <p class="credits copyright text-muted">
+          {{ if .Site.Author.name }}
+            {{ if .Site.Author.website }}
+              <a href="{{ .Site.Author.website }}">{{ .Site.Author.name }}</a>
+            {{ else }}
+              {{ .Site.Author.name }}
+            {{ end }}
+          {{ end }}
+
+          &nbsp;&bull;&nbsp;&copy;
+          {{ if .Site.Params.since }}
+            {{ .Site.Params.since }} - {{ .Site.LastChange.Format "2006" }}
+          {{ else }}
+            {{ .Site.LastChange.Format "2006" }}
+          {{ end }}
+
+          {{ if .Site.Title }}
+            &nbsp;&bull;&nbsp;
+            <a href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
+          {{ end }}
+        </p>
+        <!-- Please don't remove this, keep my open source work credited :) -->
+        <!-- <p class="credits theme-by text-muted">
+          {{ i18n "poweredBy" . | safeHTML }}
+          {{ if $.GitInfo }}&nbsp;&bull;&nbsp;[<a href="{{ .Site.Params.commit }}{{ .GitInfo.Hash }}">{{ substr .GitInfo.Hash 0 8 }}</a>]{{ end }}
+        </p> -->
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</footer>
+
+{{- if .Site.Params.selfHosted -}}
+<!-- <script src="{{ "js/katex.min.js" | absURL }}"></script>
+<script src="{{ "js/auto-render.min.js" | absURL }}"></script> -->
+<script src="{{ "js/jquery.min.js" | absURL }}"></script>
+<script src="{{ "js/bootstrap.min.js" | absURL }}"></script>
+{{- else -}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+{{- end }}
+
+<script src="{{ "js/main.js" | absURL }}"></script> 
+
+{{ if .Site.Params.gcse }}
+<script>
+  (function() {
+    var cx = '{{ .Site.Params.gcse }}';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+{{ end }}
+
+
+
+{{- partial "footer_custom.html" . }}

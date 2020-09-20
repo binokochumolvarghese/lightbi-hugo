@@ -1,0 +1,61 @@
+baseURL = "https://www.example.com/"
+DefaultContentLanguage = "en"
+languageCode = "en-us"
+title = "LightBi"
+theme = "Lightbi"
+metaDataFormat = "yaml"
+pygmentsStyle = "trac"
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true 
+PaginatePath = true
+googleAnalytics = "UA-156062463-1"  
+Paginate = 6
+
+[Params] 
+mainSections = ["post"]
+dateFormat = "January 2, 2006"
+favicon = "img/favicon.ico"
+comments = false
+readingTime = false
+wordCount = false
+socialShare = true
+delayDisqus = true
+showRelatedPosts = true 
+summaryLength  = "9"
+gcse = false
+Lastmod = false
+rss = false 
+pagination = "9"
+
+
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[Author]
+  name = "Bino Kochumol Varghese"
+  website = "https://www.binovarghese.com"
+  email = "contactcodbix@gmail.com"
+  instagram = "#"
+  facebook = "#"
+
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "Haiku"
+    url = "/haiku/"
+    weight = 2
+
+
+[[menu.main]]
+    name = "About"
+    url = "/about"
+    weight = 4
+
+
+

@@ -1,0 +1,68 @@
+{{ if .IsHome }}
+{{ if .Site.Params.homeTitle }}{{ $.Scratch.Set "title" .Site.Params.homeTitle }}{{ else }}{{ $.Scratch.Set "title" .Site.Title }}{{ end }}
+{{ if .Site.Params.subtitle }}{{ $.Scratch.Set "subtitle" .Site.Params.subtitle }}{{ end }}
+{{ if .Site.Params.bigimg }}{{ $.Scratch.Set "bigimg" .Site.Params.bigimg }}{{ end }}
+{{ else }}
+{{ $.Scratch.Set "title" .Title }}
+{{ if .Params.subtitle }}{{ $.Scratch.Set "subtitle" .Params.subtitle }}{{ end }}
+{{ if .Params.bigimg }}{{ $.Scratch.Set "bigimg" .Params.bigimg }}{{ end }}
+{{ end }}
+{{ $bigimg := $.Scratch.Get "bigimg" }}
+{{ $title := $.Scratch.Get "title" }}
+{{ $subtitle := $.Scratch.Get "subtitle" }}
+
+{{ if or $bigimg $title }}
+{{ if $bigimg }}
+<div id="header-big-imgs" data-num-img={{len $bigimg}} {{range $i, $img := $bigimg}} {{ if (fileExists $img.src)}}
+  data-img-src-{{add $i 1}}="{{$img.src | absURL }}" {{else}} data-img-src-{{add $i 1}}="{{$img.src}}" {{end}}
+  {{ if $img.desc}}data-img-desc-{{add $i 1}}="{{$img.desc}}" {{end}} {{end}}></div>
+{{ end }}
+
+
+{{ if .IsHome }}
+
+{{ else }}
+<header class="header-section {{ if $bigimg }}has-img{{ end }}">
+
+<div class="intro-header no-img mt-10">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 xx">
+        <div class="{{ .Type }}-heading">
+          {{ if eq .Type "list" }}
+          <h2>{{ if .Data.Singular }}#{{ end }}{{ .Title }}</h2>
+          {{ else }} 
+              {{if  .Page.IsPage}}
+              <h2>{{ with $title }}
+                {{.}}
+                {{ else }}
+                <br />
+              {{ end }}</h2>
+
+
+              {{ else }} 
+              {{ end }}
+          {{ end }}
+
+          {{ if $subtitle }}
+          {{ if eq .Type "page" }}
+          <span class="{{ .Type }}-subheading">{{ $subtitle }}</span>
+          {{ else }}
+          <h4 class="{{ .Type }}-subheading">{{ $subtitle }}</h4>
+          {{ end }}
+          {{ end }}
+
+          {{if  .Page.IsPage}}
+          {{ if eq .Type "post" }}
+          {{ partial "post_meta.html" .}}
+          {{ end }}
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+{{ end }}
+{{ end }}
