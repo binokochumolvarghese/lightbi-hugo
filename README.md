@@ -6,7 +6,7 @@
 
     $ mkdir themes
     $ cd themes
-    $ git submodule add hhttps://github.com/binokochumolvarghese/lightbi-hugo.git beautifulhugo
+    $ git submodule add https://github.com/binokochumolvarghese/lightbi-hugo.git
     
 
 See [the Hugo documentation](https://gohugo.io/themes/installing/) for more information.
