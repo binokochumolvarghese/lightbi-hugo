@@ -33,7 +33,7 @@ enableGitInfo = true
 
 ### Credits
 
-Beautiful Hugo [https://github.com/halogenica/beautifulhugo] from which Lightbi was forked.
+[Beautiful Hugo](https://github.com/halogenica/beautifulhugo) from which Lightbi was forked.
 
 
 ## License
