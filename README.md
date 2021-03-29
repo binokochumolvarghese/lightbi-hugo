@@ -31,6 +31,10 @@ enableGitInfo = true
   commit = "https://github.com/<username>/<siterepo>/tree/"
 ```
 
+### Credits
+
+Beautiful Hugo [https://github.com/halogenica/beautifulhugo] from which Lightbi was forked.
+
 
 ## License
 
