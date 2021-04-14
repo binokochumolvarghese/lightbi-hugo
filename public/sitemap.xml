@@ -3,116 +3,116 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.example.com/haiku/</loc>
+    <loc>https://lightbi-hugo-theme.netlify.app/haiku/</loc>
     <lastmod>2020-02-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/haiku/2020/aug/change/</loc>
+    <loc>https://lightbi-hugo-theme.netlify.app/haiku/2020/aug/change/</loc>
     <lastmod>2020-02-01T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/</loc>
+    <loc>https://lightbi-hugo-theme.netlify.app/</loc>
     <lastmod>2020-02-01T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/</loc>
+    <loc>https://lightbi-hugo-theme.netlify.app/post/</loc>
     <lastmod>2020-01-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/tags/stoicism/</loc>
+    <loc>https://lightbi-hugo-theme.netlify.app/tags/stoicism/</loc>
     <lastmod>2020-01-30T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/tags/</loc>
+    <loc>https://lightbi-hugo-theme.netlify.app/tags/</loc>
     <lastmod>2020-01-30T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/2020/jan/who-am-i/</loc>
+    <loc>https://lightbi-hugo-theme.netlify.app/post/2020/jan/who-am-i/</loc>
     <lastmod>2020-01-30T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/2020/jan/stoicism/</loc>
+    <loc>https://lightbi-hugo-theme.netlify.app/post/2020/jan/stoicism/</loc>
     <lastmod>2020-01-27T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/2020/jan/syntax/</loc>
+    <loc>https://lightbi-hugo-theme.netlify.app/post/2020/jan/syntax/</loc>
     <lastmod>2020-01-25T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/tags/syntax/</loc>
+    <loc>https://lightbi-hugo-theme.netlify.app/tags/syntax/</loc>
     <lastmod>2020-01-25T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/2020/jan/rich-content/</loc>
+    <loc>https://lightbi-hugo-theme.netlify.app/post/2020/jan/rich-content/</loc>
     <lastmod>2020-01-20T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/tags/shortcodes/</loc>
+    <loc>https://lightbi-hugo-theme.netlify.app/tags/shortcodes/</loc>
     <lastmod>2020-01-20T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/2020/jan/stoicism3/</loc>
+    <loc>https://lightbi-hugo-theme.netlify.app/post/2020/jan/stoicism3/</loc>
     <lastmod>2020-01-08T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/2020/jan/stoicism2/</loc>
+    <loc>https://lightbi-hugo-theme.netlify.app/post/2020/jan/stoicism2/</loc>
     <lastmod>2020-01-04T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/2020/jan/stoicism1/</loc>
+    <loc>https://lightbi-hugo-theme.netlify.app/post/2020/jan/stoicism1/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/about/</loc>
+    <loc>https://lightbi-hugo-theme.netlify.app/about/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/categories/</loc>
+    <loc>https://lightbi-hugo-theme.netlify.app/categories/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
