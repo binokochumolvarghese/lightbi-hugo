@@ -1,8 +1,8 @@
 baseURL = "https://www.example.com/"
 DefaultContentLanguage = "en"
 languageCode = "en-us"
-title = "LightBi"
-theme = "Lightbi"
+title = "Lightbi"
+theme = "lightbi"
 metaDataFormat = "yaml"
 pygmentsStyle = "trac"
 pygmentsUseClasses = true
@@ -14,7 +14,7 @@ Paginate = 6
 
 [Params] 
 mainSections = ["post"]
-dateFormat = "January 2, 2006"
+dateFormat = "January 2, 2020"
 favicon = "img/favicon.ico"
 comments = false
 readingTime = false
@@ -37,7 +37,7 @@ pagination = "9"
 [Author]
   name = "Bino Kochumol Varghese"
   website = "https://www.binovarghese.com"
-  email = "contactcodbix@gmail.com"
+  email = "sample@gmail.com"
   instagram = "#"
   facebook = "#"
 

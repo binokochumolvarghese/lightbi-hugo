@@ -1,7 +1,7 @@
-name = "LightBi Hugo"
+name = "LightBi"
 license = "MIT"
-licenselink = "https://github.com/halogenica/Hugo-BeautifulHugo/blob/master/LICENSE"
-description = "An adaptation of the Beautiful Jekyll theme"
+licenselink = "https://github.com/binokochumolvarghese/lightbi-hugo/blob/master/LICENSE"
+description = "Minimal personal website and blog theme Hugo. Forked from Beautiful Hugo."
 tags = ["blog", "company", "portfolio", "projects", "minimal", "responsive", "seo", "google analytics", "bootstrap", "mobile", "technical"]
 features = ["blog", "company", "portfolio", "projects", "minimal", "responsive", "seo", "google analytics", "bootstrap", "mobile", "technical"]
 min_version = 0.01
@@ -10,7 +10,3 @@ min_version = 0.01
     name = "Bino Kochumol Varghese"
     homepage = "http://binovarghese.com"
 
-# If Porting existing theme
-[original]
-    name = "halogenica"
-    homepage = "http://halogenica.net"

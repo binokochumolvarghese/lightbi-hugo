@@ -1,12 +1,17 @@
 ---
-title: Stoicism 
-date: 2019-12-25
+title: Markdown 
+date: 2020-01-27
 tags: ["stoicism"]
 image : "/img/posts/img-1.jpg"
-Description  : "For those of us who live our lives in the real world, there is one..."
+Description  : "The Markdown Guide is a free and open-source reference guide ..."
 ---
-For those of us who live our lives in the real world, there is one branch of philosophy created just for us: Stoicism. It’s a philosophy designed to make us more resilient, happier, more virtuous and more wise–and as a result, better people, better parents and better professionals. 
 
-Stoicism has been a common thread though some of history’s great leaders. It has been practiced by Kings, presidents, artists, writers and entrepreneurs. Marcus Aurelius. Frederick the Great, Montaigne, George Washington, Thomas Jefferson, Adam Smith, John Stuart Mill, Theodore Roosevelt, General James Mattis, —just to name a few—were all influenced by Stoic philosophy. 
+**What is Markdown?**
+
+The Markdown Guide is a free and open-source reference guide that explains how to use Markdown, the simple and easy-to-use markup language you can use to format virtually any document.
+
+Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents. Created by John Gruber in 2004, Markdown is now one of the world’s most popular markup languages.
+
+Using Markdown is different than using a WYSIWYG editor. In an application like Microsoft Word, you click buttons to format words and phrases, and the changes are visible immediately. Markdown isn’t like that. When you create a Markdown-formatted file, you add Markdown syntax to the text to indicate which words and phrases should look different.
 
 <!--Photo by Robert Katzki on Unsplash-->
