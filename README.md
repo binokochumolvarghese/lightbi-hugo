@@ -7,7 +7,7 @@ Minimal personal website and blog theme Hugo. Forked from [Beautiful Hugo](https
 [Click here to view the demo](https://lightbi-hugo-theme.netlify.app/)
 
 
-![LightBi Hugo Theme Screenshot](https://github.com/binokochumolvarghese/lightbi-hugo/screenshots/home-ss.png)
+![LightBi Hugo Theme Screenshot](https://github.com/binokochumolvarghese/lightbi-hugo/blob/master/screenshots/home-ss.png)
 
 ## Installation
 
