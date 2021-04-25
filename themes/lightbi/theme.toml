@@ -4,7 +4,7 @@ licenselink = "https://github.com/binokochumolvarghese/lightbi-hugo/blob/master/
 description = "Minimal personal website and blog theme Hugo. Forked from Beautiful Hugo."
 tags = ["blog", "company", "portfolio", "projects", "minimal", "responsive", "seo", "google analytics", "bootstrap", "mobile", "technical"]
 features = ["blog", "company", "portfolio", "projects", "minimal", "responsive", "seo", "google analytics", "bootstrap", "mobile", "technical"]
-min_version = 0.01
+min_version = 0.02
 
 [author]
     name = "Bino Kochumol Varghese"

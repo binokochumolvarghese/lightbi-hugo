@@ -11,7 +11,7 @@
         <ul class="list-inline list-group list-group-horizontal text-center footer-links d-flex justify-content-center flex-row"
         >
          
-          {{ range .Site.Data.beautifulhugo.social.social_icons }}
+          {{ range .Site.Data.lightbi.social.social_icons }}
             {{- if isset $.Site.Author .id }}
               <li >
                 <a href="{{ printf .url (index $.Site.Author .id) }}" title="{{ .title }}" target="_blank">
