@@ -17,7 +17,7 @@ Paginate = 6
 
 [Params] 
 mainSections = ["post"]
-dateFormat = "January 2, 2020"
+dateFormat = "January 2, 2006"
 favicon = "img/favicon.ico"
 comments = false
 readingTime = false
