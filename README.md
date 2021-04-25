@@ -1,6 +1,6 @@
 # LightBi Hugo 
 
-Minimal personal website and blog theme Hugo. Forked from [Beautiful Hugo](https://github.com/halogenica/beautifulhugo).
+Simple, minimal personal website and blog theme for Hugo. Forked from [Beautiful Hugo](https://github.com/halogenica/beautifulhugo).
 
 ### Demo
 
@@ -13,16 +13,35 @@ Minimal personal website and blog theme Hugo. Forked from [Beautiful Hugo](https
 
     $ mkdir themes
     $ cd themes
-    $ git submodule add https://github.com/binokochumolvarghese/lightbi-hugo.git
-    
+    $ git clone https://github.com/binokochumolvarghese/lightbi-hugo.git lightbi
+
+After cloning the theme, open the command prompt and run the below commands to build and start the project.
+```
+#to build the website
+hugo
+
+#to run the website
+hugo server
+```   
 
 See [the Hugo documentation](https://gohugo.io/themes/installing/) for more information.
 
-## Extra Features
+## Features
 
 ### Responsive
 
 This theme is designed to look great on both large-screen and small-screen (mobile) devices.
+
+### Syntax highlighting
+
+This theme has support for either Hugo's lightning fast Chroma, or both server side and client side highlighting. See the [Hugo docs for more](https://gohugo.io/content-management/syntax-highlighting/).
+
+### Highlight.js - Client side syntax highlighting
+```
+[Params]
+    useHLJS = true
+```
+Client side highlighting does not require pygments to be installed. This will use highlight.min.css instead of syntax.css for highlighting (effectively disabling Chroma). Highlight.js has a wider range of support for languages and themes, and an alternative highlighting engine.
 
 ### Google Analytics
 
@@ -40,9 +59,11 @@ enableGitInfo = true
 
 ### Credits
 
-[Beautiful Hugo](https://github.com/halogenica/beautifulhugo) from which Lightbi was forked.
+- [Beautiful Hugo](https://github.com/halogenica/beautifulhugo) from which Lightbi was forked.
+- [Unsplash](https://unsplash.com/) for Images.
 
 
 ## License
 
 MIT Licensed, see [LICENSE](https://github.com/binokochumolvarghese/lightbi-hugo/blob/master/LICENSE).
+
