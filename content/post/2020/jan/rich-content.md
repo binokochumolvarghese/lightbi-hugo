@@ -2,7 +2,7 @@
 title: Rich Content 
 date: 2020-01-20
 tags: ["hugo","shortcodes"]
-image : "/img/posts/img-1.jpg"
+image : "/img/posts/img-5.jpg"
 Description  : 'Hugo ships with several Built-in Shortcodes for rich content, along with a...'
 ---
 
