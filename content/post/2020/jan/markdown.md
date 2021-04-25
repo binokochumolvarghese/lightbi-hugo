@@ -1,7 +1,7 @@
 ---
-title: Markdown 
+title: What is Markdown ?
 date: 2020-01-27
-tags: ["stoicism"]
+tags: ["markdown"]
 image : "/img/posts/img-1.jpg"
 Description  : "The Markdown Guide is a free and open-source reference guide ..."
 ---

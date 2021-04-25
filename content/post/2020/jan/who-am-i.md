@@ -1,6 +1,6 @@
 ---
 title: Who am I ?!
-date: 2020-01-30
+date: 2020-01-01
 tags: ["stoicism"]
 image : "/img/posts/img-0.jpg"
 Description  : "Who am I ?! This is the most asked question in my life. Yet no clear answer..."

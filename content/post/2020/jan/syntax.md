@@ -1,7 +1,7 @@
 ---
 title: Basic Syntax
 date: 2020-01-25
-tags: ["syntax"]
+tags: ["markdown","syntax"]
 image : "/img/posts/img-12.jpg"
 Description  : "The Markdown elements outlined in John Gruber's design document..."
 ---
