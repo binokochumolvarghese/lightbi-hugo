@@ -1,18 +1,19 @@
 baseURL = "https://lightbi-hugo-theme.netlify.app/"
 DefaultContentLanguage = "en"
 languageCode = "en-us"
-title = "Lightbi"
+title = "LightBi"
 theme = "lightbi"
 metaDataFormat = "yaml"
 pygmentsStyle = "trac"
-pygmentsUseClasses = true
-pygmentsCodeFences = true
+#pygmentsUseClasses = true
+#pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 #pygmentsUseClassic = true
 #pygmentOptions = "linenos=inline"
 #disqusShortname = "XXX"
 #googleAnalytics = "XXX"
 enableRobotsTXT = true
+enableGitInfo = false
 Paginate = 6
 
 [Params] 
@@ -22,6 +23,7 @@ favicon = "img/favicon.ico"
 comments = false
 readingTime = false
 wordCount = false
+useHLJS = true
 socialShare = true
 delayDisqus = true
 showRelatedPosts = true 
