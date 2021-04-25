@@ -43,27 +43,11 @@
 - id: gcseClose
   translation: "Close"
 
-# Staticman
-- id: noComment
-  translation: "No comment"
-- id: oneComment
-  translation: "comment"
-- id: moreComment
-  translation: "comments"
-- id: useMarkdown
-  translation: "You can use Markdown syntax"
-- id: yourName
-  translation: "Your name"
-- id: yourEmail
-  translation: "Your email address"
-- id: yourWebsite
-  translation: "You website"
+  # Footer
+- id: poweredBy # Accepts HTML
+  translation: 'Powered by <a href="https://gohugo.io">Hugo</a> &nbsp;&bull;&nbsp; Theme <a href="https://github.com/binokochumolvarghese/lightbi-hugo">LightBi</a> adapted from <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> &nbsp;&bull;&nbsp; Made with ❤ by <a href="https://binovarghese.com">Bino</a>'
 
-# Delayed Disqus
-- id: show
-  translation: "Show"
-- id: comments
-  translation: "comments" 
+
 
 # Related posts
 - id: seeAlso

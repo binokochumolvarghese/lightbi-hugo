@@ -47,6 +47,7 @@
 {{- end -}}
 <!-- Hugo Version number -->
   {{ hugo.Generator -}}
+
 <!-- Links and stylesheets -->
 <link rel="alternate" href="{{ "index.xml" | absLangURL }}" type="application/rss+xml" title="{{ .Site.Title }}">
 
@@ -54,5 +55,11 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link rel="stylesheet" href="{{ "css/main.css" | absURL }}" />
 
+{{- if .Site.Params.useHLJS }}
+<link rel="stylesheet" href="{{ "css/highlight.min.css" | absURL }}" />
+{{- else -}}
+<link rel="stylesheet" href="{{ "css/syntax.css" | absURL }}" />
+{{- end -}}
+<link rel="stylesheet" href="{{ "css/codeblock.css" | absURL }}" />
 {{- partial "head_custom.html" . }}
 {{ template "_default/google_analytics_async.html" . }}
