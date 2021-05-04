@@ -5,16 +5,14 @@
 
 <div class="container" role="main">
 
-  <!-- Diplay the featured posts in first page only  -->
-  {{ $paginator := .Paginator }} 
-  
-  {{ if eq $paginator.PageNumber 1 }}
+  <!-- Diplay the featured posts in first page only  --> 
+  {{ if eq .Paginator.PageNumber 1 }}
   <div class="container">
     <div class="row">
       {{ template "partials/carousel.html" . }}
     </div>
   </div>
-  {{ end }} 
+  {{ end }}
 
   <div class="container">
     <div class="row">
@@ -23,17 +21,14 @@
         {{.}}
       </div>
       {{ end }}
-
-      {{ $pag := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections ) 6 }}
-
-      {{ range $pag.Pages }}
+ 
+      {{ range where (.Paginator 6).Pages "Section" "post"}}
+ 
       {{ partial "post_preview" . }}
       {{ end }}
 
     </div>
   </div>
-
-
 
   <div class="container mt-3">
     <div class="row ">

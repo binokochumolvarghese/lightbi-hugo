@@ -31,7 +31,7 @@ summaryLength  = "9"
 gcse = false
 Lastmod = false
 rss = false 
-pagination = "9"
+pagination = "10"
 
 
 [sitemap]
