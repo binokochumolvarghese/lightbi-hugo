@@ -4,11 +4,17 @@
 </div>
 
 <div class="container" role="main">
+
+  <!-- Need to diplay the featured posts in page first page only  -->
+  {{ $paginator := .Paginator }} 
+  
+  {{ if eq $paginator.PageNumber 1 }}
   <div class="container">
     <div class="row">
       {{ template "partials/carousel.html" . }}
     </div>
   </div>
+  {{ end }} 
 
   <div class="container">
     <div class="row">
