@@ -10,7 +10,7 @@ body {
   height: 100vh;
 }
 .container[role=main] {
-  margin-bottom:50px;
+  margin-bottom:25px;
   flex: 1 0 auto; 
 }
 
@@ -46,11 +46,13 @@ h5,h6 {
   font-weight: 100;
 }
 a {
-  color: #4B4F56;
+  color: #4B4F56; 
+  text-decoration: none;
 }
+
 a:hover,
 a:focus {
-   color: #4B4F56; 
+  color: #4B4F56; 
   text-decoration: none;
 }
 blockquote {
@@ -516,7 +518,7 @@ footer .theme-by {
 /* --- Post and page headers --- */
 
 .intro-header {
-  margin: 80px 0 20px;
+  margin: 50px 0 20px;
   position: relative;
 }
 .intro-header.big-img {
@@ -929,16 +931,16 @@ h4.see-also {
 .single-post-card{
   background-color: white;
   text-align: left;
-  min-height: 425px;
-  margin: 3%;
+  /* min-height: 400px; */
+  margin: 2%;
   box-shadow: 0 20px 20px rgba(0,0,0,.08);
-  white-space: normal;
+  white-space: normal; 
+  color: #4B4F56;
+  border: 0px ;
   -webkit-transition: all 250ms cubic-bezier(.02, .01, .47, 1);
   -moz-transition: all 250ms cubic-bezier(.02, .01, .47, 1);
   transition: all 250ms cubic-bezier(.02, .01, .47, 1);
-  transition-delay: 0s;
-  color: #4B4F56;
-  border: 0px ;
+  transition-delay: 0s; 
 }
 
 .single-post-card-haiku{
@@ -948,21 +950,24 @@ h4.see-also {
   margin: 3%;
   box-shadow: 0 20px 20px rgba(0,0,0,.08);
   white-space: normal;
-  -webkit-transition: all 250ms cubic-bezier(.02, .01, .47, 1);
-  -moz-transition: all 250ms cubic-bezier(.02, .01, .47, 1);
-  transition: all 250ms cubic-bezier(.02, .01, .47, 1);
-  transition-delay: 0s;
   color: #4B4F56;
   /* border: 0px ; */
   border-color: #D9D9D9;
+  -webkit-transition: all 250ms cubic-bezier(.02, .01, .47, 1);
+  -moz-transition: all 250ms cubic-bezier(.02, .01, .47, 1);
+  transition: all 250ms cubic-bezier(.02, .01, .47, 1);
+  transition-delay: 0s; 
 }
+
+/* Transform commented to avoid jumping transition when hovering cards */
 
 .single-post-card:hover {
   box-shadow: 0 40px 40px 
   rgba(0,0,0,.16);
-  transform: translate(0,-20px);
   transition-delay: 0s !important;
+  /* transform: translate(0,-20px); */
 }
+
 
 .card-image {
   width: 100%;
@@ -972,7 +977,6 @@ h4.see-also {
   background-repeat: no-repeat;
   padding: 10px 0;
 }
- 
 
 .card-footer-wrapper{
   border-top: 1px solid #E9EBEE;
@@ -986,8 +990,14 @@ h4.see-also {
   margin: 0 auto;
   width: 100%;
   height: 50px;
-position: absolute;
-display: inline-grid;
+  position: absolute;
+  display: inline-grid;
+}
+
+.feature-image .carousel-caption{
+  left: 5%;   
+  right: unset;
+  top: 0;
 }
 
 .shadow-effect{

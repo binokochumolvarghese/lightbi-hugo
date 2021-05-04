@@ -75,13 +75,13 @@ pagination = "9"
     weight = 1
 
 [[menu.main]]
-    name = "Haiku"
-    url = "/haiku/"
+    name = "Notes"
+    url = "/notes/"
     weight = 2
 
 [[menu.main]]
     name = "About"
-    url = "/about"
+    url = "/about/"
     weight = 3
 
 

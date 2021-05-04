@@ -1,0 +1,60 @@
+<div class="col-md-12 mb-3">
+    <div class="shadow-effect">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {{range $index, $element := (where (where site.RegularPages "Type" "in" site.Params.mainSections )
+                ".Params.featured" "=" true ) }}
+
+
+                <!-- <div class="carousel-item {{ if eq $index 0 }} active {{ else }}  carousel-item-not-active {{ end }}">
+                <img src="{{ .Params.image }}" alt="{{ .Title }}"></a>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>{{ .Title }}</h5>
+                </div>
+            </div> -->
+
+                <div class="carousel-item {{ if eq $index 0 }} active {{ else }}  carousel-item-not-active {{ end }}"> 
+                    <div class="card ">
+                        <div class="row ">
+                            <a href="{{ .Permalink }}">
+                            <div class="col-md-8 feature-image "> 
+                                <div class="carousel-caption d-md-block carousel-caption">
+                                    <span class="badge rounded-pill bg-dark">Featured
+                                    <span class="fa-stack fa-sm">
+                                        <i class="fas fa-stack-1x"></i>
+                                        <i class="fas fa-star fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                    </span>
+                                </div>
+                                <img src="{{ .Params.image }}" alt="{{ .Title }}"></a>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card-body">
+                                    <h3 class="card-title">{{ .Title }}</h3>
+                                    <p class="card-text"> {{ if .Description }} {{ .Description }} {{ end }}</p>
+                                    <p class="card-text"><small class="text-muted">
+                                                <a class="post-read-more" href="{{ .Permalink }}">Read more</a></small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{ end }}
+
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+</div>
