@@ -3,7 +3,7 @@ title: Basic Syntax
 date: 2020-01-25
 tags: ["markdown","syntax"]
 image : "/img/posts/img-7.jpg"
-Description  : "The Markdown elements outlined in John Gruber's design document..."
+Description  : "To create a heading, add number signs (#) in front of a word or phrase. The number of number signs you use should correspond..."
 ---
 
 **Headings**

@@ -3,7 +3,7 @@ title: What is Markdown ?
 date: 2020-01-27
 tags: ["markdown"]
 image : "/img/posts/img-1.jpg"
-Description  : "The Markdown Guide is a free and open-source reference guide ..."
+Description  : "The Markdown Guide is a free and open-source reference guide that explains how to use Markdown, the simple and easy-to-use..."
 ---
 
 **What is Markdown?**
