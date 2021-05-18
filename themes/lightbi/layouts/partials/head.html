@@ -26,10 +26,10 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<meta name="description" content="LightBi is a simple, minimal personal website and blog theme for Hugo built by Bino Kochumol Varghese">
+<meta name="description" content="Lightbi is a simple, minimal personal website and blog theme for Hugo. Built by Bino Kochumol Varghese">
 <!-- Site Title, Description, Author, and Favicon -->
 {{ if .IsHome }}
-
+<title>Home | Lightbi</title>
 {{- else }}
 {{- with ($.Scratch.Get "Title") }}
   <title>{{ . }} - {{ $.Site.Title }}</title>
@@ -41,12 +41,13 @@
 {{- with .Site.Author.name }}
   <meta name="author" content="{{ . }}"/>
 {{- end }}
-{{- partial "seo/main.html" . }}  
-{{- with .Site.Params.favicon }}
-  <link href='{{ . | absURL }}' rel='icon' type='image/x-icon'/>
-{{- end -}}
+{{- partial "seo/main.html" . }}   
+<link rel="apple-touch-icon" sizes="180x180" href=" {{ "favicon/apple-touch-icon.png" | absURL }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon/favicon-32x32.png"  | absURL }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon/favicon-16x16.png" | absURL }}">
+
 <!-- Hugo Version number -->
-  {{ hugo.Generator -}}
+{{ hugo.Generator -}}
 
 <!-- Links and stylesheets --><link rel="alternate" href="{{ "index.xml" | absLangURL }}" type="application/rss+xml" title="{{ .Site.Title }}">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">

@@ -1,7 +1,7 @@
 baseURL = "https://lightbi-hugo-theme.netlify.app/"
 DefaultContentLanguage = "en"
 languageCode = "en-us"
-title = "LightBi"
+title = "Lightbi"
 theme = "lightbi"
 metaDataFormat = "yaml"
 pygmentsStyle = "trac"
@@ -17,9 +17,8 @@ enableGitInfo = false
 Paginate = 6
 
 [Params] 
-mainSections = ["post"]
+mainSections = ["post","posts"]
 dateFormat = "January 2, 2006"
-favicon = "img/favicon.ico"
 comments = false
 readingTime = false
 wordCount = false
@@ -80,9 +79,14 @@ pagination = "10"
     weight = 2
 
 [[menu.main]]
+    name = "Tags"
+    url = "/tags/blog/"
+    weight = 3
+
+[[menu.main]]
     name = "About"
     url = "/about/"
-    weight = 3
+    weight = 4
 
 
 

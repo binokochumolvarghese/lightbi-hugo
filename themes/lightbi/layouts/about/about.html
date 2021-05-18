@@ -1,55 +1,50 @@
 {{ define "main" }}
 
 <div class="about-section">
-  <div class="container pb-5">
-    <div class="row">
-      <div class="col-md-4">
-        <img class="img-fluid img-80 shadow-effect" src="{{ "../../img/bino-about.jpg" }}"
-          alt="bino kochumol varghese">
-      </div>
+  <div class="container">
+    <div class="row text-center">
+      <h1 class="display-5 fw-bold lh-1 mb-3">{{ .Title }}</h1>
+    </div>
+  </div>
 
-      <!-- <div class="col-lg-8">
-        {{ with .Content }}
-      </div> -->
-      <div class="col-md-8">
-        {{.}}
-        <ul class="list-inline list-group list-group-horizontal footer-links d-flex flex-row" >
+  <div class="container">
+    <div class="row flex-lg-row-reverse align-items-center">
+      <div class="col-md-8 col-lg-4">
+        <img src="{{ "../../img/bino-about.jpg" }}" class="d-block mx-lg-auto img-fluid img-80" alt="Bino image">
+      </div>
+     
+        <div class="col-md-8 col-lg-8">
+          <div class="col-12"> 
+              {{ with .Content }} 
+              {{.}} 
+              {{ end }}
+          </div> 
+          <ul class="share list-inline list-group list-group-horizontal footer-links d-flex flex-row">
             <li>
-                <a href="mailto:contactcodbix@gmail" title="Email to Bino" target="_blank">
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-envelope fa-stack-1x"></i>
-                  </span>
-                </a>
-              </li>
+              <a href="mailto:binovargheseonline@gmail" title="Email to Bino" target="_blank">
+                <i class="bi bi-envelope"></i>
+              </a>
+            </li>
 
-          <li>
-            <a href="https://www.instagram.com/binokochumolvarghese" title="Bino Instagram" target="_blank">
-              <span class="fa-stack fa-lg">
-                <i class="fab fa-instagram fa-stack-1x"></i>
-              </span>
-            </a>
-          </li>
+            <li>
+              <a href="https://www.instagram.com/binokochumolvarghese" title="Bino Instagram" target="_blank">
+                <i class="bi bi-instagram"></i>
+              </a>
+            </li>
 
-          <li>
-            <a href="https://www.binovarghese.com" title="Bino Website" target="_blank">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-globe fa-stack-1x"></i>
-              </span>
-            </a>
-          </li>
+            <li>
+              <a href="https://www.binovarghese.com" title="Bino Website" target="_blank">
+                <i class="bi bi-globe"></i>
+              </a>
+            </li>
 
-        </ul>
-
-
-
+          </ul>
+        </div> 
       </div>
-      <!-- {{ end }} -->
 
     </div>
 
   </div>
 
-</div>
 
-
-{{ end }}
+  {{ end }}
