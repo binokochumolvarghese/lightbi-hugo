@@ -4,10 +4,13 @@ Simple, minimal personal website and blog theme for Hugo. Forked from [Beautiful
 
 ### Demo
 
-[Click here to view the demo](https://lightbi-hugo-theme.netlify.app/)
+[lightbi-hugo-theme.netlify.app](https://lightbi-hugo-theme.netlify.app/)
 
 
-![LightBi Hugo Theme Screenshot](https://github.com/binokochumolvarghese/lightbi-hugo/blob/master/screenshots/home-ss.png)
+![LightBi Hugo Theme Screenshot](https://github.com/binokochumolvarghese/lightbi-hugo/blob/master/screenshots/Lightbi-home-ss.png)
+
+#### Notes Section
+![LightBi Hugo Theme Screenshot](https://github.com/binokochumolvarghese/lightbi-hugo/blob/master/screenshots/Lightbi-notes-ss.png)
 
 ## Installation
 
