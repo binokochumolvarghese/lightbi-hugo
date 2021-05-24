@@ -1,0 +1,297 @@
+
+
+# Content
+
+- id: dateFormat
+
+  translation: "2 January 2006"
+
+- id: shortdateFormat
+
+  translation: "2 Jan 2006 15:04:05"
+
+- id: postedOnDate
+
+  translation: "Publegaa il {{ .Count }}"
+
+- id: lastModified
+
+  translation: "(Darrera modifega ell {{ .Count }})"
+
+- id: translationsLabel
+
+  translation: "Alter lengov: "
+
+- id: translationsSeparator
+
+  translation: ", "
+
+- id: readMore
+
+  translation: "Lensg"
+
+- id: olderPosts
+
+  translation: "Articol pussee vegg"
+
+- id: newerPosts
+
+  translation: "Articoli pussee noeuv"
+
+- id: previousPost
+
+  translation: "Articolo de prima"
+
+- id: nextPost
+
+  translation: "Articolo dopo"
+
+- id: readTime
+
+  translation: "megnuu"
+
+- id: words
+
+  translation: "paroll"
+
+
+
+
+
+# 404 page
+
+- id: pageNotFound
+
+  translation: "Ocio, quella pagina chi la esist no. (errore 404)"
+
+
+
+# Footer
+
+- id: poweredBy # Accepts HTML
+
+  translation: '<a href="https://gohugo.io">Desviluppaa con Hugo v{{ .Site.Hugo.Version }}</a> &nbsp;&bull;&nbsp; Tema <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adattaa de <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>'
+
+
+
+# Navigation
+
+- id: toggleNavigation
+
+  translation: "Attiva/disattiva la navigazion"
+
+- id: languageSwitcherLabel
+
+  translation: "Lengua"
+
+- id: gcseLabelShort
+
+  translation: "Cerca"
+
+- id: gcseLabelLong
+
+  translation: "Cerca {{ .Site.Title }}"
+
+- id: gcseClose
+
+  translation: "Sara su"
+
+
+
+# Staticman
+
+- id: noComment
+
+  translation: "Nissub comment"
+
+- id: oneComment
+
+  translation: "comment"
+
+- id: moreComment
+
+  translation: "comment"
+
+- id: useMarkdown
+
+  translation: "Te pòdet doperà la sintassi Markdown"
+
+- id: yourName
+
+  translation: "El tò nomm"
+
+- id: yourEmail
+
+  translation: "La toa adressa e-mail"
+
+- id: yourWebsite
+
+  translation: "El tò sitt web"
+
+
+
+# Delayed Disqus
+
+- id: show
+
+  translation: "Mostra"
+
+- id: comments
+
+  translation: "comment" 
+
+
+
+# Related posts
+
+- id: seeAlso
+
+  translation: "Varda anca"
+
+# Content
+
+- id: dateFormat
+
+  translation: "2 January 2006"
+
+- id: shortdateFormat
+
+  translation: "2 Jan 2006 15:04:05"
+
+- id: postedOnDate
+
+  translation: "Publegaa il {{ .Count }}"
+
+- id: lastModified
+
+  translation: "(Darrera modifega ell {{ .Count }})"
+
+- id: translationsLabel
+
+  translation: "Alter lengov: "
+
+- id: translationsSeparator
+
+  translation: ", "
+
+- id: readMore
+
+  translation: "Lensg"
+
+- id: olderPosts
+
+  translation: "Articol pussee vegg"
+
+- id: newerPosts
+
+  translation: "Articoli pussee noeuv"
+
+- id: previousPost
+
+  translation: "Articolo de prima"
+
+- id: nextPost
+
+  translation: "Articolo dopo"
+
+- id: readTime
+
+  translation: "megnuu"
+
+- id: words
+
+  translation: "paroll"
+
+
+
+
+
+# 404 page
+
+- id: pageNotFound
+
+  translation: "Ocio, quella pagina chi la esist no. (errore 404)"
+
+
+
+# Footer
+
+- id: poweredBy # Accepts HTML
+
+  translation: '<a href="https://gohugo.io">Desviluppaa con Hugo v{{ .Site.Hugo.Version }}</a> &nbsp;&bull;&nbsp; Tema <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adattaa de <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>'
+
+
+
+# Navigation
+
+- id: toggleNavigation
+
+  translation: "Attiva/disattiva la navigazion"
+
+- id: languageSwitcherLabel
+
+  translation: "Lengua"
+
+- id: gcseLabelShort
+
+  translation: "Cerca"
+
+- id: gcseLabelLong
+
+  translation: "Cerca {{ .Site.Title }}"
+
+- id: gcseClose
+
+  translation: "Sara su"
+
+
+
+# Staticman
+
+- id: noComment
+
+  translation: "Nissub comment"
+
+- id: oneComment
+
+  translation: "comment"
+
+- id: moreComment
+
+  translation: "comment"
+
+- id: useMarkdown
+
+  translation: "Te pòdet doperà la sintassi Markdown"
+
+- id: yourName
+
+  translation: "El tò nomm"
+
+- id: yourEmail
+
+  translation: "La toa adressa e-mail"
+
+- id: yourWebsite
+
+  translation: "El tò sitt web"
+
+
+
+# Delayed Disqus
+
+- id: show
+
+  translation: "Mostra"
+
+- id: comments
+
+  translation: "comment" 
+
+
+
+# Related posts
+
+- id: seeAlso
+
+  translation: "Varda anca"

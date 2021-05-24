@@ -1,0 +1,74 @@
+# Content
+- id: dateFormat
+  translation: "2 Ocak 2006"
+- id: shortdateFormat
+  translation: "2 Oca 2006 15.04.05"
+- id: postedOnDate
+  translation: "{{ .Count }} tarihinde paylaşıldı"
+- id: lastModified
+  translation: "({{ .Count }} tarihinde güncellendi)"
+- id: translationsLabel
+  translation: "Diğer diller: "
+- id: translationsSeparator
+  translation: ", "
+- id: readMore
+  translation: "Daha fazla oku"
+- id: olderPosts
+  translation: "Önceki gönderiler"
+- id: newerPosts
+  translation: "Son gönderiler"
+- id: previousPost
+  translation: "Önceki gönderi"
+- id: nextPost
+  translation: "Sonraki gönderi"
+- id: readTime
+  translation: "dakika"
+- id: words
+  translation: "kelime"
+
+
+# 404 page
+- id: pageNotFound
+  translation: "Ups, bu sayfa mevcut değil. Başka bir yöne ilerleyin. (404 hatası)"
+
+# Footer
+- id: poweredBy # Accepts HTML
+  translation: '<a href="https://gohugo.io">Hugo v{{ .Site.Hugo.Version }}</a> altyapısı &nbsp;&bull;&nbsp; <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> temasından uyarlanan <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> teması kullanılmaktadır.'
+
+# Navigation
+- id: toggleNavigation
+  translation: "Gezinmeyi aktifleştirin"
+- id: languageSwitcherLabel
+  translation: "Dil"
+- id: gcseLabelShort
+  translation: "Arama"
+- id: gcseLabelLong
+  translation: "{{ .Site.Title }} içinde arayın"
+- id: gcseClose
+  translation: "Kapat"
+
+# Staticman
+- id: noComment
+  translation: "Yorum yok"
+- id: oneComment
+  translation: "yorum"
+- id: moreComment
+  translation: "yorum"
+- id: useMarkdown
+  translation: "Markdown söz dizimini kullanabilirsiniz"
+- id: yourName
+  translation: "İsminiz"
+- id: yourEmail
+  translation: "E-posta adresiniz"
+- id: yourWebsite
+  translation: "Web siteniz"
+
+# Delayed Disqus
+- id: show
+  translation: "Göster"
+- id: comments
+  translation: "yorumlar" 
+
+# Related posts
+- id: seeAlso
+  translation: "Ayrıca bakınız"
