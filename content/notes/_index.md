@@ -1,5 +1,5 @@
 ---
-type : "notes"
+type : "tags"
 layout : "notes"
 title: "Notes"
 ---

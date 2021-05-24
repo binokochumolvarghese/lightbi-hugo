@@ -1,15 +1,4 @@
 {{ define "main" }}
- 
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-        <div class="tags-heading row text-center"> 
-          <h1 class="display-5 fw-bold lh-1 mb-3">{{ .Title }}</h1>
-          <hr class="small">
-        </div>
-      </div>
-    </div>
-  </div> 
 
 <div class="container" role="main">
   <div class="row justify-content-md-center">
@@ -33,12 +22,9 @@
         <ul class="pagination justify-content-end">
           {{ template "_internal/pagination.html" . }}
         </ul>
+      </nav>
     </div>
   </div>
-  </nav>
-
-</div>
-</div>
 </div>
 
 {{ end }}

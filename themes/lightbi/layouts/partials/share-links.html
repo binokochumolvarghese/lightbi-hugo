@@ -1,68 +1,65 @@
-
 {{ if or .Params.socialShare (and .Site.Params.socialShare (ne .Params.socialShare false)) }}
 <!-- Social Share Button HTML -->
-<div class="share-box" aria-hidden="true"> 
-    <ul class="share">  
-      <!-- Facebook -->
-      <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" target="_blank" title="Share on Facebook">
-          <i class="fab fa-facebook facebook-color"></i>
-        </a>
-      </li>
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
 
-       <!-- Twitter -->
-       <li>
-        <a href="//twitter.com/share?url={{ .Permalink }}&amp;text={{ .Title }}&amp;via={{ .Site.Author }}" target="_blank" title="Share on Twitter">
-          <i class="fab fa-twitter twitter-color"></i>
-        </a>
-      </li>
-  
-      <!-- Reddit -->
-      <li>
-        <a href="//reddit.com/submit?url={{ .Permalink }}&amp;title={{ .Title }}" target="_blank" title="Share on Reddit">
-          <i class="fab fa-reddit reddit-color"></i>
-        </a>
-      </li>
-  
-      <!-- LinkedIn
+    <!-- Facebook -->
+    <li>
+      <a href="//www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" target="_blank" title="Share on Facebook">
+        <i class="bi bi-facebook facebook-color"></i>
+      </a>
+    </li>
+
+    <!-- Twitter -->
+    <li>
+      <a href="//twitter.com/share?url={{ .Permalink }}&amp;text={{ .Title }}&amp;via={{ .Site.Author }}"
+        target="_blank" title="Share on Twitter">
+        <i class="bi bi-twitter twitter-color"></i>
+      </a>
+    </li>
+
+    <!-- Reddit -->
+    <li>
+      <a href="//reddit.com/submit?url={{ .Permalink }}&amp;title={{ .Title }}" target="_blank" title="Share on Reddit">
+        <i class="bi bi-reddit reddit-color"></i>
+      </a>
+    </li>
+
+    <!-- Sharingbutton WhatsApp -->
+    <li>
+      <a href="whatsapp://send?text={{ .Permalink }}&amp;description={{ .Title }}" target="_blank" rel="noopener"
+        title="Share on WhatsApp">
+        <i class="bi bi-whatsapp whatsapp-color"></i>
+      </a>
+    </li>
+
+
+    <!-- LinkedIn
       <li>
         <a href="//www.linkedin.com/shareArticle?url={{ .Permalink }}&amp;title={{ .Title }}" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin linkedin-color"></i>
         </a>
       </li> -->
-  
-      <!-- StumbleUpon
+
+    <!-- StumbleUpon
       <li>
         <a href="//www.stumbleupon.com/submit?url={{ .Permalink }}&amp;title={{ .Title }}" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li> -->
-  
-       <!-- Pinterest  
+
+    <!-- Pinterest  
       <li>
         <a href="//www.pinterest.com/pin/create/button/?url={{ .Permalink }}&amp;description={{ .Title }}" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest pinterest-color"></i>
         </a>
       </li> -->
 
-      <!-- Sharingbutton E-Mail -->
-<!-- <a href="mailto:?subject={{ .Title }}&amp;body={{ .Permalink }}&amp;description={{ .Title }}"" target="_self" rel="noopener" aria-label="Share by E-Mail">
+    <!-- Sharingbutton E-Mail -->
+    <!-- <a href="mailto:?subject={{ .Title }}&amp;body={{ .Permalink }}&amp;description={{ .Title }}"" target="_self" rel="noopener" aria-label="Share by E-Mail">
   <i class="fab fa-email"></i> 
 </a> -->
 
-
-      <!-- Sharingbutton WhatsApp -->
-      <li>
-      <a href="whatsapp://send?text={{ .Permalink }}&amp;description={{ .Title }}" target="_blank" rel="noopener" title="Share on WhatsApp">
-        <i class="fab fa-whatsapp whatsapp-color"></i> 
-      </a>
-      </li>
-    </ul>
-  </div>
-  {{ end }}
-
-
-
-
-
-
+  </ul>
+</div>
+{{ end }}

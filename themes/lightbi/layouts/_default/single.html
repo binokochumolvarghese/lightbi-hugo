@@ -38,7 +38,6 @@
  
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       {{ if $.Param "socialShare" }}
-
       <section id="social-share">
         <div class="list-inline footer-links">
           {{ partial "share-links" . }}
@@ -52,7 +51,7 @@
         <div class="row no-gutters">
           <div class="col-md-2 "> 
             <div class="card-body ">
-            <img src="{{ "../../../../img/bino-about-small.jpg" }}" class="img-responsive img-50 img-round" alt="...">
+            <img src="{{ "/img/bino-about-small.jpg" }}" class="img-responsive img-50 img-round" alt="">
           </div>
           </div>
           <div class="col-md-10">
@@ -132,13 +131,6 @@
       </div>
     </div>
 
-
-
-
-
-
-
-
     {{ if (.Params.comments) | or (and (or (not (isset .Params "comments")) (eq .Params.comments nil)) (and .Site.Params.comments (ne .Type "page"))) }}
     {{ if .Site.DisqusShortname }}
     {{ if .Site.Params.delayDisqus }}
@@ -159,11 +151,6 @@
       {{ template "_internal/disqus.html" . }}
     </div>
     {{ end }}
-    {{ end }}
-    {{ if .Site.Params.staticman }}
-    <div class="staticman-comments">
-      {{ partial "staticman-comments.html" . }}
-    </div>
     {{ end }}
     {{ end }}
 

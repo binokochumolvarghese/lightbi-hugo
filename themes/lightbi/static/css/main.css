@@ -1,10 +1,10 @@
 /* --- General --- */
 
 body {
+  font-size: 1.2rem;
   color: #344854;
-  font-size: 20px;
   position: relative;
-  background: #F9FBFD;
+  background: #FFFFFF;
   display: flex;
   flex-flow: column;
   height: 100vh;
@@ -23,28 +23,28 @@ body {
 
 p {
   line-height: 1.5;
-  margin: 6px 0;
-  /* font-weight: 100; */
+  margin: 6px 0; 
 }
 p + p {
     margin: 24px 0 6px 0;
 }
-p a {
-  /* text-decoration: underline */
+p a { 
   color: #008AFF;
 }
-h1,h2 {
-  /* font-family: 'Open Sans', sans-serif; */
+h1,h2 { 
   font-weight: 350;
 }
-h3,h4 {
-  /* font-family: 'Open Sans', sans-serif; */
+h3,h4 { 
   font-weight: 250;
 }
-h5,h6 {
-  /* font-family: 'Open Sans', sans-serif; */
+h5,h6 { 
   font-weight: 100;
 }
+
+li a {
+  color: #008AFF;
+}
+
 a {
   color: #4B4F56; 
   text-decoration: none;
@@ -73,18 +73,9 @@ hr.small {
 .main-content {
   padding-top: 80px;
 }
-@media only screen and (min-width: 768px) {
-  .main-content {
-    padding-top: 130px;
-  }
-}
 
 .main-explain-area {
   padding: 15px inherit;
-}
-
-.hideme {
-  display: none;
 }
 
 div.panel-body a.list-group-item {
@@ -435,8 +426,7 @@ footer .theme-by {
 .post-entry {
   width: 100%;
   margin-top: 10px;
-  color: #4B4F56;
-  font-size: 20px;
+  color: #4B4F56; 
 }
 .post-image {
   float: right;
@@ -775,13 +765,7 @@ h4.see-also {
   text-align: center;
   transition: all 150ms ease-in-out; 
 }
- ul.share li a {
-  background-color: #eceaea;
-  display: block;
-  border-radius: 50%;
-  text-decoration: none !important;
-  margin: 0;
-}
+
  ul.share li:hover .fab {
   transform: scale(1.4)
 }
@@ -859,11 +843,6 @@ h4.see-also {
   padding:5% 0 5% 0;
 }
 
-@media only screen and (min-width: 768px) {
-.header-section h1{
-  font-size: 3rem;
-}
-}
 .img-80{
   max-width: 80%;
 }
@@ -878,11 +857,12 @@ h4.see-also {
   box-shadow: 0 20px 20px rgba(0,0,0,.08);
   white-space: normal; 
   color: #4B4F56;
-  border: 0px ;
+  border: 0px;
+  margin: 0 2%;
   -webkit-transition: all 250ms cubic-bezier(.02, .01, .47, 1);
   -moz-transition: all 250ms cubic-bezier(.02, .01, .47, 1);
   transition: all 250ms cubic-bezier(.02, .01, .47, 1);
-  transition-delay: 0s; 
+  transition-delay: 0s;  
 }
 
 .single-post-card-haiku{
@@ -983,9 +963,6 @@ h4.see-also {
 .page-link:hover {
   color: #23272B;
 }
- 
-
-
 
  /* Style the header: fixed position (always stay at the top) */
  .header {
