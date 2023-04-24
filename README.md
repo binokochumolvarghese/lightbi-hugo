@@ -1,94 +1,51 @@
-# LightBi Hugo 
+# Lightbi Hugo 
 
-Simple, minimal personal website and blog theme for Hugo. Forked from [Beautiful Hugo](https://github.com/halogenica/beautifulhugo).
+Lightbi is a minimal and clean blog theme for Hugo.
 
-### Demo
+## Live Demo
 
 [lightbi-hugo-theme.netlify.app](https://lightbi-hugo-theme.netlify.app/)
 
+![LightBi Hugo Theme Screenshot](https://raw.githubusercontent.com/binokochumolvarghese/lightbi-hugo/master/images/screenshot.png)
 
-![LightBi Hugo Theme Screenshot](https://github.com/binokochumolvarghese/lightbi-hugo/blob/master/images/screenshot.png)
+## Features
+
+- Responsive, mobile-first design
+- Syntax highlighting
+- Social-Media Share buttons on posts.
+- Menu location indicator.
+- Multilingual support. (with language selector)
+- Taxonomies
+- Cover image for each post (with Responsive image support).
+- Light/Dark theme (automatic theme switch a/c to browser theme and theme-switch button).
+- Google Analytics
+- SEO Friendly.
+- Other Posts suggestion below a post
+- Commit SHA on the footer
+- Self Hosted assets for GDPR / EU-DSGVO compliance
+- Beautiful icons with Bootstrap Icons
 
 
 ## Installation
 
 Install Hugo and create a new site. See [the Hugo documentation](https://gohugo.io/getting-started/quick-start/) for details.
 
-Add Lightbi:
-
-    $ git submodule add https://github.com/binokochumolvarghese/lightbi-hugo
-
-Copy the content of `exampleSite` at the root of your project:
-
-    cp -r themes/lightbi-hugo/exampleSite/* . -iv
-    
-Start Hugo:
-
-    hugo serve
-
-## Features
-
-### Responsive
-
-This theme is designed to look great on both large-screen and small-screen (mobile) devices.
-
-### Notes section
-
-Other than the blog posts, this theme will support short notes. You can add the contentn for the notes in the notes folder which is under the content folder. 
-
-### Syntax highlighting
-
-This theme has support for either Hugo's lightning fast Chroma, or both server side and client side highlighting. See the [Hugo docs for more](https://gohugo.io/content-management/syntax-highlighting/).
-
-### Highlight.js - Client side syntax highlighting
 ```
-[Params]
-    useHLJS = true
-```
-Client side highlighting does not require pygments to be installed. This will use highlight.min.css instead of syntax.css for highlighting (effectively disabling Chroma). Highlight.js has a wider range of support for languages and themes, and an alternative highlighting engine.
-
-### Google Analytics
-
-To add Google Analytics, simply sign up to [Google Analytics](https://www.google.com/analytics/) to obtain your Google Tracking ID, and add this tracking ID to the `googleAnalytics` parameter in `config.toml`.
-
-### Commit SHA on the footer
-
-If the source of your site is in a Git repo, the SHA corresponding to the commit the site is built from can be shown on the footer. To do so, two site parameters `commit` has to be defined in the config file `config.toml`:
-
-```
-enableGitInfo = true
-[Params]
-  commit = "https://github.com/<username>/<siterepo>/tree/"
-```
-### Multilingual
-
-To allow Beautiful Hugo to go multilingual, you need to define the languages
-you want to use inside the `languages` parameter on `config.toml` file, also
-redefining the content dir for each one. Check the `i18n/` folder to see all
-languages available.
-
-```toml
-[languages]
-  [languages.en] 
-    contentDir = "content/en" # English
-  [languages.ja]
-    contentDir = "content/ja" # Japanese
-  [languages.br]
-    contentDir = "content/br" # Brazilian Portuguese
+hugo new site <name of site>
+cd <name of site>
+git init
+git submodule add https://github.com/binokochumolvarghese/lightbi-hugo
+echo "theme = 'lightbi-hugo'" >> config.toml
+hugo server
 ```
 
-### Self Hosted assets for GDPR / EU-DSGVO compliance
+After the above copy the contents of `exampleSite` to the `content` folder in your website.
 
-With default settings, visiting to a website using Beautifulhugo connects also to remote services like google fonts or jsdelivr to embed fonts, js and other assets.
+## For more
 
-To avoid this, set the following param in config.toml:
+Checkout the [wiki](https://github.com/binokochumolvarghese/lightbi-hugo/wiki) page for detailed documentation of the theme features.
 
-```
-[Params]
-  selfHosted = true
-```
-
-### Credits
+## Credits
 
 - [Beautiful Hugo](https://github.com/halogenica/beautifulhugo) from which Lightbi was forked.
 - [Unsplash](https://unsplash.com/) for Images.
