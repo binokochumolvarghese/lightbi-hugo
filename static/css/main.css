@@ -7,7 +7,7 @@ body {
   background: #FFFFFF;
   display: flex;
   flex-flow: column;
-  height: 100vh;
+  min-height: 100vh;
 }
 .container[role=main] {
   margin-bottom:25px;
@@ -31,15 +31,7 @@ p + p {
 p a { 
   color: #008AFF;
 }
-h1,h2 { 
-  font-weight: 350;
-}
-h3,h4 { 
-  font-weight: 250;
-}
-h5,h6 { 
-  font-weight: 100;
-}
+
 
 li a {
   color: #008AFF;
@@ -318,7 +310,7 @@ img {
 
 footer {
   padding: 30px 0;
-  background: #141517;;
+  background: #f5f5f7;
   border-top: 1px #EAEAEA solid;
   margin-top: auto;
   font-size: 14px;
@@ -388,6 +380,12 @@ footer .theme-by {
 
 .post-title{
   color : #344854
+}
+
+.post-title:focus, .post-title:hover {
+  text-decoration: none;
+  color: #2ec458
+  /* #FF0000;  */
 }
 
 .post-preview .post-subtitle {
@@ -900,21 +898,6 @@ h4.see-also {
   padding: 10px 0;
 }
 
-.card-footer-wrapper{
-  border-top: 1px solid #E9EBEE;
-}
-
-.card-footer{
-  border-top : 0;
-  background-color: white;
-  padding: 10px 20px 10px 20px; 
-  bottom: 0px;
-  margin: 0 auto;
-  width: 100%;
-  height: 50px;
-  position: absolute;
-  display: inline-grid;
-}
 
 .feature-image .carousel-caption{
   left: 5%;   

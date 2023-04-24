@@ -18,7 +18,7 @@ Paginate = 6
 
 [Params] 
 mainSections = ["post","posts"]
-dateFormat = "January 2, 2006"
+dateFormat = "2 January 2023"
 comments = false
 readingTime = false
 wordCount = false
@@ -40,7 +40,7 @@ pagination = "10"
 
 [Author]
   name = "Bino Kochumol Varghese"
-  website = "https://www.binovarghese.com"
+  website = "https://www.codbix.com"
   email = "sample@gmail.com"
   facebook = "username"
   instagram = "username"

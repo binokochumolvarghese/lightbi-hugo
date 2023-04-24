@@ -1,8 +1,19 @@
-<div class=" col-12 col-sm-12 col-md-8">
+<div class="col-sm-12 col-md-12 col-lg-10 col-xl-10">
     <div class="card mb-3 ">
         <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h3 class="post-title">{{ .Title }}</h3>
+                </div>
+                <div class="col-md-2 d-flex justify-content-end">
+                    <a href="{{ .Permalink }}">
+                    <button type="button" class="btn btn-outline-dark">
+                        Link
+                    </button>
+                </a>
+                </div>
+            </div>
 
-            <h2 class="fw-bold post-title">{{ .Title }}</h2>
             {{ if .Params.subtitle }}
             <h3 class="post-subtitle">
                 {{ .Params.subtitle }}
@@ -10,7 +21,7 @@
             {{ end }}
 
             <p class="post-meta">
-                {{ partial "post_meta.html" . }}
+                {{ partial "post_meta_notes.html" . }}
             </p>
             {{ print }}
             <div class="post-entry">
@@ -19,16 +30,21 @@
                 {{ .Content }}
                 {{ end }}
             </div>
-
         </div>
-        <!-- <div class="card-footer">
-                {{ if $.Param "socialShare" }} 
-                <section id="social-share">
-                  <div class="list-inline footer-links">
-                    {{ partial "share-links" . }}
-                  </div>
-                </section>
+            <!-- <hr class="m-1"/> -->
+            <!-- <div class="col"> -->
+                <div class="card-footer text-muted">
+                   
+                {{ if .Params.tags }}
+                <div class="blog-tags">
+                  {{ range .Params.tags }}
+                  <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/">{{ . }}</a>
+                  {{ end }}
+                </div>
                 {{ end }}
-            </div>  -->
+              </div>
+
+
+ 
     </div>
 </div>

@@ -1,29 +1,55 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top p-0">
-  <div class="container">
-    <a class="fw-bold navbar-brand" href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav  ms-auto">
-        {{ range .Site.Menus.main.ByWeight }}
-        {{ if .HasChildren }}
-        <li class="nav-item">
-          <a class="nav-link active">{{ .Name }}</a>
-          <div class="navlinks-children">
-            {{ range .Children }}
-            <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
-            {{ end }}
-          </div>
-        </li>
-        {{ else }}
+{{ $current := . }}
+<div class="container fixed-top">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10">
 
-        <li class="nav-item">
-          <a class="nav-link" title="{{ .Name }}" href="{{ .URL  | relLangURL }}">{{ .Name }}</a>
-        </li>
-        {{ end }}
-        {{ end }}
-      </ul>
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top p-0">
+        <div class="container">
+          
+          <a class="navbar-brand fw-bold" href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+              {{ range .Site.Menus.main.ByWeight }}
+              {{ if .HasChildren }}
+              <li class="nav-item">
+                <a class="nav-link">{{ .Name }}</a>
+                <div class="navlinks-children">
+                  {{ range .Children }}
+                  <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+                  {{ end }}
+                </div>
+              </li>
+              {{ else }}
+
+              <li class="nav-item">
+
+                {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+                {{ $active = or $active (eq .Name $current.Title) }}
+                {{ $active = or $active (and (eq .Name "Notes") (eq $current.Section "notes")) }}
+                {{ $active = or $active (and (eq .Name "Tags") (eq $current.Section "tags")) }}
+                {{ $active = or $active (and (eq .Name "About") (eq $current.Section "about")) }}
+
+                <a class="nav-link {{ if $active }} active {{ end }}" title="{{ .Name }}"
+                  href="{{ .URL  | relLangURL }}"> {{ .Name }}</a>
+              </li>
+
+              {{ end }}
+              {{ end }}
+
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item nav-link">
+                  <a id="dark-mode-toggle" class="bi bi-sun"></a>
+                </li>
+              </ul>
+          </div>
+        </div>
+      </nav>
+
     </div>
-</nav>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 {{ if or .Params.socialShare (and .Site.Params.socialShare (ne .Params.socialShare false)) }}
 <!-- Social Share Button HTML -->
 <div class="share-box" aria-hidden="true">
+  <div><p class="list-inline footer-links">Use the share button below if you liked it.</p></div>
   <ul class="share">
 
     <!-- Facebook -->
@@ -62,4 +63,5 @@
 
   </ul>
 </div>
+<p class="text-muted">It makes me smile, when I see it.</p>
 {{ end }}

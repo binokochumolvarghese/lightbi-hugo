@@ -33,7 +33,7 @@
 
   # Footer
 - id: poweredBy # Accepts HTML
-  translation: 'Powered by <a href="https://gohugo.io">Hugo</a> &nbsp;&bull;&nbsp; Theme <a href="https://github.com/binokochumolvarghese/lightbi-hugo">Lightbi</a> adapted from <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> &nbsp;&bull;&nbsp; Made with ❤ by <a href="https://binovarghese.com">Bino</a>'
+  translation: 'Powered by <a href="https://gohugo.io">Hugo</a> & <a href="https://github.com/binokochumolvarghese/lightbi-hugo">Lightbi.</a>&nbsp; Made with ❤ by <a href="https://codbix.com">Bino</a>'
 
 # Navigation
 - id: toggleNavigation

@@ -1,5 +1,6 @@
 {{ if .IsHome }}
-{{ if .Site.Params.homeTitle }}{{ $.Scratch.Set "title" .Site.Params.homeTitle }}{{ else }}{{ $.Scratch.Set "title" .Site.Title }}{{ end }}
+{{ if .Site.Params.homeTitle }}{{ $.Scratch.Set "title" .Site.Params.homeTitle }}{{ else }}{{ $.Scratch.Set "title"
+.Site.Title }}{{ end }}
 {{ if .Site.Params.subtitle }}{{ $.Scratch.Set "subtitle" .Site.Params.subtitle }}{{ end }}
 {{ if .Site.Params.bigimg }}{{ $.Scratch.Set "bigimg" .Site.Params.bigimg }}{{ end }}
 {{ else }}
@@ -10,54 +11,66 @@
 {{ $bigimg := $.Scratch.Get "bigimg" }}
 {{ $title := $.Scratch.Get "title" }}
 {{ $subtitle := $.Scratch.Get "subtitle" }}
- 
+
 {{ if .IsHome }}
 
 {{ else }}
 <header class="header-section {{ if $bigimg }}has-img{{ end }}">
-<div class="intro-header no-img mt-10">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 xx">
-        <div class="{{ .Type }}-heading">
-          {{ if eq .Type "tags" }}
-          <h2 class="display-6 fw-bold lh-1 mb-3">{{ if .Data.Singular }}#{{ end }}{{ .Title }}</h2>
-                <hr class="small">
+
+  <div class="intro-header no-img mt-10">
+    <div class="container">
+      <div class="row justify-content-center">
+        {{ if or ( eq .Type "post")  ( eq .Type "notes") }}
+        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
           {{ end }}
 
-          {{ if eq .Type "list" }}
-          <h2>{{ if .Data.Singular }}#{{ end }}{{ .Title }}</h2>
-          {{ else }} 
-              {{if  .Page.IsPage}}
-              <h2>{{ with $title }}
+          {{ if ne .Type "blog" }}
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            {{ end }}
+
+            <div class="{{ .Type }}-heading">
+              {{ if or ( eq .Type "tags") }}
+              <h1 class="fw-semibold display-5 lh-1 mb-3">
+                <!-- fw-bold display-6 -->
+                {{ if .Data.Singular }}#{{ end }}{{ .Title }}
+              </h1>
+              <!-- <hr class="small"> -->
+              {{ end }}
+
+              {{ if eq .Type "list" }}
+              <h1 class="bino">{{ if .Data.Singular }}#{{ end }}{{ .Title }}</h1>
+              {{ else }}
+
+              {{if .Page.IsPage}}
+              <h1 class="fw-semibold display-5 lh-1 mb-3"> {{ with $title }}
                 {{.}}
                 {{ else }}
                 <br />
-              {{ end }}</h2>
+                {{ end }}
+              </h1>
+              {{ else }}
 
-
-              {{ else }} 
               {{ end }}
-          {{ end }}
+              {{ end }}
 
-          {{ if $subtitle }}
-          {{ if eq .Type "page" }}
-          <span class="{{ .Type }}-subheading">{{ $subtitle }}</span>
-          {{ else }}
-          <h4 class="{{ .Type }}-subheading">{{ $subtitle }}</h4>
-          {{ end }}
-          {{ end }}
+              {{ if $subtitle }}
+              {{ if eq .Type "page" }}
+              <span class="{{ .Type }}-subheading">{{ $subtitle }}</span>
+              {{ else }}
+              <h6 class="{{ .Type }}-subheading display-6">{{ $subtitle }}</h6>
+              {{ end }}
+              {{ end }}
 
-          {{if  .Page.IsPage}}
-          {{ if eq .Type "post" }}
-          {{ partial "post_meta.html" .}}
-          {{ end }}
-          {{ end }}
+              {{if .Page.IsPage}}
+              {{ if eq .Type "post" }}
+              {{ partial "post_meta.html" .}}
+              {{ end }}
+              {{ end }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 </header>
 
-{{ end }} 
+{{ end }}
