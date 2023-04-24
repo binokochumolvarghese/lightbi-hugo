@@ -14,13 +14,13 @@ Simple, minimal personal website and blog theme for Hugo. Forked from [Beautiful
 
 Install Hugo and create a new site. See [the Hugo documentation](https://gohugo.io/getting-started/quick-start/) for details.
 
-Add Beautifulhugo:
+Add Lightbi:
 
-    $ git submodule add https://github.com/halogenica/beautifulhugo.git themes/beautifulhugo
+    $ git submodule add https://github.com/binokochumolvarghese/lightbi-hugo
 
 Copy the content of `exampleSite` at the root of your project:
 
-    cp -r themes/beautifulhugo/exampleSite/* . -iv
+    cp -r themes/lightbi-hugo/exampleSite/* . -iv
     
 Start Hugo:
 
