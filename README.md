@@ -1,4 +1,4 @@
-# Lightbi Hugo 
+# Lightbi 
 
 Lightbi is a minimal and clean blog theme for Hugo.
 
