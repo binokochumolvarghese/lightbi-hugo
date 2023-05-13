@@ -15,6 +15,6 @@ First I started to use Hugo is for my Malayalam write up a blog wizbi tales (Mal
 
 Okay, Now let’s start. the below section shows how to install Hugo in Windows and develop a blog in it.
 
-If you want to know hwo to instal hugo and make a blog in it [click here](https://www.codbix.com/blog/build-your-first-hugo-blog/).
+If you want to know hwo to instal hugo and make a blog in it [click here](https://binovarghese.com/blog/build-your-first-hugo-blog/).
 
 <!--Photo by Robert Katzki on Unsplash-->
