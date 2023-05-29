@@ -25,12 +25,12 @@
                 </div>
 
                 <div class="read-more-section">
-                    <h6><a href="{{ .Permalink }}" class="post-read-more">Read more</a> </h6>
+                    <h6>Read more</h6>
                 </div>
             </div>
 
             {{ if .Params.image }}
-            <img src="{{ .Params.image }}" alt="{{ .Title }}" class="card-img-top img-fluid " />
+            <img src="{{ .Params.image }}" alt="{{ .Title }}" class="card-img-top img-fluid">
             {{ end }}
             {{ if .Params.video }}
             <video loop autoplay muted playsinline class="img-title">
@@ -38,6 +38,5 @@
             </video>
             {{ end }}
         </a>
-        </a>
     </div>
-</div> 
+</div>
