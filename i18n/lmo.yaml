@@ -70,7 +70,7 @@
 
 - id: poweredBy # Accepts HTML
 
-  translation: '<a href="https://gohugo.io">Desviluppaa con Hugo v{{ .Site.Hugo.Version }}</a> &nbsp;&bull;&nbsp; Tema <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adattaa de <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>'
+   translation: 'Powered by <a href="https://gohugo.io">Hugo</a> & <a href="https://github.com/binokochumolvarghese/lightbi-hugo">Lightbi.</a>&nbsp; Made with ❤ by <a href="https://binovarghese.com">Bino</a>'
 
 
 
