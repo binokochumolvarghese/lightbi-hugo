@@ -26,10 +26,12 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<meta name="description" content="Lightbi is a simple, minimal personal website and blog theme for Hugo. Built by Bino Kochumol Varghese">
 <!-- Site Title, Description, Author, and Favicon -->
 {{ if .IsHome }}
-<title>Home - Lightbi</title>
+<title>{{ $.Site.Title }}</title>
+{{ if (isset $.Site.Params "description") }}
+<meta name="description" content="{{ $.Site.Params.description }}">
+{{ end }}
 {{- else }}
 {{- with ($.Scratch.Get "Title") }}
   <title>{{ . }} - {{ $.Site.Title }}</title>
