@@ -34,7 +34,7 @@ Install Hugo and create a new site. See [the Hugo documentation](https://gohugo.
 hugo new site <name of site>
 cd <name of site>
 git init
-git submodule add https://github.com/binokochumolvarghese/lightbi-hugo
+git submodule add https://github.com/binokochumolvarghese/lightbi-hugo themes
 echo "theme = 'lightbi-hugo'" >> config.toml
 hugo server
 ```
