@@ -11,7 +11,7 @@ Lightbi is a minimal and clean blog theme for Hugo.
 ## Features
 
 ### General
-- Three sections for content
+- Three sections for content:
     - Blog
     - Notes
     - Collections (Newsletter)
@@ -19,20 +19,19 @@ Lightbi is a minimal and clean blog theme for Hugo.
 - Card based theme.
 - Menu location indicator.
 - Multilingual support. (with language selector)
-- Taxonomies
+- Taxonomies.
 - Light/Dark theme (automatic theme switch a/c to browser theme and theme-switch button).
-- Google Analytics
+- Google Analytics.
 - SEO Friendly.
-- Commit SHA on the footer
-- Self Hosted assets for GDPR / EU-DSGVO compliance
-- Beautiful icons with Bootstrap Icons
+- Commit SHA on the footer.
+- Self Hosted assets for GDPR / EU-DSGVO compliance.
+- Beautiful icons with Bootstrap Icons.
 
 ### Page
 - Other Posts suggestion below a post
 - Social-Media Share buttons on posts.
-- Syntax highlighting
+- Syntax highlighting.
 - Cover image for each post (with Responsive image support).
-- 
 
 ## Installation
 
