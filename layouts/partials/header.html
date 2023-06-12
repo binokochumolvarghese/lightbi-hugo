@@ -20,7 +20,7 @@
   <div class="intro-header no-img mt-10">
     <div class="container">
       <div class="row justify-content-center">
-        {{ if or ( eq .Type "post")  ( eq .Type "notes") }}
+        {{ if or ( eq .Type "post")  ( eq .Type "notes") ( eq .Type "collections") }}
         <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
           {{ end }}
 
@@ -31,7 +31,6 @@
             <div class="{{ .Type }}-heading">
               {{ if or ( eq .Type "tags") }}
               <h1 class="fw-semibold display-5 lh-1 mb-3">
-                <!-- fw-bold display-6 -->
                 {{ if .Data.Singular }}#{{ end }}{{ .Title }}
               </h1>
               <!-- <hr class="small"> -->

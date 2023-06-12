@@ -1,0 +1,33 @@
+{{ define "main" }}
+
+<div class="container" role="main">
+  <div class="row justify-content-md-center">
+    {{ with .Content }}
+    <div class="well">
+      {{.}}
+    </div>
+    {{ end }}
+
+    {{ range .Paginator.Pages }}
+    {{ partial "post_preview_top_img_cards.html" .}}
+    {{end}}
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row font-sans">
+    <div class="col-md-12 mt-10">
+      <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-end">
+          {{ template "_internal/pagination.html" . }}
+        </ul>
+    </div>
+  </div>
+  </nav>
+
+</div>
+</div>
+</div>
+
+{{ end }}

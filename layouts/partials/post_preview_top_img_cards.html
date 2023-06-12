@@ -1,0 +1,42 @@
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
+    <a href="{{ .Permalink }}" aria-label="Link to the blog">
+        <div class="card single-post-card h-100 shadow-custom ">
+            {{ if .Params.image }}
+            <img src="{{ .Params.image }}" alt="{{ .Title }}" class="card-img-top img-fluid lazyload" />
+            {{ end }}
+            {{ if .Params.video }}
+            <video loop autoplay muted playsinline class="img-title">
+                <source src="{{ .Params.video }}">
+            </video>
+            {{ end }}
+            <div class="card-body">
+
+                <h3 class="post-title">{{ .Title }}</h3>
+                {{ if .Params.subtitle }}
+                <h3 class="post-subtitle">
+                    {{ .Params.subtitle }}
+                </h3>
+                {{ end }}
+
+                <p class="post-meta">
+                    {{ partial "post_meta_notes.html" . }}
+                </p>
+                {{ print }}
+                <div class="post-entry">
+
+                    {{ if .Description }}
+                    {{ .Description }}
+
+                    {{ else }}
+                    {{ .Content }}
+                    {{ end }}
+                </div>
+
+                <div class="read-more-section">
+                    <h6>Read more <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+        </div>
+    </a>
+</div>
