@@ -7,10 +7,10 @@
                 </div>
                 <div class="col-md-2 d-flex justify-content-end">
                     <a href="{{ .Permalink }}">
-                    <button type="button" class="btn btn-outline-dark">
-                        Link
-                    </button>
-                </a>
+                        <button type="button" class="btn btn-outline-dark">
+                            Link
+                        </button>
+                    </a>
                 </div>
             </div>
 
@@ -31,20 +31,20 @@
                 {{ end }}
             </div>
         </div>
-            <!-- <hr class="m-1"/> -->
-            <!-- <div class="col"> -->
-                <div class="card-footer text-muted">
-                   
-                {{ if .Params.tags }}
-                <div class="blog-tags">
-                  {{ range .Params.tags }}
-                  <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/">{{ . }}</a>
-                  {{ end }}
-                </div>
+        <!-- <hr class="m-1"/> -->
+        <!-- <div class="col"> -->
+        {{ if .Params.tags }}
+        <div class="card-footer text-muted">
+            <div class="blog-tags">
+                {{ range .Params.tags }}
+                <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/">{{ . }}</a>
                 {{ end }}
-              </div>
+            </div>
+        </div>
+        {{ end }}
 
 
- 
+
+
     </div>
 </div>
