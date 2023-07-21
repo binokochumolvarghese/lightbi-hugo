@@ -3,31 +3,29 @@
 {{ $data := .Data }}
 
 <div class="container" role="main">
-  <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1"> 
+  <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
     <article class="post-preview">
-      <div class="panel-group" id="accordion">
+      <div class="accordion" id="accordion">
         {{ range $key, $value := .Data.Terms.ByCount }}
-          <div class="panel panel-default">
-            <a class="collapsed" role="button" data-toggle="collapse" data-target="#collapse{{ $value.Name }}" data-parent="#accordion">
-                <div class="panel-heading" id="header{{ $value.Name }}">
-                  <h4 class="panel-title">
-                      {{ $value.Name }}
-                    <span class="badge">{{ $value.Count }}</span>
-                  </h4>
-                </div>
-            </a>
-            <div id="collapse{{ $value.Name }}" class="panel-collapse collapse">
-              <div class="panel-body">
-                <a href="{{ $.Site.LanguagePrefix | absURL }}/{{ $data.Plural }}/{{ $value.Name | urlize }}/" class="list-group-item view-all">
-                View all</a>
-                <div class="list-group">
-                  {{ range $item := $value.WeightedPages }}
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $value.Name }}">
+                      <h4 class="accordion-header ms-2"> {{ $value.Name }}
+                        <span class="badge rounded-pill text-bg-light position-absolute text-end">{{ $value.Count }}</span>
+                      </h4>
+                </button>
+              </h2>
+              <div id="collapse{{ $value.Name }}" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  <a href="{{ $.Site.LanguagePrefix | absURL }}/{{ $data.Plural }}/{{ $value.Name | urlize }}/" class="post-title list-group-item view-all">View all</a>
+                  <div class="list-group">
+                    {{ range $item := $value.WeightedPages }}
                     <a href="{{$item.Permalink}}" class="list-group-item">{{ $item.Title }}</a>
-                  {{ end }}
+                    {{ end }}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
         {{ end }}
       </div>
     </article>
