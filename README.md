@@ -48,9 +48,13 @@ hugo server
 
 After the above copy the contents of `exampleSite` to the `content` folder in your website.
 
-## For more
+## Wiki
 
 Checkout the [wiki](https://github.com/binokochumolvarghese/lightbi-hugo/wiki) page for detailed documentation of the theme features.
+
+## Support
+- Star 🌟 this repository.
+- Help to spread the word about Hugo Lightbi by sharing it on social media and recommending it to your friends.
 
 ## Credits
 
