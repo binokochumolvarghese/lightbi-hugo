@@ -4,10 +4,46 @@
 name = "Lightbi"
 license = "MIT"
 licenselink = "https://github.com/binokochumolvarghese/lightbi-hugo/blob/master/LICENSE"
-description = ""
-homepage = "https://binovarghese.com/"
-tags = ["blog", "company", "portfolio", "projects", "minimal", "responsive", "seo", "google analytics", "bootstrap", "light", "syntax highlighting", "multilingual", "portfolio", "projects", "mobile", "technical"]
-features = ["blog", "company", "portfolio", "projects", "minimal", "responsive", "seo", "google analytics", "bootstrap", "light", "syntax highlighting", "multilingual", "portfolio", "projects", "mobile", "technical"]
+description = "A minimal and clean blog theme for Hugo."
+homepage = "https://github.com/binokochumolvarghese/lightbi-hugo"
+demosite = "https://lightbi-hugo-theme.netlify.app/"
+tags = [
+  "blog", 
+  "company",
+  "portfolio", 
+  "projects", 
+  "minimal",
+  "responsive",
+  "seo",
+  "google analytics",
+  "bootstrap",
+  "bootstrap icons",
+  "syntax highlighting",
+  "multilingual",
+  "dark mode", 
+  "responsive",
+  "newsletter"
+  ]
+features = [
+  "blog",
+  "newsletter",
+  "notes",
+  "minimal",
+  "cover image",
+  "responsive",
+  "seo",
+  "google analytics",
+  "bootstrap",
+  "syntax highlighting",
+  "multilingual",
+  "dark-mode",  
+  "menu location indicator",
+  "theme toggle",
+  "share icons",
+  "social icons",
+  "favicon",
+  "bootstrap icons"
+  ]
 min_version = "0.41.0"
 
 [author]
