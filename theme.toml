@@ -9,20 +9,17 @@ homepage = "https://github.com/binokochumolvarghese/lightbi-hugo"
 demosite = "https://lightbi-hugo-theme.netlify.app/"
 tags = [
   "blog", 
-  "company",
-  "portfolio", 
-  "projects", 
-  "minimal",
-  "responsive",
-  "seo",
-  "google analytics",
   "bootstrap",
   "bootstrap icons",
-  "syntax highlighting",
+  "company",
+  "dark",
+  "dark mode",
+  "light",
+  "minimal",
   "multilingual",
-  "dark mode", 
+  "portfolio", 
   "responsive",
-  "newsletter"
+  "personal"
   ]
 features = [
   "blog",
