@@ -2,8 +2,7 @@
     <div class="shadow-effect">
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                {{range $index, $element := (where (where site.RegularPages "Type" "in" site.Params.mainSections )
-                ".Params.featured" "=" true ) }}
+                {{range $index, $element := (where (where site.RegularPages "Type" "in" site.Params.mainSections ) ".Params.featured" "=" true ) }}
 
 
                     <!-- <div class="carousel-item {{ if eq $index 0 }} active {{ else }}  carousel-item-not-active {{ end }}">
