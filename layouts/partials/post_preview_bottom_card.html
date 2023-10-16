@@ -30,7 +30,16 @@
             </div>
 
             {{ if .Params.image }}
-            <img src="{{ .Params.image }}" alt="{{ .Title }}" class="card-img-top img-fluid">
+                {{ with resources.Get .Params.image }}
+                {{ with .Err }}
+                {{ warnf "%s" . }}
+                {{ else }}
+
+                <img src="{{ ( .Resize " 400x" ).RelPermalink }}" alt="{{ .Title }}"
+                    class="card-img-bottom img-fluid lazyload">
+                {{ end }}
+
+                {{ end }}
             {{ end }}
             {{ if .Params.video }}
             <video loop autoplay muted playsinline class="img-title">
