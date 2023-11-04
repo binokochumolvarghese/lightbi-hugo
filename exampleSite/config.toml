@@ -16,7 +16,8 @@ enableRobotsTXT = true
 enableGitInfo = false
 Paginate = 6
 
-[Params] 
+[Params]
+selfHosted = true
 mainSections = ["post","posts"]
 dateFormat = "2 January 2023"
 comments = false
@@ -31,6 +32,9 @@ gcse = false
 Lastmod = false
 rss = false 
 pagination = "10"
+hideAuthor = false
+authorInfo = "She was born to be free, let her run wild in her own way and you will never lose her."
+description="Your can add your website description here."
 
 
 [sitemap]
@@ -46,6 +50,7 @@ pagination = "10"
   instagram = "username"
   youtube = "user/username" # or channel/channelname
   twitter = "username"
+  threads = "username"
   linkedin = "username"
   github = "username"
   #gitlab = "username"
