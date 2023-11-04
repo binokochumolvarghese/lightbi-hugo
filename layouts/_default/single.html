@@ -4,9 +4,20 @@
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
 
       <div class="card-image card-image-blog p-0">
+
         {{ if .Params.image }}
-        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="rounded img-fluid">
+        {{ with resources.Get .Params.image }}
+        {{ with .Err }}
+        {{ warnf "%s" . }}
+        {{ else }}
+
+        <img src="{{ .RelPermalink }}" alt="{{ .Title }}" class="card-img-bottom rounded img-fluid lazyload">
         {{ end }}
+
+        {{ end }}
+        {{ end }}
+
+
         {{ if .Params.video }}
         <video loop autoplay muted playsinline class="img-title">
           <source src="{{ .Params.video }}">
@@ -14,7 +25,7 @@
         {{ end }}
       </div>
     </div>
- 
+
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
         {{ .Content }}
@@ -24,18 +35,18 @@
 
   <div class="row">
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-      <hr />
+      <hr class="m-0"/>
     </div>
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-2">
-        {{ if .Params.tags }}
-          <div class="blog-tags">
-            {{ range .Params.tags }}
-              <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/">{{ . }}</a>
-            {{ end }}
-          </div>
+      {{ if .Params.tags }}
+      <div class="blog-tags">
+        {{ range .Params.tags }}
+        <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/">{{ . }}</a>
         {{ end }}
       </div>
- 
+      {{ end }}
+    </div>
+
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       {{ if $.Param "socialShare" }}
       <section id="social-share">
@@ -46,115 +57,122 @@
       {{ end }}
     </div>
 
+    {{ if not .Site.Params.hideAuthor }}
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 mt-3">
       <div class="card">
         <div class="row no-gutters">
-          <div class="col-md-2 "> 
+          <div class="col-md-2 ">
             <div class="card-body ">
-            <img src="{{ "/img/bino-about-small.jpg" }}" class="img-responsive img-50 img-round" alt="">
+              {{ $image := resources.Get "/img/bino-about-small.jpg" }}
+              <img src="{{ $image.RelPermalink }}" class="img-responsive img-50 img-round" alt="">
+            </div>
           </div>
-          </div>
+
+         
           <div class="col-md-10">
             <div class="card-body p-1.1">
+              <p class="p-0 m-0"><small class="text-muted">Written By</small></p>
+              <p class="card-text fs-5 m-0">
 
-              <p class="p-0 m-0"><small class="text-muted ">Written By</small></p>
-              <h5>
-                {{ if not .Site.Params.hideAuthor }}
                 {{ if .Params.author }}
                 {{ .Params.author | safeHTML }}
                 {{ else }}
                 {{ .Site.Author.name | safeHTML }}
                 {{ end }}
-                {{ end }}
-              </h5>
-              <p class="card-text fs-1"></p>
+
+              </p> 
+              {{ if .Site.Params.authorInfo }}
+              <p class="card-text fs-6  m-0">{{ .Site.Params.authorInfo | safeHTML }}</p>
+              {{ end }}
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    {{ end }}
 
-      
+    <div class="col-lg-8 offset-lg-2 col-md-12 offset-md-1 pt-4">
+      {{ if ne .Type "page" }}
+      <ul class="list-group list-group-horizontal" style="flex-direction: row">
+        {{ if .PrevInSection }}
+        <li class="list-group-item b-0 p-0">
+
+          <a type="button" class="btn btn-dark" role="button" href="{{ .PrevInSection.Permalink }}"
+            data-toggle="tooltip" data-placement="top" title="{{ .PrevInSection.Title }}">&larr;
+            {{ i18n "previousPost" }}</a>
+        </li>
+        {{ end }}
+
+
+        {{ if .NextInSection }}
+        <li class="list-group-item ms-auto b-0 p-0">
+          <a type="button" class="btn btn-dark" role="button" href="{{ .NextInSection.Permalink }}"
+            data-toggle="tooltip" data-placement="top" title="{{ .NextInSection.Title }}">{{ i18n "nextPost" }}
+            &rarr;</a>
+        </li>
+        {{ end }}
+      </ul>
+      {{ end }}
+    </div>
+
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+    </div>
+  </div>
+</div>
+
+<div class="">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 mt-3">
+        <h3>Read more</h3>
+        <hr />
+      </div>
+
+      {{ if .Site.Params.showRelatedPosts }}
+      {{ range first 1 (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink)
+      }}
+      {{ $.Scratch.Set "has_related" true }}
+      {{ end }}
+
+      {{ if $.Scratch.Get "has_related" }}
+
+      {{ $num_to_show := .Site.Params.related_content_limit | default 3 }}
+      {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!="
+      .Permalink) }}
+
+      {{ partial "post_preview_bottom_card.html" .}}
+      {{ end }}
+
+      {{ end }}
+      {{ end }}
     </div>
   </div>
 
-      <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
-        {{ if ne .Type "page" }}
-        <ul class="list-group list-group-horizontal" style="flex-direction: row">
-          {{ if .PrevInSection }}
-          <li class="list-group-item b-0">
+  {{ if (.Params.comments) | or (and (or (not (isset .Params "comments")) (eq .Params.comments nil)) (and
+  .Site.Params.comments (ne .Type "page"))) }}
+  {{ if .Site.DisqusShortname }}
+  {{ if .Site.Params.delayDisqus }}
+  <div class="disqus-comments">
+    <button id="show-comments" class="btn btn-default" type="button">{{ i18n "show" }} <span
+        class="disqus-comment-count" data-disqus-url="{{ trim .Permalink " /" }}">{{ i18n "comments" }}</span></button>
+    <div id="disqus_thread"></div>
 
-            <a type="button" class="btn btn-dark" role="button" href="{{ .PrevInSection.Permalink }}"
-              data-toggle="tooltip" data-placement="top" title="{{ .PrevInSection.Title }}">&larr;
-              {{ i18n "previousPost" }}</a>
-          </li>
-          {{ end }}
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = '{{ trim .Permalink "/" }}';
+      };
 
-
-          {{ if .NextInSection }}
-          <li class="list-group-item ms-auto b-0">
-            <a type="button" class="btn btn-dark" role="button" href="{{ .NextInSection.Permalink }}"
-              data-toggle="tooltip" data-placement="top" title="{{ .NextInSection.Title }}">{{ i18n "nextPost" }}
-              &rarr;</a>
-          </li>
-          {{ end }}
-        </ul>
-        {{ end }}
-      </div>
-
-      <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4"> 
-      </div>
-    </div>
+    </script>
   </div>
-
-  <div class="">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-md-12 mt-3">
-          <h3>Read more</h3>
-          <hr />
-        </div>
-
-        {{ if .Site.Params.showRelatedPosts }}
-        {{ range first 1 (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
-        {{ $.Scratch.Set "has_related" true }}
-        {{ end }}
-
-        {{ if $.Scratch.Get "has_related" }}
- 
-        {{ $num_to_show := .Site.Params.related_content_limit | default 3 }}
-        {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
-         
-        {{ partial "post_preview.html" .}}
-        {{ end }} 
-
-        {{ end }}
-        {{ end }}
-      </div>
-    </div>
-
-    {{ if (.Params.comments) | or (and (or (not (isset .Params "comments")) (eq .Params.comments nil)) (and .Site.Params.comments (ne .Type "page"))) }}
-    {{ if .Site.DisqusShortname }}
-    {{ if .Site.Params.delayDisqus }}
-    <div class="disqus-comments">
-      <button id="show-comments" class="btn btn-default" type="button">{{ i18n "show" }} <span
-          class="disqus-comment-count" data-disqus-url="{{ trim .Permalink "/" }}">{{ i18n "comments" }}</span></button>
-      <div id="disqus_thread"></div>
-
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = '{{ trim .Permalink "/" }}';
-        };
-
-      </script>
-    </div>
-    {{ else }}
-    <div class="disqus-comments">
-      {{ template "_internal/disqus.html" . }}
-    </div>
-    {{ end }}
-    {{ end }}
-    {{ end }}
-
+  {{ else }}
+  <div class="disqus-comments">
+    {{ template "_internal/disqus.html" . }}
   </div>
+  {{ end }}
+  {{ end }}
+  {{ end }}
+
+</div>
 </div>
 </div>
 {{ end }}

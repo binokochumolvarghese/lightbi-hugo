@@ -14,8 +14,8 @@
                     {{ partial "post_meta_notes.html" . }}
                 </p>
                 {{ print }}
-
                 <div class="post-entry">
+
                     {{ if .Description }}
                     {{ .Description }}
 
@@ -23,33 +23,12 @@
                     {{ .Content }}
                     {{ end }}
                 </div>
-
                 <div class="read-more-section">
-                    <!-- post-read-more  -->
-                    <h6><a href="{{ .Permalink }}" class="text-muted link-underline" alt="Link to {{ .Title }}">Read
-                            more <i class="bi bi-arrow-right"></i></a> </h6>
+                    <h6><a href="{{ .Permalink }}" class="text-muted link-underline" alt="Link to {{ .Title }}">Read more <i
+                        class="bi bi-arrow-right"></i></a> </h6>
                 </div>
             </div>
-
-            {{ if .Params.image }}
-            {{ with resources.Get .Params.image }}
-            {{ with .Err }}
-            {{ warnf "%s" . }}
-            {{ else }}
-
-            <img src="{{ ( .Resize " 500x" ).RelPermalink }}" alt="{{ .Title }}"
-                class="card-img-bottom img-fluid lazyload">
-            {{ end }}
-
-            {{ end }}
-            {{ end }}
-
-            {{ if .Params.video }}
-            <video loop autoplay muted playsinline class="img-title">
-                <source src="{{ .Params.video }}">
-            </video>
-            {{ end }}
         </a>
         </a>
     </div>
-</div>
+</div> 
