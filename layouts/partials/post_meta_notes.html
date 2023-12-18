@@ -5,7 +5,7 @@
   {{ $datestr }}
 
   {{ if ne $datestr $lastmodstr }}
-  | &nbsp;Last Modified On: {{ $lastmodstr }}
+  {{ i18n "lastModified" $lastmodstr }}
   {{ end }}
 
   {{ if .Site.Params.readingTime }}
