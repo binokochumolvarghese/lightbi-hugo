@@ -9,11 +9,11 @@
   {{ end }}
 
   {{ if .Site.Params.readingTime }}
-  &nbsp;|&nbsp; <i class="bi bi-clock"></i>&nbsp;{{ i18n "readingTime"}}{{ .ReadingTime }}&nbsp;{{ i18n "readTime" }}
+  &nbsp;|&nbsp; <i class="bi bi-clock"></i>&nbsp;{{ i18n "readingTime"}}{{ .ReadingTime }}&nbsp;{{ i18n "readTime" .ReadingTime }}
   {{ end }}
 
   {{ if .Site.Params.wordCount }}
-  &nbsp;|&nbsp;<i class="bi bi-book"></i>&nbsp;{{ .WordCount }}&nbsp;{{ i18n "words" }}
+  &nbsp;|&nbsp;<i class="bi bi-book"></i>&nbsp;{{ .WordCount }}&nbsp;{{ i18n "words" .WordCount }}
   {{ end }}
 
   {{ if .IsTranslated -}}
