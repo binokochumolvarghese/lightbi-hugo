@@ -1,6 +1,6 @@
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
     <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
-        <a href="{{ .Permalink }}" alt="Link to {{ .Title }}">
+        <a href="{{ .Permalink }}">
             <div class="card-body">
 
                 <h3 class="fw-bold post-title">{{ .Title }}</h3>
@@ -24,8 +24,7 @@
                     {{ end }}
                 </div>
                 <div class="read-more-section">
-                    <h6><a href="{{ .Permalink }}" class="text-muted link-underline" alt="Link to {{ .Title }}">{{ i18n "readMore" }} <i
-                        class="bi bi-arrow-right"></i></a> </h6>
+                    <h6 class="text-muted link-underline">{{ i18n "readMore" }} <i class="bi bi-arrow-right"></i></h6>
                 </div>
             </div>
         </a>
