@@ -1,18 +1,11 @@
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
     <a href="{{ .Permalink }}" alt="Link to {{ .Title }}">
         <div class="card single-post-card h-100 shadow-effect border">
-            {{ if .Params.image }}
-            {{ with resources.Get .Params.image }}
-            {{ with .Err }}
-            {{ warnf "%s" . }}
-            {{ else }}
-
+            {{ with partial "get_image" . }}
             <img src="{{ ( .Resize " 500x" ).RelPermalink }}" alt="{{ .Title }}"
                 class="card-img-top img-fluid lazyload">
             {{ end }}
 
-            {{ end }}
-            {{ end }}
             {{ if .Params.video }}
             <video loop autoplay muted playsinline class="img-title">
                 <source src="{{ .Params.video }}">

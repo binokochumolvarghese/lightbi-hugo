@@ -1,0 +1,11 @@
+{{ $img := false }}
+{{ if .Params.image }}
+  {{ with .Resources.Get .Params.image }}
+    {{ $img = . }}
+  {{ else }}
+    {{ with resources.Get .Params.image }}
+      {{ $img = . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ return $img }}
