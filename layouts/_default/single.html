@@ -140,7 +140,7 @@
       {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!="
       .Permalink) }}
 
-      {{ partial "post_preview_bottom_card.html" .}}
+      {{ partial "post_preview_card" .}}
       {{ end }}
 
       {{ end }}
