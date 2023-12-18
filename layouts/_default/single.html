@@ -5,16 +5,8 @@
 
       <div class="card-image card-image-blog p-0">
 
-        {{ if .Params.image }}
-        {{ with resources.Get .Params.image }}
-        {{ with .Err }}
-        {{ warnf "%s" . }}
-        {{ else }}
-
+        {{ with partial "get_image" . }}
         <img src="{{ .RelPermalink }}" alt="{{ .Title }}" class="card-img-bottom rounded img-fluid lazyload">
-        {{ end }}
-
-        {{ end }}
         {{ end }}
 
 
@@ -68,7 +60,7 @@
             </div>
           </div>
 
-         
+
           <div class="col-md-10">
             <div class="card-body p-1.1">
               <p class="p-0 m-0"><small class="text-muted">Written By</small></p>
@@ -80,7 +72,7 @@
                 {{ .Site.Author.name | safeHTML }}
                 {{ end }}
 
-              </p> 
+              </p>
               {{ if .Site.Params.authorInfo }}
               <p class="card-text fs-6  m-0">{{ .Site.Params.authorInfo | safeHTML }}</p>
               {{ end }}
