@@ -67,8 +67,12 @@
               {{ end }}
             </div>
           </div>
+          {{ if ne .Type "blog" }}
         </div>
+        {{ end }}
+        {{ if or ( eq .Type "post")  ( eq .Type "notes") ( eq .Type "collections") }}
       </div>
+      {{ end }}
     </div>
   </div>
 </header>
