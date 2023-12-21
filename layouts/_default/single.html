@@ -4,9 +4,11 @@
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
 
       <div class="card-image card-image-blog p-0">
-
+        {{ $ := . }}
         {{ with partial "get_image" . }}
-        <img src="{{ .RelPermalink }}" alt="{{ .Title }}" class="card-img-bottom rounded img-fluid lazyload">
+          {{ if not (strings.Contains $.Content $.Params.image) }}
+            <img src="{{ .RelPermalink }}" alt="{{ .Title }}" class="card-img-bottom rounded img-fluid lazyload">
+          {{ end }}
         {{ end }}
 
 
