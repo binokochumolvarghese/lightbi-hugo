@@ -30,17 +30,9 @@
                 </div>
             </div>
 
-            {{ if .Params.image }}
-            {{ with resources.Get .Params.image }}
-            {{ with .Err }}
-            {{ warnf "%s" . }}
-            {{ else }}
-
+            {{ with partial "get_image" . }}
             <img src="{{ ( .Resize " 500x" ).RelPermalink }}" alt="{{ .Title }}"
                 class="card-img-bottom img-fluid lazyload">
-            {{ end }}
-
-            {{ end }}
             {{ end }}
 
             {{ if .Params.video }}
