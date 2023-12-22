@@ -26,15 +26,16 @@ wordCount = false
 useHLJS = true
 socialShare = true
 delayDisqus = true
-showRelatedPosts = true 
+showRelatedPosts = true
 summaryLength  = "9"
 gcse = false
 Lastmod = false
-rss = false 
+rss = false
 pagination = "10"
 hideAuthor = false
 authorInfo = "She was born to be free, let her run wild in her own way and you will never lose her."
 description="Your can add your website description here."
+previewCardImagePlacement = "bottom"
 
 
 [sitemap]
