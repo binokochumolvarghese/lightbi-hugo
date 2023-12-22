@@ -1,17 +1,17 @@
 <span class="post-meta">
   {{ $lastmodstr := default (i18n "dateFormat") .Site.Params.dateformat | .Lastmod.Format }}
   {{ $datestr := default (i18n "dateFormat") .Site.Params.dateformat | .Date.Format }}
-  &nbsp;{{ $datestr  }} 
+  &nbsp;{{ $datestr  }}
 
   {{ if .Site.Params.readingTime }}
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;{{ i18n "readingTime"}}{{ .ReadingTime }}&nbsp;{{ i18n "readTime" }}
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;{{ i18n "readingTime"}}{{ .ReadingTime }}&nbsp;{{ i18n "readTime" .ReadingTime }}
   {{ end }}
 
   {{ if .Site.Params.wordCount }}
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;{{ .WordCount }}&nbsp;{{ i18n "words" }}
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;{{ .WordCount }}&nbsp;{{ i18n "words" .WordCount }}
   {{ end }}
-  
- 
+
+
 
   {{- if .Site.Params.staticman -}}
     &nbsp;|&nbsp;<i class="fas fa-comment"></i>&nbsp;
@@ -29,7 +29,7 @@
       {{ end }}
     {{ end }}
   {{ end }}
-  
+
   {{ if .IsTranslated -}}
     {{- $sortedTranslations := sort .Translations "Site.Language.Weight" -}}
     {{- $links := apply $sortedTranslations "partial" "translation_link.html" "." -}}
