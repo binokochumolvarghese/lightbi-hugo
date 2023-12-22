@@ -18,12 +18,11 @@
                     {{ .Description }}
 
                     {{ else }}
-                    {{ .Content }}
+                    {{ .Summary }}
                     {{ end }}
                 </div>
                 <div class="read-more-section">
-                    <h6><a href="{{ .Permalink }}" class="text-muted link-underline" alt="Link to {{ .Title }}">Read more <i
-                        class="bi bi-arrow-right"></i></a> </h6>
+                    <h6 class="text-muted link-underline">{{ i18n "readMore" }} <i class="bi bi-arrow-right"></i></h6>
                 </div>
             </div>
         </div>

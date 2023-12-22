@@ -13,11 +13,11 @@
                     </div>
                     </div> -->
 
-                <div class="carousel-item {{ if eq $index 0 }} active {{ else }}  carousel-item-not-active {{ end }}"> 
+                <div class="carousel-item {{ if eq $index 0 }} active {{ else }}  carousel-item-not-active {{ end }}">
                     <div class="card ">
                         <div class="row ">
                             <a href="{{ .Permalink }}">
-                            <div class="col-md-8 feature-image "> 
+                            <div class="col-md-8 feature-image ">
                                 <div class="carousel-caption d-md-block carousel-caption">
                                     <span class="badge rounded-pill bg-dark">Featured
                                     <span class="fa-stack fa-sm">
@@ -33,7 +33,7 @@
                                     <h3 class="card-title">{{ .Title }}</h3>
                                     <p class="card-text"> {{ if .Description }} {{ .Description }} {{ end }}</p>
                                     <p class="card-text"><small class="text-muted">
-                                                <a class="post-read-more" href="{{ .Permalink }}">Read more</a></small></p>
+                                                <a class="post-read-more" href="{{ .Permalink }}">{{ i18n "readMore" }}</a></small></p>
                                 </div>
                             </div>
                         </div>

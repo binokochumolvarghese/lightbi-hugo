@@ -4,11 +4,17 @@
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
 
       <div class="card-image card-image-blog p-0">
-        {{ $ := . }}
-        {{ with partial "get_image" . }}
-          {{ if not (strings.Contains $.Content $.Params.image) }}
-            <img src="{{ .RelPermalink }}" alt="{{ .Title }}" class="card-img-bottom rounded img-fluid lazyload">
-          {{ end }}
+
+        {{ if .Params.image }}
+        {{ with resources.Get .Params.image }}
+        {{ with .Err }}
+        {{ warnf "%s" . }}
+        {{ else }}
+
+        <img src="{{ .RelPermalink }}" alt="{{ .Title }}" class="card-img-bottom rounded img-fluid lazyload">
+        {{ end }}
+
+        {{ end }}
         {{ end }}
 
 
@@ -27,6 +33,7 @@
     </div>
   </div>
 
+  {{ if or .Params.tags (not .Site.Params.hideAuthor) ($.Param "socialShare") (ne .Type "page") }}
   <div class="row">
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
       <hr class="m-0"/>
@@ -62,7 +69,7 @@
             </div>
           </div>
 
-
+         
           <div class="col-md-10">
             <div class="card-body p-1.1">
               <p class="p-0 m-0"><small class="text-muted">Written By</small></p>
@@ -74,7 +81,7 @@
                 {{ .Site.Author.name | safeHTML }}
                 {{ end }}
 
-              </p>
+              </p> 
               {{ if .Site.Params.authorInfo }}
               <p class="card-text fs-6  m-0">{{ .Site.Params.authorInfo | safeHTML }}</p>
               {{ end }}
@@ -112,9 +119,18 @@
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
     </div>
   </div>
+  {{ end }}
 </div>
 
 <div class="">
+  {{ $has_related := false }}
+  {{ if .Site.Params.showRelatedPosts }}
+  {{ range first 1 (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink)
+  }}
+  {{ $has_related = true }}
+  {{ end }}
+
+  {{ if $has_related }}
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 mt-3">
@@ -122,25 +138,16 @@
         <hr />
       </div>
 
-      {{ if .Site.Params.showRelatedPosts }}
-      {{ range first 1 (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink)
-      }}
-      {{ $.Scratch.Set "has_related" true }}
-      {{ end }}
-
-      {{ if $.Scratch.Get "has_related" }}
-
       {{ $num_to_show := .Site.Params.related_content_limit | default 3 }}
       {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!="
       .Permalink) }}
 
-      {{ partial "post_preview_bottom_card.html" .}}
-      {{ end }}
-
-      {{ end }}
+      {{ partial "post_preview_card" .}}
       {{ end }}
     </div>
   </div>
+  {{ end }}
+  {{ end }}
 
   {{ if (.Params.comments) | or (and (or (not (isset .Params "comments")) (eq .Params.comments nil)) (and
   .Site.Params.comments (ne .Type "page"))) }}
@@ -166,7 +173,5 @@
   {{ end }}
   {{ end }}
 
-</div>
-</div>
 </div>
 {{ end }}

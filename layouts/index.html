@@ -14,7 +14,7 @@
 
     {{ $pag := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections ) 9 }}
     {{ range $pag.Pages }}
-    {{ partial "post_preview_bottom_card" . }}
+    {{ partial "post_preview_card" . }}
     {{ end }}
 
 
