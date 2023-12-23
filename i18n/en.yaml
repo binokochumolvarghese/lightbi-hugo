@@ -76,3 +76,12 @@
 # Related posts
 - id: seeAlso
   translation: "See also"
+
+# Search
+- id: noSearchResults
+  translation: "No results found for “{{ .Term }}”"
+
+- id: someSearchResults
+  translation:
+    one: "Found one result for “{{ .Term }}”"
+    other: "Found {{ .Count }} results for “{{ .Term }}”"

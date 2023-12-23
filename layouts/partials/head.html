@@ -59,6 +59,75 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 {{- end }}
+
+{{- if and .Site.Params.lunrSearch -}}
+  {{- if .Site.Params.selfHosted -}}
+    <script src="{{ "vendor/lunr/lunr.min.js" | absURL }}"></script>
+  {{- else -}}
+    <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli" crossorigin="anonymous"></script>
+  {{- end -}}
+
+  {{- $lang := substr .Site.Language.Lang 0 2 -}}
+  {{- if ne $lang "en" -}}
+    {{- $supported := dict
+      "ar" "PK5uc23sTfaefRIgkr2WwHT10a5kwgAdcWY6C3Pyn8dWmS7pP78yqP0cfTtLuAnD"
+      "da" "m41NvnAVhiFbve9hb+BVVlIzo6d+jS/YLhh2gRMqjCQeoUzwrCaAjAfCD2+aCzmB"
+      "de" "QW+2znawu2QewLDhHebnhId1cgeh1dKtEqwPYTPaZcUHzs5RMSyJdbqqi33W1XXW"
+      "du" "uoqsZgpqpcn1GWuOV2Jl+bpAHeoyb0ckzCZNLn8b90TsEhjd0luyQBQ5qe92Mg1H"
+      "el" "P9Jp9lu6gfSDuCCV7t0w77NtsBnlTEyzdwGwMWwsapfDjVIuUJbY+aA/WKPCDfpC"
+      "es" "0uDB/uXtXqcvIqHmvTGdpvc+f18RLubUfvk5WE3KXX8q2kd8IvB+waXzBs0jc/d/"
+      "fi" "WyKXmuuGDqfa8gcDrNX9oI9y+uMrsXL0bOriLM5wr836sqbfUE6Xh62MYNWY94kh"
+      "fr" "nvbGgUhNgAwhxsaGsCRuu0fdNYWsSxk6mW4HmJdHlT+pvbiEBUdG8j9pWFLtLxkz"
+      "he" "O2pa9SyseQAR5YOdddtBIYVoheGJVw4bSGLHC1VjjhFRt/AtDDw+4pmikUYftsrL"
+      "hi" "IQNPFqApFAwbMgPWkQyEBO5rB1w1ailvpPa7Q47q1WCn///T7+T37aNH41ZVpbPJ"
+      "hu" "4p0zjfM1qjjoAqP4qYJ3Jn/aokf3+nRfhVmwmz+bGDCKiifJkSDVMcsQf4Cl1FYa"
+      "hy" "0zz5fTYfAIJwyj65c2IFJh+du3k6WJuj3tLGFTd0DmDkFigr69WhHNezCxoPPgwz"
+      "it" "qsvt0gcZU6vp4rdh/Yc0jLrDW4jzyT4xNW0nvmlXSQ0OKOF73v3YC5U4iLjqWwQM"
+      "ja" "KaH+nXLoz9Y5m+In1HnrfJd/NQWOtZgW9SRC3roMlZn/U6KAEcOZpI2Pb0/NE4HO"
+      "jp" "cqlcffA4tMo0UePBUBlMkCHR/oUqRFZqko1Dnv050H1ZriQL5DgPVbn42Z6pKMHw"
+      "kn" "/hKm3ST0cCO3++f3TxtGagomh7xxuo4RUE0sOflcLluKvdhLcJO6uC+8pbnzKK2+"
+      "ko" "VKzrYU32smOCSFlBGsqhAi8eHR4usSPHg3+n90teKDaP5zb2MrL3tZ/jdlbXprR4"
+      "nl" "ckDQKvpTFnZanj4TPgJjrZWVbdx8fh7Ny7W280jfu73pBoOjEypg8xoYEjdD3jom"
+      "no" "FSPPn9aVteFXZLWA0RGRVgkcNd6KNkDwomZv40WR5djvZKTtGFPXUzIsA/2b1D1w"
+      "pt" "217HjdynnwJlbugAE0+W3DfqgYXLZIrh+vjqhkQC19znmkWLw3WskvLqcVqM3/Ws"
+      "ro" "rZWSvextXtFzranPekMEHS/gS6XR0YAJi5LmMtvMM+hlVcRJhgoSBZU61F2n9iDD"
+      "ru" "EE/bXBM0dvjjZN4HpfGRzpTiSY0v+3ZDdRQhaJGa06XO7rFruC+8VUD7LWlLxzSF"
+      "sa" "jOxGXBqJacrJq7c8PeUEyj3w8hLi+n85Lmb61zVvG972wDKt8UcdopADPbI1P0Pr"
+      "sv" "NTziweB+rJlGEGRqs19vauwPhkFfgho2EycPyFK4PJfmQ1WrgZ4k4m0qeYpFvktr"
+      "ta" "1RIOBm4POVDLjGeGnHzhNLT0X2LzbPDimE6psf+KnmuGqTA41+nWHgXZI/Fu5rgq"
+      "te" "u7insKxKAU1j7RdiN6PjD5MMBpArKJPyGli33rJS5ohvXAd0mn9Ppys4pKlFwZ4w"
+      "th" "lHyW68gD5doLjwsor+YzuueqfJr+vef+BEcjetM7tJyi9k+fPDPkKId5WAVVwUmJ"
+      "tr" "EBYahmq5J/jx3JeRV2Lj/GHiHb5Tc6Jj3JCar1hogZd8tawvFRASFl1MQFgDk/rr"
+      "vi" "DPTBtjZHpAKy/VbSVLodjP9Xp+knTyFXMXEhIq8U+Gx2qqKh8vd5LWg6Ea/I3BsU"
+      "zh" "/v3iS+WlZHJRZP95jwYmAJvVbF8TqcUcHITaV7QZ4Bfk7ARCUrPnFarwsWRvF4QU"
+    -}}
+
+    {{- if isset $supported $lang -}}
+      {{- if .Site.Params.selfHosted -}}
+        {{- if eq $lang "ja" -}}
+          <script src="{{ "vendor/lunr/tinyseg.js" | absURL }}"></script>
+        {{- end -}}
+        <script src="{{ "vendor/lunr/lunr.stemmer.support.js" | absURL }}"></script>
+        <script src="{{ fmt.Print "vendor/lunr/lunr." $lang ".js" | absURL }}"></script>
+      {{- else -}}
+        {{- if eq $lang "ja" -}}
+          <script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/tinyseg.js" integrity="sha384-a47JdEnCLFICCCOfV7t/64KguoiCa9QAdTQMSxuSezSbOIohF6h+ap4fr3OWx+cn" crossorigin="anonymous"></script>
+        {{- end -}}
+        <script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/lunr.stemmer.support.js" integrity="sha384-cNMzF77Cs0v2yLtePgqS6A5MwbVWQjEOk/zv3e88sNiFe+opc629fFoPmfZ+6IEf" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/lunr.{{ $lang }}.js" integrity="sha384-{{ index $supported $lang }}" crossorigin="anonymous"></script>
+      {{- end -}}
+    {{- else -}}
+      {{- $keys := slice -}}
+      {{- range $k, $v := $supported -}}
+        {{- $keys = append $k $keys -}}
+      {{- end -}}
+      {{- warnf "The site language %q isn't supported by lunr, the search results might be suboptimal. Supported languages are: %q" .Site.Language.Lang $keys -}}
+    {{- end -}}
+  {{- end -}}
+
+  <script src="{{ "js/lunr-search.js" | absURL }}" data-index="{{ (resources.Get "json/search.json" | resources.ExecuteAsTemplate "/search.json" ($.GetPage "/")).RelPermalink }}"></script>
+{{- end -}}
+
 <link rel="stylesheet" href="{{ "css/main.css" | absURL }}">
 <link disabled id="dark-mode-theme" rel="stylesheet" href="{{ "css/dark.css" | absURL }}">
 
