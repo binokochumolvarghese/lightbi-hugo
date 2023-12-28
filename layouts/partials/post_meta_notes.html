@@ -4,7 +4,7 @@
 
   {{ $datestr }}
 
-  {{ if ne $datestr $lastmodstr }}
+  {{ if and .Site.Params.lastmod (ne $datestr $lastmodstr) }}
   {{ i18n "lastModified" $lastmodstr }}
   {{ end }}
 
