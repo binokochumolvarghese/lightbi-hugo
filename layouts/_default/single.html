@@ -4,17 +4,11 @@
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
 
       <div class="card-image card-image-blog p-0">
-
-        {{ if .Params.image }}
-        {{ with resources.Get .Params.image }}
-        {{ with .Err }}
-        {{ warnf "%s" . }}
-        {{ else }}
-
-        <img src="{{ .RelPermalink }}" alt="{{ .Title }}" class="card-img-bottom rounded img-fluid lazyload">
-        {{ end }}
-
-        {{ end }}
+        {{ $ := . }}
+        {{ with partial "get_image" . }}
+          {{ if not (strings.Contains $.Content $.Params.image) }}
+            <img src="{{ .RelPermalink }}" alt="{{ .Title }}" class="card-img-bottom rounded img-fluid lazyload">
+          {{ end }}
         {{ end }}
 
 
@@ -69,7 +63,7 @@
             </div>
           </div>
 
-         
+
           <div class="col-md-10">
             <div class="card-body p-1.1">
               <p class="p-0 m-0"><small class="text-muted">Written By</small></p>
@@ -81,7 +75,7 @@
                 {{ .Site.Author.name | safeHTML }}
                 {{ end }}
 
-              </p> 
+              </p>
               {{ if .Site.Params.authorInfo }}
               <p class="card-text fs-6  m-0">{{ .Site.Params.authorInfo | safeHTML }}</p>
               {{ end }}
@@ -134,7 +128,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 mt-3">
-        <h3>Read more</h3>
+        <h3>{{ i18n "readMore" }}</h3>
         <hr />
       </div>
 

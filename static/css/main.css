@@ -1170,3 +1170,25 @@ ul.share li:hover .fab {
 .flex-row {
   flex-direction: row;
 }
+
+/* --- Dark mode --- */
+
+:root[data-theme="dark"] {
+  background-color: #171717 !important;
+  filter: invert(100%) hue-rotate(180deg) brightness(105%) contrast(85%);
+  -webkit-filter: invert(100%) hue-rotate(180deg) brightness(105%) contrast(85%);
+}
+:root[data-theme="dark"] body {
+  background-color: #FFF !important;
+}
+:root[data-theme="dark"] img,
+:root[data-theme="dark"] video,
+:root[data-theme="dark"] iframe,
+:root[data-theme="dark"] body [style*="background-image"] {
+  filter: hue-rotate(180deg) contrast(100%) invert(100%);
+  -webkit-filter: hue-rotate(180deg) contrast(100%) invert(100%);
+}
+:root[data-theme="dark"] #dark-mode-toggle::before {
+  /* Convert to .bi-sun */
+  content: "\f5a2";
+}
