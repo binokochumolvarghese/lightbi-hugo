@@ -52,6 +52,7 @@
 
 <!-- Links and stylesheets -->
 <link rel="alternate" href="{{ "index.xml" | absLangURL }}" type="application/rss+xml" title="{{ .Site.Title }}">
+<script src="{{ "js/dark-mode.js" | absURL }}"></script>
 {{- if .Site.Params.selfHosted -}}
 <link rel="stylesheet" href="{{ "vendor/bootstrap/css/bootstrap.min.css" | absURL }}">
 <link rel="stylesheet" href="{{ "vendor/bootstrap-icons/bootstrap-icons.css" | absURL }}">
@@ -60,7 +61,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 {{- end }}
 <link rel="stylesheet" href="{{ "css/main.css" | absURL }}">
-<link disabled id="dark-mode-theme" rel="stylesheet" href="{{ "css/dark.css" | absURL }}">
 
 {{- if .Site.Params.useHLJS }}
 <link rel="stylesheet" href="{{ "css/highlight.min.css" | absURL }}">
