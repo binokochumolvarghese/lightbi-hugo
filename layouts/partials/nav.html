@@ -5,7 +5,7 @@
 
       <nav class="navbar navbar-expand-lg navbar-light fixed-top p-0">
         <div class="container">
-          
+
           <a class="navbar-brand fw-bold" href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +13,7 @@
           </button>
 
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav mb-2 mb-lg-0">
+            <ul class="navbar-nav mb-2 mb-lg-0 align-items-baseline">
               {{ range .Site.Menus.main.ByWeight }}
               {{ if .HasChildren }}
               <li class="nav-item">
@@ -40,12 +40,53 @@
 
               {{ end }}
               {{ end }}
-              
+
               <li class="nav-item nav-link">
                 <a id="dark-mode-toggle" class="bi bi-moon-stars" role="button"></a>
               </li>
-              
+
+              {{ if .Site.Params.lunrSearch }}
+              <li class="nav-item search-item">
+                <form id="search" class="search" role="search">
+                  <label for="search-input" class="bi bi-search search-icon"></label>
+                  <input type="search" id="search-input" class="search-input">
+                </form>
+              </li>
+              {{ end }}
             </ul>
+
+            {{ if .Site.Params.lunrSearch }}
+            <template id="search-heading" hidden
+                data-results-none="{{ i18n "noSearchResults" (dict "Term" "{}") }}"
+                data-results-one="{{ i18n "someSearchResults" (dict "Count" 1 "Term" "{}") }}"
+                data-results-many="{{ i18n "someSearchResults" (dict "Count" 13579 "Term" "{}") }}"
+            >
+              <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
+                  <h1 id="search-title" class="search-title"></h1>
+                </div>
+              </div>
+            </template>
+
+            <template id="search-result" hidden>
+              <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
+                  <article class="content post">
+                    <h2><a class="summary-title-link"></a></h2>
+                    <div class="post-entry"></div>
+                    <div class="read-more-section">
+                      <h6 class="text-muted link-underline">
+                        <a class="read-more-link">
+                          {{ i18n "readMore" }}
+                          <i class="bi bi-arrow-right"></i>
+                        </a>
+                      </h6>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </template>
+            {{ end }}
           </div>
         </div>
       </nav>

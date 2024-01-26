@@ -76,3 +76,11 @@
 # Related posts
 - id: seeAlso
   translation: "Siehe auch"
+
+# Search
+- id: noSearchResults
+  translation: "Suchbegriff „{{ .Term }}“ wurde nicht gefunden"
+- id: someSearchResults
+  translation:
+    one: "Ein Suchergebnis für „{{ .Term }}“ gefunden"
+    other: "{{ .Count }} Suchergebnisse für „{{ .Term }}“ gefunden"
