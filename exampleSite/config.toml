@@ -15,6 +15,7 @@ pygmentsCodefencesGuessSyntax = true
 enableRobotsTXT = true
 enableGitInfo = false
 Paginate = 6
+summaryLength  = "30"
 
 [Params]
 selfHosted = true
@@ -29,6 +30,7 @@ delayDisqus = true
 showRelatedPosts = true
 summaryLength  = "9"
 lunrSearch = true
+gcse = false
 lastmod = false
 rss = false
 pagination = "10"
