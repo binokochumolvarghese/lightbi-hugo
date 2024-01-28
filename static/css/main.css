@@ -163,6 +163,12 @@ img {
 
 /* --- Navbar --- */
 
+@media (max-width: 992px) {
+  .fixed-top {
+    position: absolute;
+  }
+}
+
 .navbar-custom {
   background: #ffffff;
   border-bottom: 1px solid #EAEAEA;
