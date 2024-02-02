@@ -22,12 +22,14 @@ Lightbi is a minimal and clean blog theme for Hugo.
 - Menu location indicator.
 - Multilingual support. (with language selector)
 - Taxonomies.
+- Search option.
 - Light/Dark theme (automatic theme switch a/c to browser theme and theme-switch button).
 - Google Analytics.
 - SEO Friendly.
 - Commit SHA on the footer.
 - Self Hosted assets for GDPR / EU-DSGVO compliance.
 - Beautiful icons with Bootstrap Icons.
+
 
 ### Page
 - Other Posts suggestion below a post
