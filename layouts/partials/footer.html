@@ -24,7 +24,7 @@
           {{ end }}
           {{ if .Site.Params.rss }}
           <li>
-            <a href="{{ with .OutputFormats.Get " RSS" }}{{ .RelPermalink }}{{ end }}" title="RSS">
+            <a href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" title="RSS">
               <span class="mx-2">
                 <i class="bi bi-rss"></i>
               </span>
