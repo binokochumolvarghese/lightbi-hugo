@@ -1,20 +1,20 @@
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
     <a href="{{ .Permalink }}">
         <div class="card single-post-card h-100 shadow-effect border">
-
-            <h3 class="fw-bold post-title">{{ .Title }}</h3>
-            {{ if .Params.subtitle }}
-            <h3 class="post-subtitle">
-                {{ .Params.subtitle }}
-            </h3>
-            {{ end }}
-            <p class="post-meta">
-                {{ partial "post_meta_notes.html" . }}
-            </p>
+            <div class="card-body">
+                <h3 class="fw-bold post-title">{{ .Title }}</h3>
+                {{ if .Params.subtitle }}
+                <h3 class="post-subtitle">
+                    {{ .Params.subtitle }}
+                </h3>
+                {{ end }}
+                <p class="post-meta">
+                    {{ partial "post_meta_notes.html" . }}
+                </p>
+            </div>
 
             {{ with partial "get_image" . }}
-            <img src="{{ ( .Resize " 500x" ).RelPermalink }}" alt="{{ .Title }}"
-                class="card-img-top img-fluid lazyload">
+            <img src="{{ ( .Resize " 500x" ).RelPermalink }}" alt="{{ .Title }}" class="img-fluid lazyload">
             {{ end }}
 
             {{ if .Params.video }}
@@ -22,17 +22,12 @@
                 <source src="{{ .Params.video }}">
             </video>
             {{ end }}
+
             <div class="card-body">
-
-
-
-                
                 {{ print }}
                 <div class="post-entry">
-
                     {{ if .Description }}
                     {{ .Description }}
-
                     {{ else }}
                     {{ .Summary }}
                     {{ end }}
