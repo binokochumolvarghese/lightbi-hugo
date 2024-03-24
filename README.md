@@ -46,7 +46,7 @@ hugo new site <name of site>
 cd <name of site>
 git init
 git submodule add https://github.com/binokochumolvarghese/lightbi-hugo themes/lightbi-hugo
-echo "theme = 'lightbi-hugo'" >> config.toml
+echo "theme = 'lightbi-hugo'" >> hugo.toml
 hugo server
 ```
 
