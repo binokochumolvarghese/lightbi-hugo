@@ -32,7 +32,7 @@ icon = "bi bi-bitbucket"
 id = "twitter"
 url = "https://twitter.com/%s"
 title = "Twitter"
-icon = "bi bi-twitter"
+icon = "bi bi-twitter-x"
 
 [[social_icons]]
 id = "slack"
@@ -44,7 +44,7 @@ icon = "bi bi-slack"
 id = "reddit"
 url = "https://reddit.com/u/%s"
 title = "Reddit"
-icon = "bi bi-reddit-alien"
+icon = "bi bi-reddit"
 
 [[social_icons]]
 id = "linkedin"
@@ -68,7 +68,7 @@ icon = "bi bi-stack-overflow"
 id = "snapchat"
 url = "https://www.snapchat.com/add/%s"
 title = "Snapchat"
-icon = "bi bi-snapchat-ghost"
+icon = "bi bi-snapchat"
 
 [[social_icons]]
 id = "instagram"
