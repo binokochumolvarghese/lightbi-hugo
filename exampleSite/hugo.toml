@@ -20,7 +20,7 @@ summaryLength  = "30"
 [Params]
 selfHosted = true
 mainSections = ["post","posts"]
-dateFormat = "2 January 2023"
+dateFormat = "02 January 2006"
 comments = false
 readingTime = false
 wordCount = false
