@@ -35,15 +35,14 @@ lastmod = false
 rss = false
 pagination = "10"
 hideAuthor = false
-authorInfo = "She was born to be free, let her run wild in her own way and you will never lose her."
 description="Your can add your website description here."
 previewCardImagePlacement = "bottom"
 
-
-[sitemap]
-  changefreq = "monthly"
-  priority = 0.5
-  filename = "sitemap.xml"
+[Params.Author]
+  name = "Bino Kochumol Varghese"
+  website = "https://www.binovarghese.com/"
+  authorInfo = "She was born to be free, let her run wild in her own way and you will never lose her."
+  authorPostImage = "/img/author-post-img.jpg"
 
 [Author]
   name = "Bino Kochumol Varghese"
@@ -102,4 +101,8 @@ previewCardImagePlacement = "bottom"
     weight = 5
 
 
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"
 
