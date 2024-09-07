@@ -33,7 +33,7 @@ Lightbi is a minimal and clean blog theme for Hugo.
 
 
 ### Page
-- Other Posts suggestion below a post
+- Other Posts suggestion below a post.
 - Social-Media Share buttons on posts.
 - Syntax highlighting.
 - Cover image for each post (with Responsive image support).
