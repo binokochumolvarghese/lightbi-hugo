@@ -1,6 +1,6 @@
 # Lightbi 
 
-Lightbi is a minimal and clean blog theme for Hugo.
+Lightbi is a sleek, minimalistic, and clean blog theme designed for Hugo, offering a simple yet elegant user experience.
 
 🌍 [Demo site](https://lightbi-hugo-theme.netlify.app/)  
 📁 [Demo repo](https://github.com/binokochumolvarghese/lightbi-hugo-demo)  
@@ -14,7 +14,7 @@ Lightbi is a minimal and clean blog theme for Hugo.
 ## Features
 
 ### General
-- **Three Main Content Sections**:
+- **Three Main Content Sections:**
   - **Blog**
   - **Notes**
   - **Collections** (Newsletter)
