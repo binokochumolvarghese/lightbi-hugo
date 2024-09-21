@@ -1,5 +1,6 @@
 baseURL = "https://lightbi-hugo-theme.netlify.app/"
 DefaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
 languageCode = "en-us"
 title = "Lightbi"
 theme = "lightbi-hugo"
@@ -41,7 +42,7 @@ previewCardImagePlacement = "bottom"
 [Params.Author]
   name = "Bino Kochumol Varghese"
   website = "https://www.binovarghese.com/"
-  authorInfo = "She was born to be free, let her run wild in her own way and you will never lose her."
+  authorInfo = ""Live your life as though every moment matters, because in the end, it's not the years in your life, but the life in your years that counts.""
   authorPostImage = "/img/author-post-img.jpg"
 
 [Author]

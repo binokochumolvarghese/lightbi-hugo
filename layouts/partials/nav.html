@@ -27,7 +27,6 @@
               {{ else }}
 
               <li class="nav-item">
-
                 {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
                 {{ $active = or $active (eq .Name $current.Title) }}
                 {{ $active = or $active (and (eq .Name "Notes") (eq $current.Section "notes")) }}
@@ -41,10 +40,33 @@
               {{ end }}
               {{ end }}
 
+
+            <!-- Language Switcher -->    
+            {{ if hugo.IsMultilingual }}
+              {{ with .AllTranslations }}
+              <li class="nav-item dropdown">
+                <button class="p-1 bg-light rounded dropdown-toggle border " data-bs-toggle="dropdown" aria-expanded="false"> 
+                  {{ $.Language.Lang }} 
+                </button>
+              <ul class="dropdown-menu ">
+                {{ range . }}
+                {{ if eq .Language.Lang $.Language.Lang }}
+                <li><a class="dropdown-item active" aria-current="page" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
+                {{ else }}
+                <li><a class="dropdown-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
+                {{ end }}
+                {{ end }}
+              </ul>
+              </li>
+              {{ end }}
+            {{ end }}
+
+            <!-- Theme switcher -->
               <li class="nav-item nav-link">
                 <a id="dark-mode-toggle" class="bi bi-moon-stars" role="button"></a>
               </li>
 
+              <!-- Lunar search -->
               {{ if .Site.Params.lunrSearch }}
               <li class="nav-item search-item">
                 <form id="search" class="search" role="search">
@@ -56,11 +78,9 @@
             </ul>
 
             {{ if .Site.Params.lunrSearch }}
-            <template id="search-heading" hidden
-                data-results-none="{{ i18n "noSearchResults" (dict "Term" "{}") }}"
-                data-results-one="{{ i18n "someSearchResults" (dict "Count" 1 "Term" "{}") }}"
-                data-results-many="{{ i18n "someSearchResults" (dict "Count" 13579 "Term" "{}") }}"
-            >
+            <template id="search-heading" hidden data-results-none="{{ i18n " noSearchResults" (dict "Term" "{}" ) }}"
+              data-results-one="{{ i18n " someSearchResults" (dict "Count" 1 "Term" "{}" ) }}"
+              data-results-many="{{ i18n " someSearchResults" (dict "Count" 13579 "Term" "{}" ) }}">
               <div class="row">
                 <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
                   <h1 id="search-title" class="search-title"></h1>
