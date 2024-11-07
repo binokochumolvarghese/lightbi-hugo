@@ -12,9 +12,9 @@
           class="list-inline list-group list-group-horizontal text-center footer-links d-flex justify-content-center flex-row">
 
           {{ range .Site.Data.lightbi.social.social_icons }}
-          {{- if isset $.Site.Author .id }}
+          {{- if isset $.Site.Params.Author .id }}
           <li>
-            <a href="{{ printf .url (index $.Site.Author .id) }}" title="{{ .title }}" target="_blank">
+            <a href="{{ printf .url (index $.Site.Params.Author .id) }}" title="{{ .title }}" target="_blank">
               <span class="mx-2">
                 <i class="{{ .icon }}"></i>
               </span>
@@ -38,11 +38,11 @@
     <div class="row">
       <div class="col-md-12">
         <p class="credits copyright text-muted">
-          {{ if .Site.Author.name }}
-          {{ if .Site.Author.website }}
-          <a href="{{ .Site.Author.website }}">{{ .Site.Author.name }}</a>
+          {{ if .Site.Params.Author.name }}
+          {{ if .Site.Params.Author.website }}
+          <a href="{{ .Site.Params.Author.website }}">{{ .Site.Params.Author.name }}</a>
           {{ else }}
-          {{ .Site.Author.name }}
+          {{ .Site.Params.Author.name }}
           {{ end }}
           {{ end }}
 

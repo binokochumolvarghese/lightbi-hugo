@@ -15,8 +15,11 @@ pygmentsCodefencesGuessSyntax = true
 #googleAnalytics = "XXX"
 enableRobotsTXT = true
 enableGitInfo = false
-Paginate = 6
 summaryLength  = "30"
+ignoreLogs = ['warning-goldmark-raw-html']
+
+[pagination]
+pagerSize = 6
 
 [Params]
 selfHosted = true
