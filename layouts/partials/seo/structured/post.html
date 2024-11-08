@@ -10,15 +10,10 @@
   },
   "description" : "{{ if .Description }}{{ .Description | plainify }}{{ else }}{{if .IsPage}}{{ .Summary | plainify  }}{{ end }}{{ end }}",
   "inLanguage" : "{{ .Lang }}",
-  {{ if .Params.author -}}
+  {{ if .Site.Params.author -}}
     "author": {
       "@type": "Person",
-      "name": "{{ .Params.author }}"
-  },
-  {{- else if .Site.Author.name -}}
-    "author": {
-      "@type": "Person",
-      "name": "{{ .Site.Author.name }}"
+      "name": "{{ .Site.Params.author }}"
   },
   {{- end }}
   "copyrightYear" : "{{ .Site.Params.since }} - {{ .Site.Lastmod.Format "2006" }}",

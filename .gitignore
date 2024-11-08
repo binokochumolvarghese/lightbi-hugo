@@ -1,5 +1,7 @@
-# website builed is excluding
+# website build is excluding
 public/
+.hugo_build.lock
+resources/
 
 # Windows image file caches
 Thumbs.db

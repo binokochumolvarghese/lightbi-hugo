@@ -3,11 +3,11 @@ title: How to use this Hugo theme ?
 date: 2021-02-02
 tags: ["hugo","blog"]
 image : "/img/posts/img-3.jpg"
-Description  : "After downloding the theme, uzip the file and go to the'lightbi-hugo-master' folder. Open the folder in you editor..."
+Description  : "After downloading the theme, unzip the file and go to the'lightbi-hugo-master' folder. Open the folder in you editor..."
 featured: true
 ---
 
-After downloding the theme, uzip the file and go to the 'lightbi-hugo-master' folder. Open the folder in you editor and run the hugo build command as below.
+After downloading the theme, unzip the file and go to the 'lightbi-hugo-master' folder. Open the folder in you editor and run the hugo build command as below.
 
 ```bash
 hugo
