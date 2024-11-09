@@ -47,10 +47,6 @@ previewCardImagePlacement = "bottom"
   website = "https://www.binovarghese.com/"
   authorInfo = "Live your life as though every moment matters, because in the end, it's not the years in your life, but the life in your years that counts."
   authorPostImage = "/img/author-post-img.jpg"
-
-[Author]
-  name = "Bino Kochumol Varghese"
-  website = "https://binovarghese.com"
   email = "sample@gmail.com"
   facebook = "username"
   instagram = "username"
