@@ -79,6 +79,12 @@
 {{- if .Site.Params.useHLJS }}
 <script src="{{ "js/highlight.min.js" | absURL }}"></script>
 <script> hljs.initHighlightingOnLoad(); </script>
-<script> $(document).ready(function () { $("pre.chroma").css("padding", "0"); }); </script>
+<script> 
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("pre.chroma").forEach(function (element) {
+      element.style.padding = "0";
+    });
+  });
+</script>
 {{- end -}}
 {{- partial "footer_custom.html" . }}
