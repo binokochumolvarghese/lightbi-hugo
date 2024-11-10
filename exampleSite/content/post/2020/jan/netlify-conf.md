@@ -2,7 +2,7 @@
 title: Host in Netlify
 date: 2020-01-04
 tags: ["hugo","Netlify"]
-image : "/img/posts/img-10.jpg"
+image : "/img/posts/img-5.jpg"
 Description  : "You can host your static website wth zero cost in Netlify. Add the below netlify.toml in the root. And you can upload the public folder directly..."
 ---
 You can host your static website wth zero cost in [Netlify](https://www.netlify.com/).
