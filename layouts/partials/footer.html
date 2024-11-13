@@ -80,11 +80,12 @@
 <script src="{{ "js/highlight.min.js" | absURL }}"></script>
 <script> hljs.initHighlightingOnLoad(); </script>
 <script> 
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll("pre.chroma").forEach(function (element) {
-      element.style.padding = "0";
-    });
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("pre.chroma").forEach(function (element) {
+    element.style.padding = "0";
   });
-</script>
+});
+ </script>
 {{- end -}}
+
 {{- partial "footer_custom.html" . }}
