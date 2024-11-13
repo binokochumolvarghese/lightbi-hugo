@@ -1,8 +1,9 @@
 {{ define "main" }}
 <div class="container" role="main">
   <div class="row">
-    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
 
+    {{ if .Site.Params.hidePostImage }}
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
       <div class="card-image card-image-blog p-0">
         {{ $ := . }}
         {{ with partial "get_image" . }}
@@ -19,6 +20,7 @@
         {{ end }}
       </div>
     </div>
+    {{ end }}
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
@@ -27,7 +29,7 @@
     </div>
   </div>
 
-  {{ if or .Params.tags (not .Site.Params.hideAuthor) ($.Param "socialShare") (ne .Type "page") }}
+  {{ if or .Params.tags  ($.Param "socialShare") (ne .Type "page") }}
   <div class="row">
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
       <hr class="m-0"/>
@@ -53,7 +55,7 @@
     </div>
 
     {{ if not .Site.Params.hideAuthor }}
-    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 mt-3">
+    <!-- <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 mt-3">
       <div class="card">
         <div class="row no-gutters">
 
@@ -87,7 +89,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     {{ end }}
 
     <div class="col-lg-8 offset-lg-2 col-md-12 offset-md-1 pt-4">
