@@ -476,6 +476,16 @@ footer .theme-by {
 
 /* --- Post preview --- */
 
+.blog-post h1, 
+.blog-post h2, 
+.blog-post h3, 
+.blog-post h4, 
+.blog-post h5, 
+.blog-post h6 {
+  margin-top: 1.5em;
+  margin-bottom: .5em;
+}
+
 .post-preview {
   padding: 20px 0;
   border-bottom: 1px solid #eee;
@@ -653,7 +663,6 @@ footer .theme-by {
 }
 
 .intro-header {
-  margin: 50px 0 20px;
   position: relative;
   margin-top: 130px;
 }
@@ -1193,7 +1202,7 @@ ul.share li:hover .fab {
   -webkit-filter: invert(100%) hue-rotate(180deg) brightness(105%) contrast(85%);
 }
 :root[data-theme="dark"] body {
-  background-color: #FFF !important;
+  background-color: #FFF !important;  
 }
 :root[data-theme="dark"] img,
 :root[data-theme="dark"] video,
