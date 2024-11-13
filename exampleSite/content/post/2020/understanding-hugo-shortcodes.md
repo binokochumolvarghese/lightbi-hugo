@@ -67,7 +67,7 @@ Here are a few popular Hugo shortcodes and how to use them:
    ```
 
    Rendered:
-   {{< twitter user="binovarghese_" id="1758148486510317907" >}}
+   {{</* twitter user="binovarghese_" id="1758148486510317907" */>}}
 
 ### Benefits of Shortcodes
 Using shortcodes in Hugo streamlines content creation and ensures consistency across pages, saving time on repeated elements and complex HTML structures. With custom shortcodes, you can build rich, interactive content while keeping Markdown files clean and easy to manage.
