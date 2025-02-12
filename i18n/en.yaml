@@ -22,9 +22,13 @@
 - id: nextPost
   translation: "Next Post"
 - id: readTime
-  translation: "minutes"
+  translation:
+    one: "minute"
+    other: "minutes"
 - id: words
-  translation: "words"
+  translation:
+    one: "word"
+    other: "words"
 
 
 # 404 page
@@ -67,8 +71,17 @@
 - id: show
   translation: "Show"
 - id: comments
-  translation: "comments" 
+  translation: "comments"
 
 # Related posts
 - id: seeAlso
   translation: "See also"
+
+# Search
+- id: noSearchResults
+  translation: "No results found for “{{ .Term }}”"
+
+- id: someSearchResults
+  translation:
+    one: "Found one result for “{{ .Term }}”"
+    other: "Found {{ .Count }} results for “{{ .Term }}”"

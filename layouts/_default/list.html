@@ -7,10 +7,10 @@
         <div class="well">
           {{.}}
         </div>
-      {{ end }} 
+      {{ end }}
       <div class="row">
         {{ range .Paginator.Pages }}
-          {{ partial "post_preview.html" .}}
+          {{ partial "post_preview_card" .}}
         {{ end }}
       </div>
     </div>
@@ -18,13 +18,13 @@
 </div>
 
 <div class="container">
- <div class="row font-sans"> 
+ <div class="row font-sans">
    <div class="col-md-12 mt-10">
-      <nav aria-label="Page navigation"> 
-      <ul class= "pagination justify-content-end">    
-      {{ template "_internal/pagination.html" . }} 
+      <nav aria-label="Page navigation">
+      <ul class= "pagination justify-content-end">
+      {{ template "_internal/pagination.html" . }}
       </ul>
-      </nav> 
+      </nav>
     </div>
   </div>
 </div>

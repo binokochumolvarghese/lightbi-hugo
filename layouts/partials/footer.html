@@ -12,9 +12,9 @@
           class="list-inline list-group list-group-horizontal text-center footer-links d-flex justify-content-center flex-row">
 
           {{ range .Site.Data.lightbi.social.social_icons }}
-          {{- if isset $.Site.Author .id }}
+          {{- if isset $.Site.Params.Author .id }}
           <li>
-            <a href="{{ printf .url (index $.Site.Author .id) }}" title="{{ .title }}" target="_blank">
+            <a href="{{ printf .url (index $.Site.Params.Author .id) }}" title="{{ .title }}" target="_blank">
               <span class="mx-2">
                 <i class="{{ .icon }}"></i>
               </span>
@@ -24,7 +24,7 @@
           {{ end }}
           {{ if .Site.Params.rss }}
           <li>
-            <a href="{{ with .OutputFormats.Get " RSS" }}{{ .RelPermalink }}{{ end }}" title="RSS">
+            <a href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" title="RSS">
               <span class="mx-2">
                 <i class="bi bi-rss"></i>
               </span>
@@ -38,19 +38,19 @@
     <div class="row">
       <div class="col-md-12">
         <p class="credits copyright text-muted">
-          {{ if .Site.Author.name }}
-          {{ if .Site.Author.website }}
-          <a href="{{ .Site.Author.website }}">{{ .Site.Author.name }}</a>
+          {{ if .Site.Params.Author.name }}
+          {{ if .Site.Params.Author.website }}
+          <a href="{{ .Site.Params.Author.website }}">{{ .Site.Params.Author.name }}</a>
           {{ else }}
-          {{ .Site.Author.name }}
+          {{ .Site.Params.Author.name }}
           {{ end }}
           {{ end }}
 
           &nbsp;&bull;&nbsp;&copy;
           {{ if .Site.Params.since }}
-          {{ .Site.Params.since }} - {{ .Site.LastChange.Format "2006" }}
+          {{ .Site.Params.since }} - {{ .Site.Lastmod.Format "2006" }}
           {{ else }}
-          {{ .Site.LastChange.Format "2006" }}
+          {{ .Site.Lastmod.Format "2006" }}
           {{ end }}
 
           {{ if .Site.Title }}
@@ -69,18 +69,22 @@
 </footer>
 
 {{- if .Site.Params.selfHosted -}}
-<script src="{{ "js/jquery-3.7.0.slim.min.js" | absURL }}"></script>
-<script src="{{ "js/bootstrap.min.js" | absURL }}"></script>
+<script src="{{ "vendor/bootstrap/js/bootstrap.bundle.min.js" | absURL }}"></script>
 {{- else -}}
-<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 {{- end }}
 
 
 {{- if .Site.Params.useHLJS }}
 <script src="{{ "js/highlight.min.js" | absURL }}"></script>
 <script> hljs.initHighlightingOnLoad(); </script>
-<script> $(document).ready(function () { $("pre.chroma").css("padding", "0"); }); </script>
+<script> 
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("pre.chroma").forEach(function (element) {
+    element.style.padding = "0";
+  });
+});
+ </script>
 {{- end -}}
-<script src="{{ "js/dark-mode.js" | absURL }}"></script>
+
 {{- partial "footer_custom.html" . }}

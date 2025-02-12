@@ -14,14 +14,12 @@
 
     {{ $pag := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections ) 9 }}
     {{ range $pag.Pages }}
-    {{ partial "post_preview" . }}
+    {{ partial "post_preview_card" . }}
     {{ end }}
 
 
   </div>
-</div>
 
-<div class="container">
   <div class="row font-sans">
     <div class="col-md-12 mt-10">
       <nav aria-label="Page navigation">

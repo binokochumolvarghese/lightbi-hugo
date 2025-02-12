@@ -18,22 +18,26 @@
 - id: newerPosts
   translation: "Neuere Posts"
 - id: previousPost
-  translation: "Letzter Post"
+  translation: "Vorheriger Post"
 - id: nextPost
   translation: "Nächster Post"
 - id: readTime
-  translation: "Minuten"
+  translation:
+    one: "Minute"
+    other: "Minuten"
 - id: words
-  translation: "Wörter"
+  translation:
+    one: "Wort"
+    other: "Wörter"
 
 
 # 404 page
 - id: pageNotFound
-  translation: "Ups, diese Seite existiert nicht. (404 Error)"
+  translation: "Ups, diese Seite existiert nicht. (404 Fehler)"
 
 # Footer
 - id: poweredBy # Accepts HTML
-  translation: 'Powered by <a href="https://gohugo.io">Hugo</a> & <a href="https://github.com/binokochumolvarghese/lightbi-hugo">Lightbi.</a>&nbsp; Made with ❤ by <a href="https://binovarghese.com">Bino</a>'
+  translation: 'Erstellt mit <a href="https://gohugo.io">Hugo</a> & <a href="https://github.com/binokochumolvarghese/lightbi-hugo">Lightbi.</a>&nbsp; Mit ❤ gemacht von <a href="https://binovarghese.com">Bino</a>'
 
 # Navigation
 - id: toggleNavigation
@@ -43,7 +47,7 @@
 - id: gcseLabelShort
   translation: "Suche"
 - id: gcseLabelLong
-  translation: "Suche {{ .Site.Title }}"
+  translation: "{{ .Site.Title }} durchsuchen"
 - id: gcseClose
   translation: "Schließen"
 
@@ -67,8 +71,16 @@
 - id: show
   translation: "Zeige"
 - id: comments
-  translation: "Kommentare" 
+  translation: "Kommentare"
 
 # Related posts
 - id: seeAlso
   translation: "Siehe auch"
+
+# Search
+- id: noSearchResults
+  translation: "Suchbegriff „{{ .Term }}“ wurde nicht gefunden"
+- id: someSearchResults
+  translation:
+    one: "Ein Suchergebnis für „{{ .Term }}“ gefunden"
+    other: "{{ .Count }} Suchergebnisse für „{{ .Term }}“ gefunden"

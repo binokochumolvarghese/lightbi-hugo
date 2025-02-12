@@ -1,0 +1,30 @@
+<div class="col-sm-12 col-md-12 col-lg-10 col-xl-10 mb-4">
+    <a href="{{ .Permalink }}" alt="Link to {{ .Title }}">
+        <!-- card h-100 bg-faded-light -->
+        <div class="card fc-ED1B2F">
+            <div class="card-body">
+                <h4 class="post-title">{{ .Title }}</h4>
+                {{ if .Params.subtitle }}
+                <h3 class="post-subtitle">
+                    {{ .Params.subtitle }}
+                </h3>
+                {{ end }}
+                <!-- <p class="post-meta">
+                {{ partial "post_meta.html" . }}
+            </p> -->
+                {{ print }}
+                <div class="post-entry">
+                    {{ if .Description }}
+                    {{ .Description }}
+
+                    {{ else }}
+                    {{ .Summary }}
+                    {{ end }}
+                </div>
+                <div class="read-more-section">
+                    <h6 class="text-muted link-underline">{{ i18n "readMore" }} <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>

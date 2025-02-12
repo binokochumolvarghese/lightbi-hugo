@@ -1,0 +1,15 @@
+{{ $header := .Get "header" }}
+
+<div class="card alert alert-primary">
+        {{ with .Get "title" }}
+        <h5 class="card-title m-0">
+            {{ . }}
+        </h5>
+        {{ end }}
+
+        <p class="card-text text-muted fs-6 mt-0">  
+            {{ with .Get "content" }} 
+            {{ . }}
+            {{ end }}
+        </p>
+</div>

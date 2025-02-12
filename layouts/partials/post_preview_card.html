@@ -1,0 +1,9 @@
+{{ if eq .Site.Params.previewCardImagePlacement "top" }}
+{{ partial "post_preview_top_img_cards" . }}
+{{ else if eq .Site.Params.previewCardImagePlacement "none" }}
+{{ partial "post_preview_imgless_card" . }}
+{{ else if eq .Site.Params.previewCardImagePlacement "middle" }}
+{{ partial "post_preview_middle_img_cards" . }}
+{{ else }}
+{{ partial "post_preview_bottom_card" . }}
+{{ end }}

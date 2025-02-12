@@ -1,17 +1,32 @@
 <span class="post-meta">
-  {{ $lastmodstr := default (i18n "dateFormat") .Site.Params.dateformat | .Lastmod.Format }}
-  {{ $datestr := default (i18n "dateFormat") .Site.Params.dateformat | .Date.Format }}
-  &nbsp;{{ $datestr  }} 
+  <div class="row post-meta text-muted">
+    <div class="col-sm-12 col-md-6 px-0">
+      {{ $lastmodstr := default (i18n "dateFormat") .Site.Params.dateformat | .Lastmod.Format }}
+      {{ $datestr := default (i18n "dateFormat") .Site.Params.dateformat | .Date.Format }}
+  
+      {{ if not .Site.Params.hideAuthor }}
+      {{ if .Site.Params.Author.name }}
+      <!-- <img src="{{ "/img/bino-about-small.jpg" }}" class="img-responsive img-25 img-round"
+                    alt="Image of author"> -->
+      {{  .Site.Params.Author.name | safeHTML }} |
+      {{ end }}
+      {{ end }}
+  
+      &nbsp; {{ $datestr }}
+    </div>
 
+  <div class="col-sm-12 col-md-6 text-sm-start text-md-end px-0">
   {{ if .Site.Params.readingTime }}
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;{{ i18n "readingTime"}}{{ .ReadingTime }}&nbsp;{{ i18n "readTime" }}
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;{{ i18n "readingTime"}}{{ .ReadingTime }}&nbsp;{{ i18n "readTime" .ReadingTime }}
   {{ end }}
 
   {{ if .Site.Params.wordCount }}
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;{{ .WordCount }}&nbsp;{{ i18n "words" }}
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;{{ .WordCount }}&nbsp;{{ i18n "words" .WordCount }}
   {{ end }}
-  
- 
+</div>
+
+
+
 
   {{- if .Site.Params.staticman -}}
     &nbsp;|&nbsp;<i class="fas fa-comment"></i>&nbsp;
@@ -29,7 +44,7 @@
       {{ end }}
     {{ end }}
   {{ end }}
-  
+
   {{ if .IsTranslated -}}
     {{- $sortedTranslations := sort .Translations "Site.Language.Weight" -}}
     {{- $links := apply $sortedTranslations "partial" "translation_link.html" "." -}}
@@ -37,5 +52,6 @@
     {{- $linksOutput := delimit $cleanLinks (i18n "translationsSeparator") -}}
     &nbsp;&bull;&nbsp;{{ i18n "translationsLabel" }}{{ $linksOutput }}
   {{- end }}
+</div>
 </span>
 

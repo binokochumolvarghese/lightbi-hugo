@@ -1,0 +1,19 @@
+<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 mb-4">
+    <a href="{{ .Get " link" }}" aria-label="Link to the blog">
+        {{ with .Get "img" }}
+        <img src="{{ . }}" class="card-img-top" alt="{{ .Get " alt" }}">
+        {{ end }}
+        <div class="card h-100 bg-faded-light">
+            <div class="card-body">
+                {{ if .Get "title" }}
+                <a href="{{ .Get " link" }}" class="m-0 fs-6 color-cgreen">
+                    <h4 class="card-title">{{ .Get "title" }}</h4>
+                </a>
+                {{ end }}
+                {{ if .Get "descr" }}
+                <p class="fs-6 p-01">{{ .Get "descr" }}</p>
+                {{ end }}
+            </div>
+        </div>
+    </a>
+</div>

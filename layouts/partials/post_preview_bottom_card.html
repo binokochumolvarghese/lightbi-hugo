@@ -1,9 +1,8 @@
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
-    <div class="card h-100 single-post-card shadow-effect bg-faded-light">
-        <a href="{{ .Permalink }}">
+    <a href="{{ .Permalink }}">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
             <div class="card-body">
-
-                <h3 class="fw-bold post-title">{{ .Title }}</h3>
+                <h3 class="fw-medium post-title">{{ .Title }}</h3>
                 {{ if .Params.subtitle }}
                 <h3 class="post-subtitle">
                     {{ .Params.subtitle }}
@@ -11,32 +10,35 @@
                 {{ end }}
 
                 <p class="post-meta">
-                    {{ partial "post_meta.html" . }}
+                    {{ partial "post_meta_notes.html" . }}
                 </p>
                 {{ print }}
-                <div class="post-entry">
 
+                <div class="post-entry">
                     {{ if .Description }}
                     {{ .Description }}
 
                     {{ else }}
-                    {{ .Content }}
+                    {{ .Summary }}
                     {{ end }}
                 </div>
 
                 <div class="read-more-section">
-                    <h6>Read more</h6>
+                    <!-- post-read-more  -->
+                    <h6 class="text-muted link-underline">{{ i18n "readMore" }} <i class="bi bi-arrow-right"></i></h6>
                 </div>
             </div>
 
-            {{ if .Params.image }}
-            <img src="{{ .Params.image }}" alt="{{ .Title }}" class="card-img-top img-fluid">
+            {{ with partial "get_image" . }}
+            <img src="{{ ( .Resize " 500x" ).RelPermalink }}" alt="{{ .Title }}"
+                class="card-img-bottom img-fluid lazyload">
             {{ end }}
+
             {{ if .Params.video }}
             <video loop autoplay muted playsinline class="img-title">
                 <source src="{{ .Params.video }}">
             </video>
             {{ end }}
-        </a>
-    </div>
+        </div>
+    </a>
 </div>
