@@ -12,7 +12,7 @@
     {{ end }}
 
 
-    {{ $pag := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections ) 9 }}
+    {{ $pag := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections ) .Site.Params.pagination }}
     {{ range $pag.Pages }}
     {{ partial "post_preview_card" . }}
     {{ end }}
