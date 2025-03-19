@@ -1,5 +1,5 @@
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
-    <a href="{{ .Permalink }}">
+    <a href="{{ .Permalink }}" target="_blank">
         <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
             <div class="card-body">
                 <h3 class="fw-medium post-title">{{ .Title }}</h3>
@@ -23,15 +23,19 @@
                     {{ end }}
                 </div>
 
-                <div class="read-more-section">
-                    <!-- post-read-more  -->
-                    <h6 class="text-muted link-underline">{{ i18n "readMore" }} <i class="bi bi-arrow-right"></i></h6>
-                </div>
+                <a href="{{ .Permalink }}" target="_blank">
+                    <div class="read-more-section">
+                        <!-- post-read-more  -->
+                        <h6 class="text-muted link-underline">{{ i18n "readMore" }} <i class="bi bi-arrow-right"></i></h6>
+                    </div>
+                </a>
             </div>
 
             {{ with partial "get_image" . }}
-            <img src="{{ ( .Resize " 500x" ).RelPermalink }}" alt="{{ .Title }}"
-                class="card-img-bottom img-fluid lazyload">
+            <a href="{{ .Permalink }}" target="_blank">
+                <img src="{{ ( .Resize " 500x" ).RelPermalink }}" alt="{{ .Title }}"
+                    class="card-img-bottom img-fluid lazyload">
+            </a>
             {{ end }}
 
             {{ if .Params.video }}
