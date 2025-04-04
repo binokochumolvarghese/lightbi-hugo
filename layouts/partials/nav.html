@@ -29,9 +29,10 @@
               <li class="nav-item">
                 {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
                 {{ $active = or $active (eq .Name $current.Title) }}
+                {{ $active = or $active (and (eq .Name "Web Scraping::Portfolio") (eq $current.Section "")) }}
                 {{ $active = or $active (and (eq .Name "Notes") (eq $current.Section "notes")) }}
-                {{ $active = or $active (and (eq .Name "Tags") (eq $current.Section "tags")) }}
-                {{ $active = or $active (and (eq .Name "About") (eq $current.Section "about")) }}
+                {{ $active = or $active (and (eq .Name "#byTags") (eq $current.Section "tags")) }}
+                {{ $active = or $active (and (eq .Name "about::me") (eq $current.Section "about")) }}
 
                 <a class="nav-link {{ if $active }} active {{ end }}" title="{{ .Name }}"
                   href="{{ .URL  | relLangURL }}"> {{ .Name }}</a>
