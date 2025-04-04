@@ -3,7 +3,7 @@
 {{ end }}
 
 
-<footer>
+<footer id="site-footer">
 
   <div class="container">
     <div class="row">
@@ -15,14 +15,18 @@
           {{- if isset $.Site.Params.Author .id }}
             <li>
               {{ if eq .id "email" }}
+                <a href="#" title="Email me" id="email-link" target="_blank">
+                    <span class="mx-2"><i class="bi bi-envelope"></i></span>
+                </a>
                 <script>
-                  const user = "{{ $.Site.Params.Author.email_user }}";
-                  const domain = "{{ $.Site.Params.Author.email_domain }}";
-                  document.write(
-                    '<a href="mailto:' + user + '@' + domain + '" title="{{ .title }}" target="_blank">' +
-                      '<span class="mx-2"><i class="{{ .icon }}"></i></span>' +
-                    '</a>'
-                  );
+                    const [_u, _d] = ["{{ $.Site.Params.Author.email_user }}", window.location.host];
+                    document.getElementById("email-link").addEventListener("mouseover", function () {
+                        this.href = `mailto:${_u}@${_d}`;
+                    });
+                    document.getElementById("email-link").addEventListener("click", function () {
+                        this.href = `mailto:${_u}@${_d}`;
+                        this.click();
+                    });
                 </script>
               {{ else }}
                 <a href="{{ printf .url (index $.Site.Params.Author .id) }}" title="{{ .title }}" target="_blank">
