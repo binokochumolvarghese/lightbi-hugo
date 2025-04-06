@@ -15,19 +15,36 @@
           {{- if isset $.Site.Params.Author .id }}
             <li>
               {{ if eq .id "email" }}
-                <a href="#" title="Email me" id="email-link" target="_blank">
-                    <span class="mx-2"><i class="bi bi-envelope"></i></span>
-                </a>
-                <script>
-                    const [_u, _d] = ["{{ $.Site.Params.Author.email_user }}", window.location.host];
-                    document.getElementById("email-link").addEventListener("mouseover", function () {
-                        this.href = `mailto:${_u}@${_d}`;
-                    });
-                    document.getElementById("email-link").addEventListener("click", function () {
-                        this.href = `mailto:${_u}@${_d}`;
-                        this.click();
-                    });
-                </script>
+              <a role="button" title="Email me" id="email-link" target="_blank" class="email-wrapper">
+                <span class="mx-2 icon"><i class="bi bi-envelope"></i></span>
+                <div id="email-tooltip" class="tooltip"> <!-- Will be filled dynamically --> </div>
+              </a>
+              <script>
+                const [_u, _d] = ["{{ $.Site.Params.Author.email_user }}", window.location.host];
+                const address = `${_u}@${_d}`;
+                const emailLink = document.getElementById("email-link");
+                const tooltip = document.getElementById("email-tooltip");
+                let revealed = false;
+                emailLink.addEventListener("mouseover", function () {
+                    if (!revealed) {
+                        tooltip.textContent = address;
+                        revealed = true;
+                    }
+                    tooltip.classList.add("show");
+                });
+                emailLink.addEventListener("mouseout", function () {
+                    tooltip.classList.remove("show");
+                });
+                emailLink.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const temp = document.createElement("a");
+                    temp.href = `mailto:${address}`;
+                    temp.style.display = "none";
+                    document.body.appendChild(temp);
+                    temp.click();
+                    document.body.removeChild(temp);
+                });
+              </script>
               {{ else }}
                 <a href="{{ printf .url (index $.Site.Params.Author .id) }}" title="{{ .title }}" target="_blank">
                   <span class="mx-2"><i class="{{ .icon }}"></i></span>
