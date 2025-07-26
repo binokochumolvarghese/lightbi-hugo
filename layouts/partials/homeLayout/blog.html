@@ -1,0 +1,32 @@
+<div class="intro-header no-img">
+</div>
+
+<div class="container" role="main">
+  <div class="row">
+    {{ with .Content }}
+    <div class="well">
+      {{.}}
+    </div>
+    {{ end }}
+
+
+    {{ $pag := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections ) 9 }}
+    {{ range $pag.Pages }}
+    {{ partial "post_preview_card" . }}
+    {{ end }}
+
+
+  </div>
+
+  <div class="row font-sans">
+    <div class="col-md-12 mt-10">
+      <nav aria-label="Page navigation">
+        <div class="pagination justify-content-end">
+          {{ template "_internal/pagination.html" . }}
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
+
+

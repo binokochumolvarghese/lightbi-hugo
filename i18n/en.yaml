@@ -12,7 +12,7 @@
 - id: translationsSeparator
   translation: ", "
 - id: readMore
-  translation: "Read More"
+  translation: "Read more"
 - id: olderPosts
   translation: "Older Posts"
 - id: newerPosts

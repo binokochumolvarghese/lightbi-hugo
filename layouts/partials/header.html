@@ -1,5 +1,6 @@
 {{ if .IsHome }}
-{{ if .Site.Params.homeTitle }}{{ $.Scratch.Set "title" .Site.Params.homeTitle }}{{ else }}{{ $.Scratch.Set "title" .Site.Title }}{{ end }}
+{{ if .Site.Params.homeTitle }}{{ $.Scratch.Set "title" .Site.Params.homeTitle }}{{ else }}{{ $.Scratch.Set "title"
+.Site.Title }}{{ end }}
 {{ if .Site.Params.subtitle }}{{ $.Scratch.Set "subtitle" .Site.Params.subtitle }}{{ end }}
 {{ if .Site.Params.bigimg }}{{ $.Scratch.Set "bigimg" .Site.Params.bigimg }}{{ end }}
 {{ else }}
@@ -16,62 +17,76 @@
 {{ else }}
 <header class="header-section {{ if $bigimg }}has-img{{ end }}">
 
-  <div class="intro-header no-img mt-10">
+  <div class="intro-header no-img mt-10 pb-2">
     <div class="container">
       <div class="row justify-content-center">
-        {{ if or ( eq .Type "post")  ( eq .Type "notes") ( eq .Type "collections") }}
-        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
-          {{ end }}
 
-          {{ if ne .Type "blog" }}
-          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <!-- To display the main headings to the full -->
+          {{ if or ( eq .Type "tags")
+          ( eq .Section "blog")
+          ( eq .Section "posts")
+          ( eq .Section "notes")
+          ( eq .Section "now")
+          ( eq .Section "about")
+          }}
+        <div class="col-sm-12  col-md-12 col-lg-12 col-xl-12 tags-sec  text-center">
+          <!-- To display the heading of each post -->
+          {{ else }}
+          <div class="col-sm-12  col-md-12 col-lg-8 col-xl-8 non-tags-sec">
+            <!-- Show the sections -->
+            {{ if or ( eq .Section "blog") ( eq .Section "notes") }}
+            <div class="post-meta text-muted">
+              <a href="/{{ .Section }}/">&larr; {{ .Type }} </a>
+            </div>
+            {{ end }}
+          </div>
+          <div class="col-sm-12  col-md-12 col-lg-8 col-xl-8 non-tags-sec">
             {{ end }}
 
+
+            <!-- Adding hash for tags -->
+            {{ if .Data.Singular }}
             <div class="{{ .Type }}-heading">
-              {{ if or ( eq .Type "tags") }}
-              <h1 class="fw-semibold display-5 lh-1 mb-3">
-                {{ if .Data.Singular }}#{{ end }}{{ .Title }}
+              <h1 class="fw-medium lh-1">
+                #{{ .Title }}
               </h1>
-              <!-- <hr class="small"> -->
-              {{ end }}
 
-              {{ if eq .Type "list" }}
-              <h1 class="bino">{{ if .Data.Singular }}#{{ end }}{{ .Title }}</h1>
-              {{ else }}
+              <h4 class="tags-subheading fw-light mb-4">
+                {{ .Site.Params.tagSubtitle }}</h4>
+            </div>
+            {{ else }}
 
-              {{if .Page.IsPage}}
-              <h1 class="fw-semibold display-5 lh-1 mb-3"> {{ with $title }}
-                {{.}}
-                {{ else }}
-                <br />
+            <!-- Displaying the title -->
+            <div class="{{ .Type }}-heading">
+              <h1 class="fw-medium lh-1 align-items-center">
+                {{ .Title }}
                 {{ end }}
               </h1>
-              {{ else }}
-
-              {{ end }}
-              {{ end }}
-
-              {{ if $subtitle }}
-              {{ if eq .Type "page" }}
-              <span class="{{ .Type }}-subheading">{{ $subtitle }}</span>
-              {{ else }}
-              <h6 class="{{ .Type }}-subheading display-6">{{ $subtitle }}</h6>
-              {{ end }}
-              {{ end }}
-
-              {{if .Page.IsPage}}
-              {{ if eq .Type "post" }}
-              {{ partial "post_meta.html" .}}
-              {{ end }}
-              {{ end }}
             </div>
+
+
+            {{ if eq .Type "list" }}
+            <h1 class="">{{ if .Data.Singular }}#{{ end }}{{ .Title }}</h1>
+            {{ else }}
+
+            {{ end }}
+
+            {{ if $subtitle }}
+            {{ if eq .Type "page" }}
+            <span class="{{ .Type }}-subheading fw-light mb-4">{{ $subtitle }}</span>
+            {{ else }}
+            <h4 class="{{ .Type }}-subheading fw-light mb-4">{{ $subtitle }}</h4>
+            {{ end }}
+            {{ end }}
+
+            {{if .Page.IsPage}}
+            {{ if eq .Type "post" }}
+            {{ partial "post_meta.html" .}}
+            {{ end }}
+            {{ end }}
           </div>
-          {{ if ne .Type "blog" }}
         </div>
-        {{ end }}
-        {{ if or ( eq .Type "post")  ( eq .Type "notes") ( eq .Type "collections") }}
       </div>
-      {{ end }}
     </div>
   </div>
 </header>

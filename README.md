@@ -7,11 +7,7 @@ Lightbi is a sleek, minimalistic, and clean blog theme designed for Hugo, offeri
 🐛 [Bug reports & Issues](https://github.com/binokochumolvarghese/lightbi-hugo/issues)  
 💡 [Questions & feature requests](https://github.com/binokochumolvarghese/lightbi-hugo/discussions)  
 📄 [Lightbi wiki](https://github.com/binokochumolvarghese/lightbi-hugo/wiki)  
-🕸️ [Websites built with Lightbi](https://github.com/binokochumolvarghese/lightbi-hugo/wiki/Websites-built-with-Lightbi)  
-
-### Beta version
-I’m currently updating the theme and introducing new features. If you have any suggestions or feature request, please discuss [here](https://github.com/binokochumolvarghese/lightbi-hugo/discussions/75). You can check the beta version in the below link:  
-⏳ [Beta Demo site](https://lightbi-beta-demo.netlify.app/en/)
+🕸️ [Websites built with Lightbi](https://github.com/binokochumolvarghese/lightbi-hugo/wiki/Websites-built-with-Lightbi)
 
 ![LightBi Hugo Theme Screenshot](https://raw.githubusercontent.com/binokochumolvarghese/lightbi-hugo/master/images/screenshot.png)
 

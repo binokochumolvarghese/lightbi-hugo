@@ -31,10 +31,7 @@
 
   {{ if or .Params.tags  ($.Param "socialShare") (ne .Type "page") }}
   <div class="row">
-    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-      <hr class="m-0"/>
-    </div>
-    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-2">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-2">
       {{ if .Params.tags }}
       <div class="blog-tags">
         {{ range .Params.tags }}
@@ -53,44 +50,6 @@
       </section>
       {{ end }}
     </div>
-
-    {{ if not .Site.Params.hideAuthor }}
-    <!-- <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 mt-3">
-      <div class="card">
-        <div class="row no-gutters">
-
-          {{ if .Site.Params.Author.authorPostImage }}
-          <div class="col-md-2 ">
-            <div class="card-body ">
-              {{- $authorPostImage := "" -}}
-              {{ $authorPostImage = .Site.Params.Author.authorPostImage }}
-              {{ $image := resources.Get $authorPostImage }}
-              <img src="{{ $image.RelPermalink }}" class="img-responsive img-50 img-round" alt="">
-            </div>
-          </div>
-          {{ end }}
-
-
-          <div class="col-md-10">
-            <div class="card-body p-1.1">
-              <p class="p-0 m-0"><small class="text-muted">Written By</small></p>
-              <p class="card-text fs-5 m-0">
-                 
-                {{ if .Site.Params.Author.name }}
-                {{ .Site.Params.Author.name | safeHTML }}
-                {{ end }}
-
-              </p>
-
-               {{ if .Site.Params.Author.authorInfo }}
-                <p class="card-text fs-6  m-0">{{ .Site.Params.Author.authorInfo | safeHTML }}</p>
-              {{ end }}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    {{ end }}
 
     <div class="col-lg-8 offset-lg-2 col-md-12 offset-md-1 pt-4">
       {{ if ne .Type "page" }}

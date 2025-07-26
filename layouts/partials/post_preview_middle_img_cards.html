@@ -1,6 +1,6 @@
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
     <a href="{{ .Permalink }}">
-        <div class="card single-post-card h-100 shadow-effect border">
+        <div class="card single-post-card h-100 shadow-effect border rounded-4">
             <div class="card-body">
                 <h3 class="fw-medium post-title">{{ .Title }}</h3>
                 {{ if .Params.subtitle }}
@@ -25,7 +25,7 @@
 
             <div class="card-body">
                 {{ print }}
-                <div class="post-entry">
+                <div class="post-entry text-secondary">
                     {{ if .Description }}
                     {{ .Description }}
                     {{ else }}
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="read-more-section">
-                    <h6 class="text-muted link-underline">{{ i18n "readMore" }} <i class="bi bi-arrow-right"></i></h6>
+                    <h6 class="text-muted ">{{ i18n "readMore" }} <i class="bi bi-arrow-right"></i></h6>
                 </div>
             </div>
         </div>

@@ -1,0 +1,109 @@
+
+<!-- bg-white -->
+<section>
+    <div class="container" role="main">
+    <div class="row intro-header mt-10 pb-5">
+
+      <div class="col-sm-12 col-md-8 col-lg-8">
+        <h2 class="fw-medium">Hello, I'm Bino</h2>
+        <p class="fw-light">Welcome to my digital garden!</p>
+
+        <p class="fw-light">{{ .Site.Params.profileShortbio | safeHTML }}</p>
+
+        <p class="fw-light">If you're new here, feel free to explore the website by clicking the below button.</p>
+
+        <a href="{{ relLangURL "/about/" }}"  class="">
+          <button type="button" class="btn btn-success bg-cgreen">Explore</button>
+        </a>
+      </div>
+
+      {{ $imgPath := .Site.Params.profilePhoto }}
+      {{ with resources.Get $imgPath }}
+        <img 
+          loading="lazy" 
+          src="{{ .RelPermalink }}" 
+          alt="Image of Author"
+          class="img-fluid avatar"
+          style="max-width: 250px;"
+        >
+      {{ end }}
+    </div>
+  </div>
+  </section>
+
+  <section class="color-F5F5F7 background-img">
+    <div class="container">
+    <div class="row mt-5">
+      <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+        <h2 class="fw-medium">Essays</h2>
+        <p class="mt-0">A curated mix of technical essays and daily learnings.</p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+        <div class="row">
+          {{ $pag := .Paginate (where site.RegularPages "Type" "in" (slice "posts" ) ) 3 }}
+          {{ range $pag.Pages }}
+          {{ partial "post_preview_card" . }}
+          {{ end }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+        <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-4">
+          <a href="{{ relLangURL " /posts/" }}" class="link-underline position-relative d-inline-block">
+            Browse all <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+
+{{ range .Site.Sections }}
+  {{ if eq .Section "notes" }}
+  <section class="notes-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4 mt-4">
+          <h2 class="fw-medium">Notes</h2>
+          <p class="mt-0">A personal mix of poetry, reading notes, social media fragments, and curious reflections.</p>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+          <div class="row">
+            {{ range first 3 (where site.RegularPages "Type" "in" (slice "notes" ) ) }}
+            {{ partial "post_preview_imgless_card" .}}
+            {{ end }}
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+          <div class="row">
+            <div class="col-sm-12  col-md-12 col-lg-6 col-xl-6 mb-4">
+              <a href="{{ relLangURL "/notes/" }}" class="link-underline position-relative d-inline-block">Browse all <i class="bi bi-arrow-right"></i> </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{{ end }}
+{{ end }}
+
+
+</div>
+</div>
+</div>

@@ -1,6 +1,6 @@
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
     <a href="{{ .Permalink }}">
-        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border rounded-4">
             <div class="card-body">
                 <h3 class="fw-medium post-title">{{ .Title }}</h3>
                 {{ if .Params.subtitle }}
@@ -14,7 +14,7 @@
                 </p>
                 {{ print }}
 
-                <div class="post-entry">
+                <div class="post-entry text-secondary">
                     {{ if .Description }}
                     {{ .Description }}
 
@@ -25,20 +25,25 @@
 
                 <div class="read-more-section">
                     <!-- post-read-more  -->
-                    <h6 class="text-muted link-underline">{{ i18n "readMore" }} <i class="bi bi-arrow-right"></i></h6>
+                    <h6 class="text-muted ">{{ i18n "readMore" }} <i class="bi bi-arrow-right"></i></h6>
                 </div>
             </div>
 
-            {{ with partial "get_image" . }}
-            <img src="{{ ( .Resize " 500x" ).RelPermalink }}" alt="{{ .Title }}"
-                class="card-img-bottom img-fluid lazyload">
-            {{ end }}
+            
+           {{ with partial "get_image" . }}
+    <div class="image-wrapper">
+        <img src="{{ ( .Resize "500x" ).RelPermalink }}" alt="{{ .Title }}"
+             class="img-fluid lazyload fixed-img rounded-bottom-4">
+    </div>
+    {{ end }}
 
-            {{ if .Params.video }}
-            <video loop autoplay muted playsinline class="img-title">
-                <source src="{{ .Params.video }}">
-            </video>
-            {{ end }}
+    {{ if .Params.video }}
+    <div class="card-image">
+        <video loop autoplay muted playsinline class="img-title">
+            <source src="{{ .Params.video }}">
+        </video>
+    </div>
+    {{ end }}
         </div>
     </a>
 </div>

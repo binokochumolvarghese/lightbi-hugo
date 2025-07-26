@@ -1,15 +1,30 @@
 {{ $header := .Get "header" }}
+{{ $role := .Get "role" }}
 
-<div class="card alert alert-primary">
+{{ $roleClass := "" }}
+
+{{ if eq $role "success"}}
+    {{ $roleClass = "alert alert-success"}}
+{{ else if eq $role "warning"}}
+    {{ $roleClass = "alert alert-warning"}}
+{{ else if eq  $role "danger" }}
+    {{ $roleClass = "alert alert-danger"}}
+{{ else }}
+    {{ $roleClass = "info-card-bg"}}
+{{ end }}
+
+<div class="card mb-3 p-0 mt-4 mb-4 {{$roleClass}}">
+    <div class="card-body">
         {{ with .Get "title" }}
-        <h5 class="card-title m-0">
+        <h5 class="card-title mt-0">
             {{ . }}
         </h5>
         {{ end }}
+        <p class="card-text text-body-secondary fs-6 mt-0">
 
-        <p class="card-text text-muted fs-6 mt-0">  
-            {{ with .Get "content" }} 
+            {{ with .Get "content" | markdownify }} 
             {{ . }}
             {{ end }}
         </p>
+    </div>
 </div>
