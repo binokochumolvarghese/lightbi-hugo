@@ -22,6 +22,8 @@
   --color-bg-muted: #fefcf7;
   --color-border: #dedede;
   --color-underline: rgba(0, 0, 0, 0.2);
+
+  --color-section-primary-bg: #fafafa; // Light gray background for sections
 }
 
 
@@ -215,6 +217,10 @@ img {
 
 .link-underline:hover::before {
   transform: scaleX(1);
+}
+
+.section-primary-bg{
+  background-color: var(--color-section-primary-bg);
 }
 
 /* --- Navbar /Menu--- */
