@@ -3,15 +3,20 @@
 Lightbi is a modern and elegant blog theme designed for Hugo, offering a simple yet beautiful user experience.
 
 
-## Hey everyone! I’ve just launched version 2 of the Lightbi theme with Profile mode and Blog mode. Hope you’ll enjoy the new updates!”
+## Hey everyone! I’ve just launched version 2 of the Lightbi theme with Profile mode and Blog mode. Hope you’ll enjoy the new updates! ⚡
+
+- 😎[Lightbi Profile Mode](https://Lightbi-hugo-theme.netlify.app/)
+- 🪶[Lightbi Blog Mode](https://lighbi-blog-mode.netlify.app/en/)
 
 
-🌍 [Demo site](https://lightbi-hugo-theme.netlify.app/)  
-📁 [Demo repo](https://github.com/binokochumolvarghese/lightbi-hugo-demo)  
-🐛 [Bug reports & Issues](https://github.com/binokochumolvarghese/lightbi-hugo/issues)  
-💡 [Questions & feature requests](https://github.com/binokochumolvarghese/lightbi-hugo/discussions)  
-📄 [Lightbi wiki](https://github.com/binokochumolvarghese/lightbi-hugo/wiki)  
-🕸️ [Websites built with Lightbi](https://github.com/binokochumolvarghese/lightbi-hugo/wiki/Websites-built-with-Lightbi)
+## Other links
+
+- 🌍 [Demo site](https://lightbi-hugo-theme.netlify.app/)  
+- 📁 [Demo repo](https://github.com/binokochumolvarghese/lightbi-hugo-demo)  
+- 🐛 [Bug reports & Issues](https://github.com/binokochumolvarghese/lightbi-hugo/issues)  
+- 💡 [Questions & feature requests](https://github.com/binokochumolvarghese/lightbi-hugo/discussions)  
+- 📄 [Lightbi wiki](https://github.com/binokochumolvarghese/lightbi-hugo/wiki)  
+- 🕸️ [Websites built with Lightbi](https://github.com/binokochumolvarghese/lightbi-hugo/wiki/Websites-built-with-Lightbi)
 
 ![LightBi Hugo Theme Screenshot](https://raw.githubusercontent.com/binokochumolvarghese/lightbi-hugo/refs/heads/main/images/screenshot.png)
 
