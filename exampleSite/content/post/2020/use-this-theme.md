@@ -1,8 +1,8 @@
 ---
 title: How to use Lightbi theme ?
-date: 2023-12-26
+date: 2023-12-18
 tags: ["hugo","blog"]
-image : "/img/posts/img-3.jpg"
+image : "/img/posts/2025/11.jpg"
 Description  : "In this post, we'll cover how to install Hugo and set up your first website with the Lightbi theme..."
 featured: true
 ---

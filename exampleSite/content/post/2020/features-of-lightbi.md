@@ -1,8 +1,8 @@
 ---
 title: Features of Lightbi
-date: 2023-12-20
+date: 2023-12-17
 tags: ["hugo","blog"]
-image : "/img/posts/img-2.jpg"
+image : "/img/posts/2025/2.jpg"
 Description  : "In this blog post, I’ll walk through the key features of the Lightbi theme and how to make the most of them for a visually appealing, user-friendly website."
 featured: true
 ---

@@ -2,7 +2,7 @@
 title: Hosting Your Hugo Site on Netlify
 date: 2023-11-04
 tags: ["hugo","Netlify"]
-image : "/img/posts/img-5.jpg"
+image : "/img/posts/2025/7.jpg"
 Description  : "Hosting a Hugo site on Netlify is an effective solution for deploying static websites, combining Hugo’s speed with Netlify’s robust features.."
 ---
 

@@ -1,10 +1,12 @@
 ---
 title: More about Lightbi
-date: 2023-12-15
+date: 2023-12-10
 tags: ["blog"]
-image : "/img/posts/img-4.jpg"
+image : "/img/posts/2025/6.jpg"
 Description  : "In this post, I’ll outline about the theme, along with ways to support and contribute to the this theme..."
 ---
+
+In this post, I’ll introduce the theme in detail — exploring its purpose, design philosophy, and key features. I’ll also share various ways you can support and contribute to the development of this theme, whether through feedback, code contributions, translations, or spreading the word.
 
 ## Wiki
 
@@ -30,6 +32,3 @@ This is an adaptation of the [Beautiful Hugo](https://github.com/halogenica/beau
 ## License
 
 MIT Licensed, see [LICENSE](https://github.com/binokochumolvarghese/lightbi-hugo/blob/master/LICENSE).
-
-
-<!--Photo by Robert Katzki on Unsplash-->

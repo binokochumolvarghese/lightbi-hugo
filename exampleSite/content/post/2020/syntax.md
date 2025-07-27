@@ -2,7 +2,7 @@
 title: Markdown Syntax Guide
 date: 2020-01-25
 tags: ["markdown","syntax"]
-image : "/img/posts/img-7.jpg"
+image : "/img/posts/2025/9.jpg"
 Description  : "Article showcasing basic Markdown syntax and formatting for HTML elemenets. To create a heading, add number signs (#) in front of a word or phrase.."
 ---
 

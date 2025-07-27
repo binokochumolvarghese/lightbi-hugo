@@ -2,7 +2,7 @@
 title: Lightbi Custom Shortcodes
 date: 2023-11-24
 tags: ["shortcodes"]
-image : "/img/posts/img-6.jpg"
+image : "/img/posts/2025/1.jpg"
 Description  : "You can create your own shortcodes for unique needs by adding an HTML file to the `layouts/shortcodes/` directory. Below are the custom shortcodes availble in this theme..."
 ---
 
@@ -20,6 +20,12 @@ Displays information in a card format.
 
 ##### Output
 {{< info_cards header="lorem-ipsum" title="What is Lorem Ipsum?" content="Lorem Ipsum is simply dummy text of the printing and typesetting industry.">}}
+
+{{< info_cards role="success" header="lorem-ipsum" title="What is Lorem Ipsum?" content="Lorem Ipsum is simply dummy text of the printing and typesetting industry.">}}
+
+
+{{< info_cards role="warning" header="lorem-ipsum" title="What is Lorem Ipsum?" content="Lorem Ipsum is simply dummy text of the printing and typesetting industry.">}}
+
 
 [Read this for more details and code.](https://binovarghese.com/blog/2023/06/info-card-shortcodes-for-hugo/)
 

@@ -1,9 +1,9 @@
 ---
 title: Install Hugo in Windows
-date: 2023-12-31
+date: 2023-12-20
 tags: ["hugo","blog"]
-image : "/img/posts/img-1.jpg"
-Description  : "In this guide, we'll walk through installing Hugo, a popular static site generator. Whether you’re new to static site development or transitioning from another tool, we’ll cover the essential steps to get Hugo up and running."
+image : "/img/posts/2025/4.jpg"
+Description  : "In this guide, we'll walk through installing Hugo, a popular static site generator..."
 featured: true
 ---
 
