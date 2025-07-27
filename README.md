@@ -3,7 +3,7 @@
 Lightbi is a modern and elegant blog theme designed for Hugo, offering a simple yet beautiful user experience.
 
 
-## Hey everyone! I’ve just launched version 2 of the Lightbi theme with Profile mode and Blog mode. Hope you’ll enjoy the new updates! 
+## Hey everyone! I’ve just launched version 2 of the Lightbi theme with Profile mode and Blog mode. Hope you’ll enjoy the new updates! 🎉
 
 - 😎[Lightbi Profile Mode](https://Lightbi-hugo-theme.netlify.app/)
 - 🪶[Lightbi Blog Mode](https://lighbi-blog-mode.netlify.app/en/)
@@ -11,8 +11,8 @@ Lightbi is a modern and elegant blog theme designed for Hugo, offering a simple 
 
 ## Other links
 
-- 🌍 [Demo site](https://lightbi-hugo-theme.netlify.app/)  
-- 📁 [Demo repo](https://github.com/binokochumolvarghese/lightbi-hugo-demo)  
+- 🚹 [Profile Demo repo](https://github.com/binokochumolvarghese/lightbi-hugo-demo)  
+- 📝 [Blog Demo repo](https://github.com/binokochumolvarghese/lightbi-hugo-blog-mode)
 - 🐛 [Bug reports & Issues](https://github.com/binokochumolvarghese/lightbi-hugo/issues)  
 - 💡 [Questions & feature requests](https://github.com/binokochumolvarghese/lightbi-hugo/discussions)  
 - 📄 [Lightbi wiki](https://github.com/binokochumolvarghese/lightbi-hugo/wiki)  
@@ -81,21 +81,22 @@ Lightbi is a modern and elegant blog theme designed for Hugo, offering a simple 
 - Syntax highlighting.
 - Cover image for each post (with Responsive image support).
 
-### Card based theme.
-To customize the image placement within a card, the Lightbi theme offers four flexible options:
+## Configurations
 
-- Image at the top of the card
-- Image in the middle of the card
-- Image at the bottom of the card
-- No image
+#### Select theme mode
+To configure the theme for either profile or blog mode, add the following under the params section in your hugo.toml file:
+- Set `homepageLayout = "profile"` for profile mode
+- Set `homepageLayout = "blog"` for blog mode
 
+#### Card based theme.
+To customize the image placement within a card, the Lightbi theme offers four flexible options.
 To configure this, use the `previewCardImagePlacement` parameter in the `hugo.toml` file. Set it as follows:
 - For the image at the top: `previewCardImagePlacement = "top"`
 - For the image in the middle: `previewCardImagePlacement = "middle"`
 - For the image at the bottom: `previewCardImagePlacement = "bottom"`
 - For no image: `previewCardImagePlacement = "none"`
 
-This gives you full control over how the image is displayed in the card layout.
+For more details about parameters you can visit the wiki [here](https://github.com/binokochumolvarghese/lightbi-hugo/wiki/Theme-Parameters).
 
 ## Installation
 
