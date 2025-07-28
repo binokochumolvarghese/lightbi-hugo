@@ -4,7 +4,7 @@
 name = "Lightbi"
 license = "MIT"
 licenselink = "https://github.com/binokochumolvarghese/lightbi-hugo/blob/master/LICENSE"
-description = "A minimal and clean blog theme for Hugo."
+description = "A modern and elegant theme for Hugo"
 homepage = "https://github.com/binokochumolvarghese/lightbi-hugo"
 demosite = "https://lightbi-hugo-theme.netlify.app/"
 tags = [
@@ -23,7 +23,7 @@ tags = [
   ]
 features = [
   "blog",
-  "newsletter",
+  "portfolio",
   "notes",
   "minimal",
   "cover image",
