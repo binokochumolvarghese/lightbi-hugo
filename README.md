@@ -1,6 +1,6 @@
 # Lightbi ⚡
 
-Lightbi is a modern and elegant blog theme designed for Hugo, offering a simple yet beautiful user experience.
+Lightbi is a modern and elegant theme designed for Hugo, offering a simple yet beautiful user experience.
 
 
 ## Hey everyone! I’ve just launched version 2 of the Lightbi theme with Profile mode and Blog mode. Hope you’ll enjoy the new updates! 🎉
