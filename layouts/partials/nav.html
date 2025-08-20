@@ -15,14 +15,19 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav mb-2 mb-lg-0 align-items-baseline">
               {{ range .Site.Menus.main.ByWeight }}
+
               {{ if .HasChildren }}
-              <li class="nav-item">
-                <a class="nav-link">{{ .Name }}</a>
-                <div class="navlinks-children">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{ .Name }}
+                </a>
+                <ul class="dropdown-menu">
                   {{ range .Children }}
-                  <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+                  <li>
+                    <a class="dropdown-item" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+                  </li>
                   {{ end }}
-                </div>
+                </ul>
               </li>
               {{ else }}
 
