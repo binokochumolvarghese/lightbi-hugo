@@ -17,9 +17,8 @@
                 <div class="post-entry text-secondary">
                     {{ if .Description }}
                     {{ .Description }}
-
                     {{ else }}
-                    {{ .Summary }}
+                    {{ .Summary | plainify }}
                     {{ end }}
                 </div>
 
