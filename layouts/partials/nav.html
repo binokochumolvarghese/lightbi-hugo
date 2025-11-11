@@ -15,11 +15,10 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav mb-2 mb-lg-0 align-items-baseline">
               {{ range .Site.Menus.main.ByWeight }}
-
-              {{ if .HasChildren }}
+               {{ if .HasChildren }}
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  {{ .Name }}
+                  {{ .Name }} ▾
                 </a>
                 <ul class="dropdown-menu">
                   {{ range .Children }}
@@ -52,7 +51,7 @@
               <li class="nav-item dropdown">
                 <button class="d-flex align-items-center gap-1 p-1 border-0 bg-white" data-bs-toggle="dropdown" aria-expanded="false">
                   {{ $.Language.Lang }}
-                  <i class="bi bi-chevron-down small chevron-icon"></i>
+                  ▾
                 </button>
               
                 <ul class="dropdown-menu">
