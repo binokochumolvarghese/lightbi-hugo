@@ -5,8 +5,8 @@
     <div class="row intro-header mt-10 pb-5">
 
       <div class="col-sm-12 col-md-8 col-lg-8">
-        <h2 class="fw-medium">Hello, I'm Bino</h2>
-        <p class="fw-light">Welcome to my digital garden!</p>
+        <h2 class="fw-medium">{{ .Site.Params.profileWelcomeHeading | safeHTML }}</h2>
+        <p class="fw-light">{{ .Site.Params.profileWelcomeSubHeading | safeHTML }}</p>
 
         <p class="fw-light">{{ .Site.Params.profileShortbio | safeHTML }}</p>
 

@@ -38,6 +38,8 @@ previewCardImagePlacement = "bottom"
 hidePostImage = false
 tagSubtitle = "Here, you’ll discover the latest notes that explore new insights, and unique perspectives on the world."
 homepageLayout = "profile" #blog
+profileWelcomeHeading = "Hi I'm Lightbi"
+profileWelcomeSubHeading = "Welcome to my digital garden!"
 profileShortbio = "I’m passionate about the web platform and love creating for the web. Here, you'll find a mix of long essays, quick notes, and personal reflections on what I’ve learned throughout my journey."
 profilePhoto = "img/profile/home-profile-pic.jpg"
 
