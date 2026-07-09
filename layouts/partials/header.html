@@ -1,91 +1,67 @@
 {{ if .IsHome }}
-{{ if .Site.Params.homeTitle }}{{ $.Scratch.Set "title" .Site.Params.homeTitle }}{{ else }}{{ $.Scratch.Set "title"
-.Site.Title }}{{ end }}
-{{ if .Site.Params.subtitle }}{{ $.Scratch.Set "subtitle" .Site.Params.subtitle }}{{ end }}
-{{ if .Site.Params.bigimg }}{{ $.Scratch.Set "bigimg" .Site.Params.bigimg }}{{ end }}
 {{ else }}
+
 {{ $.Scratch.Set "title" .Title }}
 {{ if .Params.subtitle }}{{ $.Scratch.Set "subtitle" .Params.subtitle }}{{ end }}
 {{ if .Params.bigimg }}{{ $.Scratch.Set "bigimg" .Params.bigimg }}{{ end }}
-{{ end }}
-{{ $bigimg := $.Scratch.Get "bigimg" }}
-{{ $title := $.Scratch.Get "title" }}
+
+{{ $bigimg   := $.Scratch.Get "bigimg" }}
 {{ $subtitle := $.Scratch.Get "subtitle" }}
 
-{{ if .IsHome }}
-
-{{ else }}
 <header class="header-section {{ if $bigimg }}has-img{{ end }}">
-
   <div class="intro-header no-img mt-10 pb-2">
     <div class="container">
-      <div class="row justify-content-center">
+      <div class="row">
 
-        <!-- To display the main headings to the full -->
-          {{ if or ( eq .Type "tags")
-          ( eq .Section "blog")
-          ( eq .Section "posts")
-          ( eq .Section "notes")
-          ( eq .Section "now")
-          ( eq .Section "about")
-          }}
-        <div class="col-sm-12  col-md-12 col-lg-12 col-xl-12 tags-sec  text-center">
-          <!-- To display the heading of each post -->
-          {{ else }}
-          <div class="col-sm-12  col-md-12 col-lg-8 col-xl-8 non-tags-sec">
-            <!-- Show the sections -->
-            {{ if or ( eq .Section "blog") ( eq .Section "notes") }}
-            <div class="post-meta text-muted">
-              <a href="/{{ .Section }}/">&larr; {{ .Type }} </a>
-            </div>
-            {{ end }}
+        {{- if .Page.IsPage }}
+        {{- /* Individual post/note/page — left-aligned with breadcrumb + meta */}}
+        {{- $showToc := false }}
+        {{- if and (ne .Site.Params.toc false) (ne .Params.toc false) .TableOfContents }}
+          {{- $showToc = true }}
+        {{- end }}
+        <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 {{ if $showToc }}offset-lg-1{{ else }}offset-lg-2{{ end }}">
+
+          {{- if or (eq .Section "posts") (eq .Section "notes") (eq .Section "blog") }}
+          <div class="post-breadcrumb text-muted mb-2">
+            <a href="{{ (print "/" .Section "/") | relLangURL }}">&larr; {{ .Section }}</a>
           </div>
-          <div class="col-sm-12  col-md-12 col-lg-8 col-xl-8 non-tags-sec">
-            {{ end }}
+          {{- end }}
 
-
-            <!-- Adding hash for tags -->
-            {{ if .Data.Singular }}
-            <div class="{{ .Type }}-heading">
-              <h1 class="fw-medium lh-1">
-                #{{ .Title }}
-              </h1>
-
-              <h4 class="tags-subheading fw-light mb-4">
-                {{ .Site.Params.tagSubtitle }}</h4>
-            </div>
-            {{ else }}
-
-            <!-- Displaying the title -->
-            <div class="{{ .Type }}-heading">
-              <h1 class="fw-medium lh-1 align-items-center">
-                {{ .Title }}
-                {{ end }}
-              </h1>
-            </div>
-
-
-            {{ if eq .Type "list" }}
-            <h1 class="">{{ if .Data.Singular }}#{{ end }}{{ .Title }}</h1>
-            {{ else }}
-
-            {{ end }}
-
-            {{ if $subtitle }}
-            {{ if eq .Type "page" }}
-            <span class="{{ .Type }}-subheading fw-light mb-4">{{ $subtitle }}</span>
-            {{ else }}
-            <h4 class="{{ .Type }}-subheading fw-light mb-4">{{ $subtitle }}</h4>
-            {{ end }}
-            {{ end }}
-
-            {{if .Page.IsPage}}
-            {{ if eq .Type "post" }}
-            {{ partial "post_meta.html" .}}
-            {{ end }}
-            {{ end }}
+          <div class="content-heading">
+            <h1 class="fw-medium lh-1">{{ .Title }}</h1>
           </div>
+
+          {{ if $subtitle }}
+          <p class="content-subheading text-muted mt-1 mb-0">{{ $subtitle }}</p>
+          {{ end }}
+
+          {{- if or (eq .Section "posts") (eq .Section "notes") (eq .Section "blog") }}
+          {{ partial "post_meta.html" . }}
+          {{- end }}
+
         </div>
+
+        {{- else }}
+        {{- /* Section list, taxonomy, or other non-page — centered */}}
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+
+          {{ if .Data.Singular }}
+          <div class="{{ .Type }}-heading">
+            <h1 class="fw-medium lh-1">#{{ .Title }}</h1>
+            <h4 class="tags-subheading fw-light mb-4">{{ .Site.Params.tagSubtitle }}</h4>
+          </div>
+          {{ else }}
+          <div class="{{ .Type }}-heading">
+            <h1 class="fw-medium lh-1">{{ .Title }}</h1>
+          </div>
+          {{ if $subtitle }}
+          <h4 class="{{ .Type }}-subheading fw-light mb-4">{{ $subtitle }}</h4>
+          {{ end }}
+          {{ end }}
+
+        </div>
+        {{- end }}
+
       </div>
     </div>
   </div>

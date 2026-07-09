@@ -1,17 +1,21 @@
 {{ if or .Params.socialShare (and .Site.Params.socialShare (ne .Params.socialShare false)) }}
 
-<div class="card justify-content-center align-items-center mt-4">
+<div class="card justify-content-center mt-4 border rounded-4">
   <div class="card-body">
-    <div class="col-md-12 d-flex align-items-center">
+    <div class="col-md-12 d-flex align-items-center mb-2">
       <i class="bi bi-chat-text me-2"></i>
-      <p class="fw-medium ">What are your thoughts on this post?</p>
+      <p class="fw-medium mb-0">What are your thoughts on this post?</p>
+    </div>
+
+    <div class="col-md-12 mb-3">
+      <p class="mb-0 text-muted">
+        I'd love to hear from you! Feel free to use the share buttons below if you enjoyed this post.
+      </p>
     </div>
 
     <!-- Social Share Button HTML -->
     <div class="col-md-12">
-      <p class="mb-0 small text-muted">If you liked this post, feel free to use the share button below. It always makes me smile when I see someone enjoyed it.</p>
-
-      <div class="share-box d-flex justify-content-center align-items-center" aria-hidden="true">
+      <div class="share-box" aria-hidden="true">
         <ul class="share d-flex list-unstyled mb-0">
           <!-- Facebook -->
           <li>
@@ -24,7 +28,7 @@
           </li>
           <!-- Twitter -->
           <li>
-            <a href="//twitter.com/share?url={{ .Permalink }}&amp;text={{ .Title }}&amp;via={{ .Site.Author }}"
+            <a href="//twitter.com/share?url={{ .Permalink }}&amp;text={{ .Title }}&amp;via={{ .Site.Params.Author.twitter }}"
               target="_blank" title="Share on Twitter">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-twitter-x"
                 viewBox="0 0 16 16">
@@ -95,5 +99,7 @@
         </ul>
       </div>
     </div>
+  </div>
+</div>
 
-    {{ end }}
+{{ end }}

@@ -1,0 +1,165 @@
+{{- /* Page nav links row */ -}}
+
+{{- $footerPages := slice
+  (dict "path" "/uses" "title" "Uses")
+  (dict "path" "/now" "title" "Now")
+  (dict "path" "/for" "title" "For")
+  (dict "path" "/changelog" "title" "Changelog")
+  (dict "path" "/credits" "title" "Credits")
+  (dict "path" "/disclaimer" "title" "Disclaimer")
+-}}
+{{- $visible := slice -}}
+{{- range $footerPages -}}
+  {{- $entry := . -}}
+  {{- with $.Site.GetPage $entry.path -}}
+    {{- $visible = $visible | append (dict "url" .RelPermalink "title" $entry.title) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $visible }}
+<div class="footer-menu-strip bg-body-secondary py-2">
+  <div class="container">
+    <div class="row justify-content-center my-1">
+      <div class="col-md-12 text-center">
+        <ul class="list-inline footer-page-links mb-0">
+          {{- range $i, $link := $visible }}
+          {{- if $i }}
+          <li class="list-inline-item footer-dot">&middot;</li>
+          {{- end }}
+          <li class="list-inline-item"><a href="{{ $link.url }}">{{ $link.title }}</a></li>
+          {{- end }}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{{- end }}
+
+<!-- Back to top button -->
+<button id="back-to-top" class="back-to-top" aria-label="Back to top">
+  <i class="bi bi-arrow-up"></i>
+</button>
+
+<!-- Search modal (Pagefind) -->
+<div class="modal fade" id="searchModal" tabindex="-1" aria-label="Search" aria-modal="true" role="dialog">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content search-modal-content border-0 shadow-lg">
+      <div class="modal-header border-0 pt-3 pb-0 px-4">
+        <small class="text-muted">
+          Type to search &nbsp;<kbd class="search-kbd">Esc</kbd> to close
+          &nbsp;&middot;&nbsp;<kbd class="search-kbd">Ctrl K</kbd> to reopen
+        </small>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body px-4 pb-4 pt-2">
+        <div id="pagefind-search"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Pagefind UI (generated after hugo build + npx pagefind --source public) -->
+<script src="/pagefind/pagefind-ui.js"></script>
+
+<script>
+(function () {
+  // ── Back to top ─────────────────────────────────────────────
+  var btn = document.getElementById('back-to-top');
+  if (btn) {
+    window.addEventListener('scroll', function () {
+      btn.classList.toggle('visible', window.scrollY > 300);
+    }, { passive: true });
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // ── Copy code buttons ────────────────────────────────────────
+  document.querySelectorAll('.highlight').forEach(function (block) {
+    var pre = block.querySelector('pre');
+    if (!pre) return;
+    var copyBtn = document.createElement('button');
+    copyBtn.className = 'code-copy-btn';
+    copyBtn.textContent = 'Copy';
+    copyBtn.addEventListener('click', function () {
+      var text = (pre.querySelector('code') || pre).innerText;
+      navigator.clipboard.writeText(text).then(function () {
+        copyBtn.textContent = 'Copied!';
+        copyBtn.classList.add('copied');
+        setTimeout(function () { copyBtn.textContent = 'Copy'; copyBtn.classList.remove('copied'); }, 2000);
+      }).catch(function () {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.cssText = 'position:fixed;opacity:0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        copyBtn.textContent = 'Copied!';
+        copyBtn.classList.add('copied');
+        setTimeout(function () { copyBtn.textContent = 'Copy'; copyBtn.classList.remove('copied'); }, 2000);
+      });
+    });
+    block.appendChild(copyBtn);
+  });
+
+  // ── Anchor links on headings ─────────────────────────────────
+  var article = document.querySelector('.blog-post');
+  if (article) {
+    article.querySelectorAll('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').forEach(function (h) {
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.className = 'heading-anchor';
+      a.setAttribute('aria-hidden', 'true');
+      a.textContent = '#';
+      h.appendChild(a);
+    });
+  }
+
+  // ── Active ToC link via IntersectionObserver ─────────────────
+  var tocSidebar = document.querySelector('.toc-sidebar');
+  if (tocSidebar && article) {
+    var tocLinks = Array.from(tocSidebar.querySelectorAll('.toc-nav a'));
+    var headings = Array.from(article.querySelectorAll('h1[id], h2[id], h3[id], h4[id]'));
+    if (tocLinks.length && headings.length) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            tocLinks.forEach(function (l) { l.classList.remove('toc-active'); });
+            var active = tocSidebar.querySelector('.toc-nav a[href="#' + entry.target.id + '"]');
+            if (active) active.classList.add('toc-active');
+          }
+        });
+      }, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+      headings.forEach(function (h) { observer.observe(h); });
+    }
+  }
+
+  // ── Pagefind search ──────────────────────────────────────────
+  var searchModalEl = document.getElementById('searchModal');
+  var searchInited = false;
+
+  if (searchModalEl) {
+    searchModalEl.addEventListener('shown.bs.modal', function () {
+      if (!searchInited && window.PagefindUI) {
+        new PagefindUI({ element: '#pagefind-search', showImages: false, resetStyles: false });
+        searchInited = true;
+      }
+      setTimeout(function () {
+        var input = document.querySelector('#pagefind-search input[type="text"]');
+        if (input) input.focus();
+      }, 100);
+    });
+  }
+
+  // ── Cmd+K / Ctrl+K to open search ───────────────────────────
+  document.addEventListener('keydown', function (e) {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      if (searchModalEl && window.bootstrap) {
+        bootstrap.Modal.getOrCreateInstance(searchModalEl).show();
+      }
+    }
+  });
+})();
+</script>

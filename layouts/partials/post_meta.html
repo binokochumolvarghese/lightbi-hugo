@@ -1,57 +1,30 @@
-<span class="post-meta">
-  <div class="row post-meta text-muted">
-    <div class="col-sm-12 col-md-6 px-0">
-      {{ $lastmodstr := default (i18n "dateFormat") .Site.Params.dateformat | .Lastmod.Format }}
-      {{ $datestr := default (i18n "dateFormat") .Site.Params.dateformat | .Date.Format }}
-  
-      {{ if not .Site.Params.hideAuthor }}
-      {{ if .Site.Params.Author.name }}
-      <!-- <img src="{{ "/img/bino-about-small.jpg" }}" class="img-responsive img-25 img-round"
-                    alt="Image of author"> -->
-      {{  .Site.Params.Author.name | safeHTML }} |
-      {{ end }}
-      {{ end }}
-  
-      &nbsp; {{ $datestr }}
-    </div>
+{{- $lastmodstr := default (i18n "dateFormat") .Site.Params.dateformat | .Lastmod.Format -}}
+{{- $datestr := default (i18n "dateFormat") .Site.Params.dateformat | .Date.Format -}}
 
-  <div class="col-sm-12 col-md-6 text-sm-start text-md-end px-0">
-  {{ if .Site.Params.readingTime }}
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;{{ i18n "readingTime"}}{{ .ReadingTime }}&nbsp;{{ i18n "readTime" .ReadingTime }}
-  {{ end }}
+<div class="row post-meta text-muted mt-2">
+  <div class="col-sm-12 col-md-7 px-0 mb-1">
+    {{ $datestr }}
+  </div>
 
-  {{ if .Site.Params.wordCount }}
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;{{ .WordCount }}&nbsp;{{ i18n "words" .WordCount }}
-  {{ end }}
-</div>
-
-
-
-
-  {{- if .Site.Params.staticman -}}
-    &nbsp;|&nbsp;<i class="fas fa-comment"></i>&nbsp;
-    {{ $slug := replace .RelPermalink "/" "" }}
-    {{ if .Site.Data.comments }}
-      {{ $comments := index $.Site.Data.comments $slug }}
-      {{ if $comments }}
-        {{ if gt (len $comments) 1  }}
-          {{ len $comments  }} {{ i18n "moreComment" }}
-        {{ else }}
-          {{ len $comments  }} {{ i18n "oneComment" }}
-        {{ end }}
-      {{ else }}
-        0 {{ i18n "oneComment" }}
-      {{ end }}
+  <div class="col-sm-12 col-md-5 text-sm-start text-md-end px-0">
+    {{ if ne $datestr $lastmodstr }}
+    Last updated on: {{ $lastmodstr }}
     {{ end }}
-  {{ end }}
 
-  {{ if .IsTranslated -}}
+    {{ if .Site.Params.readingTime }}
+    &nbsp;|&nbsp;<i class="bi bi-clock"></i>&nbsp;{{ i18n "readingTime" }}{{ .ReadingTime }}&nbsp;{{ i18n "readTime" .ReadingTime }}
+    {{ end }}
+
+    {{ if .Site.Params.wordCount }}
+    &nbsp;|&nbsp;<i class="bi bi-book"></i>&nbsp;{{ .WordCount }}&nbsp;{{ i18n "words" .WordCount }}
+    {{ end }}
+
+    {{ if .IsTranslated -}}
     {{- $sortedTranslations := sort .Translations "Site.Language.Weight" -}}
     {{- $links := apply $sortedTranslations "partial" "translation_link.html" "." -}}
     {{- $cleanLinks := apply $links "chomp" "." -}}
     {{- $linksOutput := delimit $cleanLinks (i18n "translationsSeparator") -}}
     &nbsp;&bull;&nbsp;{{ i18n "translationsLabel" }}{{ $linksOutput }}
-  {{- end }}
+    {{- end }}
+  </div>
 </div>
-</span>
-

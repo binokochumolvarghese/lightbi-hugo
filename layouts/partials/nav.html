@@ -18,10 +18,10 @@
 
               {{ if .HasChildren }}
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  {{ .Name }}
+                <a class="nav-link d-flex align-items-center gap-1 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{ .Name }}<i class="bi bi-chevron-down chevron-icon" style="font-size:0.6rem;"></i>
                 </a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu dropdown-menu-end">
                   {{ range .Children }}
                   <li>
                     <a class="dropdown-item" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
@@ -50,17 +50,18 @@
             {{ if hugo.IsMultilingual }}
               {{ with .AllTranslations }}
               <li class="nav-item dropdown">
-                <button class="d-flex align-items-center gap-1 p-1 border-0 bg-white" data-bs-toggle="dropdown" aria-expanded="false">
-                  {{ $.Language.Lang }}
-                  <i class="bi bi-chevron-down small chevron-icon"></i>
+                <button class="lang-switcher border-0 bg-transparent d-flex align-items-center gap-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Switch language">
+                  <i class="bi bi-globe2"></i>
+                  <span>{{ $.Language.Lang | strings.ToUpper }}</span>
+                  <i class="bi bi-chevron-down chevron-icon" style="font-size:0.6rem;"></i>
                 </button>
               
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu dropdown-menu-end">
                   {{ range . }}
                     {{ if eq .Language.Lang $.Language.Lang }}
-                      <li><a class="dropdown-item active" aria-current="page" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
+                      <li><a class="dropdown-item active" aria-current="page" href="{{ .Permalink }}">{{ .Language.Label }}</a></li>
                     {{ else }}
-                      <li><a class="dropdown-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
+                      <li><a class="dropdown-item" href="{{ .Permalink }}">{{ .Language.Label }}</a></li>
                     {{ end }}
                   {{ end }}
                 </ul>
@@ -73,47 +74,14 @@
                 <a id="dark-mode-toggle" class="bi bi-moon-stars" role="button"></a>
               </li>
 
-              <!-- Lunar search -->
-              {{ if .Site.Params.lunrSearch }}
-              <li class="nav-item search-item">
-                <form id="search" class="search" role="search">
-                  <label for="search-input" class="bi bi-search search-icon"></label>
-                  <input type="search" id="search-input" class="search-input">
-                </form>
+              <!-- Search trigger (Pagefind) -->
+              <li class="nav-item nav-link">
+                <button class="nav-search-btn bi bi-search border-0 bg-transparent p-0"
+                        data-bs-toggle="modal" data-bs-target="#searchModal"
+                        aria-label="Search (Ctrl+K)">
+                </button>
               </li>
-              {{ end }}
             </ul>
-
-            {{ if .Site.Params.lunrSearch }}
-            <template id="search-heading" hidden data-results-none="{{ i18n " noSearchResults" (dict "Term" "{}" ) }}"
-              data-results-one="{{ i18n " someSearchResults" (dict "Count" 1 "Term" "{}" ) }}"
-              data-results-many="{{ i18n " someSearchResults" (dict "Count" 13579 "Term" "{}" ) }}">
-              <div class="row">
-                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
-                  <h1 id="search-title" class="search-title"></h1>
-                </div>
-              </div>
-            </template>
-
-            <template id="search-result" hidden>
-              <div class="row">
-                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
-                  <article class="content post">
-                    <h2><a class="summary-title-link"></a></h2>
-                    <div class="post-entry"></div>
-                    <div class="read-more-section">
-                      <h6 class="text-muted link-underline">
-                        <a class="read-more-link">
-                          {{ i18n "readMore" }}
-                          <i class="bi bi-arrow-right"></i>
-                        </a>
-                      </h6>
-                    </div>
-                  </article>
-                </div>
-              </div>
-            </template>
-            {{ end }}
           </div>
         </div>
       </nav>

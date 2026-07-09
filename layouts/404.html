@@ -1,18 +1,20 @@
-
+{{ define "header" }}{{/* No header on 404 */}}{{ end }}
 {{ define "main" }}
-  <div role="main" class="container main-content">
-    <div class="text-center">
-      <h1 class="error-emoji"></h1>
-      <p class="error-text">{{ i18n "pageNotFound" }}</p>
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-5 text-center">
+      <p class="display-1 fw-bold" style="color: var(--color-primary);" id="error-emoji"></p>
+      <h1 class="fw-medium mb-3">Page not found</h1>
+      <p class="text-muted mb-4">{{ i18n "pageNotFound" | default "The page you're looking for doesn't exist or has moved." }}</p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="{{ "" | absLangURL }}" class="nav-post-btn">← Home</a>
+        <a href="{{ "/tags/" | absLangURL }}" class="nav-post-btn">Browse tags</a>
+      </div>
     </div>
   </div>
+</div>
 <script>
-  var errorEmojiContainer = document.getElementsByClassName('error-emoji')[0];
-  var emojiArray = [
-    '\\(o_o)/', '(o^^)o', '(˚Δ˚)b', '(^-^*)', '(≥o≤)', '(^_^)b', '(·_·)',
-    '(=\'X\'=)', '(>_<)', '(;-;)', '\\(^Д^)/',
-  ];
-  var errorEmoji = emojiArray[Math.floor(Math.random() * emojiArray.length)];
-  errorEmojiContainer.appendChild(document.createTextNode(errorEmoji));
+  var emojiArray = ['\\(o_o)/', '(o^^)o', '(˚Δ˚)b', '(^-^*)', '(≥o≤)', '(^_^)b', '(·_·)', '(>_<)', '(;-;)'];
+  document.getElementById('error-emoji').textContent = emojiArray[Math.floor(Math.random() * emojiArray.length)];
 </script>
 {{ end }}

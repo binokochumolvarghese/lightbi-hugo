@@ -1,9 +1,14 @@
 {{ define "main" }}
+{{ $showToc := false }}
+{{ if and (ne .Site.Params.toc false) (ne .Params.toc false) .TableOfContents }}
+  {{ $showToc = true }}
+{{ end }}
+
 <div class="container" role="main">
   <div class="row">
 
     {{ if .Site.Params.showPostImage }}
-    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
+    <div class="{{ if $showToc }}col-lg-8 offset-lg-1{{ else }}col-lg-8 offset-lg-2{{ end }} col-md-10 offset-md-1">
       <div class="card-image card-image-blog p-0">
         {{ $ := . }}
         {{ with partial "get_image" . }}
@@ -11,7 +16,6 @@
             <img src="{{ .RelPermalink }}" alt="{{ .Title }}" class="card-img-bottom rounded img-fluid lazyload">
           {{ end }}
         {{ end }}
-
 
         {{ if .Params.video }}
         <video loop autoplay muted playsinline class="img-title">
@@ -22,60 +26,62 @@
     </div>
     {{ end }}
 
-    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+    <div class="{{ if $showToc }}col-lg-8 offset-lg-1{{ else }}col-lg-8 offset-lg-2{{ end }} col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
         {{ .Content }}
       </article>
     </div>
+
+    {{ if $showToc }}
+    <div class="col-lg-3 pt-4 d-none d-lg-block">
+      <div class="toc-sidebar">
+        <p class="toc-sidebar-title">On this page</p>
+        <nav class="toc-nav">{{ .TableOfContents }}</nav>
+      </div>
+    </div>
+    {{ end }}
+
   </div>
 
-  {{ if or .Params.tags  ($.Param "socialShare") (ne .Type "page") }}
+  {{ if or .Params.tags ($.Param "socialShare") (ne .Type "page") }}
   <div class="row">
-        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-2">
+    <div class="col-lg-8 {{ if $showToc }}offset-lg-1{{ else }}offset-lg-2{{ end }} col-md-10 offset-md-1 pt-2">
       {{ if .Params.tags }}
       <div class="blog-tags">
+        <i class="bi bi-tags-fill me-1"></i>
         {{ range .Params.tags }}
-        <a href="{{ $.Site.LanguagePrefix | absURL }}tags/{{ . | urlize }}/">{{ . }}</a>
+        <a class="tag-pill text-decoration-none me-1 rounded-4" href="{{ $.Site.LanguagePrefix | absURL }}tags/{{ . | urlize }}/">{{ . }}</a>
         {{ end }}
       </div>
       {{ end }}
     </div>
 
-    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
-      {{ if $.Param "socialShare" }}
+    <div class="col-lg-8 {{ if $showToc }}offset-lg-1{{ else }}offset-lg-2{{ end }} col-md-10 offset-md-1 pt-4">
+      {{ if and ($.Param "socialShare") (ne .Type "page") }}
       <section id="social-share">
-        <div class="list-inline footer-links">
-          {{ partial "share-links" . }}
-        </div>
+        {{ partial "share-links" . }}
       </section>
       {{ end }}
     </div>
 
-    <div class="col-lg-8 offset-lg-2 col-md-12 offset-md-1 pt-4">
+    <div class="col-lg-8 {{ if $showToc }}offset-lg-1{{ else }}offset-lg-2{{ end }} col-md-12 offset-md-1 pt-4">
       {{ if ne .Type "page" }}
-      <ul class="list-group list-group-horizontal" style="flex-direction: row">
+      <ul class="list-group list-group-horizontal border-0 bg-transparent p-0">
         {{ if .PrevInSection }}
-        <li class="list-group-item b-0 p-0">
-
-          <a type="button" class="btn btn-dark" role="button" href="{{ .PrevInSection.Permalink }}"
-            data-toggle="tooltip" data-placement="top" title="{{ .PrevInSection.Title }}">&larr;
-            {{ i18n "previousPost" }}</a>
+        <li class="list-group-item border-0 bg-transparent p-0">
+          <a class="nav-post-btn" href="{{ .PrevInSection.Permalink }}"
+            title="{{ .PrevInSection.Title }}">&larr; {{ i18n "previousPost" }}</a>
         </li>
         {{ end }}
 
-
         {{ if .NextInSection }}
-        <li class="list-group-item ms-auto b-0 p-0">
-          <a type="button" class="btn btn-dark" role="button" href="{{ .NextInSection.Permalink }}"
-            data-toggle="tooltip" data-placement="top" title="{{ .NextInSection.Title }}">{{ i18n "nextPost" }}
-            &rarr;</a>
+        <li class="list-group-item ms-auto border-0 bg-transparent p-0">
+          <a class="nav-post-btn" href="{{ .NextInSection.Permalink }}"
+            title="{{ .NextInSection.Title }}">{{ i18n "nextPost" }} &rarr;</a>
         </li>
         {{ end }}
       </ul>
       {{ end }}
-    </div>
-
-    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
     </div>
   </div>
   {{ end }}
@@ -84,8 +90,7 @@
 <div class="">
   {{ $has_related := false }}
   {{ if .Site.Params.showRelatedPosts }}
-  {{ range first 1 (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink)
-  }}
+  {{ range first 1 (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
   {{ $has_related = true }}
   {{ end }}
 
@@ -98,9 +103,7 @@
       </div>
 
       {{ $num_to_show := .Site.Params.related_content_limit | default 3 }}
-      {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!="
-      .Permalink) }}
-
+      {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
       {{ partial "post_preview_card" .}}
       {{ end }}
     </div>
@@ -108,8 +111,7 @@
   {{ end }}
   {{ end }}
 
-  {{ if (.Params.comments) | or (and (or (not (isset .Params "comments")) (eq .Params.comments nil)) (and
-  .Site.Params.comments (ne .Type "page"))) }}
+  {{ if (.Params.comments) | or (and (or (not (isset .Params "comments")) (eq .Params.comments nil)) (and .Site.Params.comments (ne .Type "page"))) }}
   {{ if .Site.DisqusShortname }}
   {{ if .Site.Params.delayDisqus }}
   <div class="disqus-comments">
@@ -121,7 +123,6 @@
       var disqus_config = function () {
         this.page.url = '{{ trim .Permalink "/" }}';
       };
-
     </script>
   </div>
   {{ else }}
