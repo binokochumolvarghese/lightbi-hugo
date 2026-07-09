@@ -9,12 +9,7 @@
 
     {{- /* Social icons row */ -}}
     <div class="row mb-2">
-
-    {{- /* Social icons row */ -}}
-    <div class="row mb-2">
       <div class="col-md-12">
-        <ul class="list-inline list-group list-group-horizontal text-center footer-links d-flex justify-content-center flex-row">
-          {{ range hugo.Data.lightbi.social.social_icons }}
         <ul class="list-inline list-group list-group-horizontal text-center footer-links d-flex justify-content-center flex-row">
           {{ range hugo.Data.lightbi.social.social_icons }}
           {{- if isset $.Site.Params.Author .id }}
@@ -29,15 +24,12 @@
           <li>
             <a href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" title="RSS">
               <span class="mx-2"><i class="bi bi-rss"></i></span>
-              <span class="mx-2"><i class="bi bi-rss"></i></span>
             </a>
           </li>
           {{ end }}
         </ul>
       </div>
     </div>
-
-
 
     {{- /* Copyright row */ -}}
     <div class="row">
