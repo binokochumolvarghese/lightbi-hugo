@@ -1,5 +1,5 @@
 baseURL = "https://lightbi-beta-demo.netlify.app/"
-languageCode = "en"
+locale = "en"
 title = "Lightbi"
 theme = "lightbi-hugo"
 summaryLength  = "30"
