@@ -1,28 +1,25 @@
 <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10 mb-4">
-    <a href="{{ .Permalink }}" alt="Link to {{ .Title }}">
-        <!-- card h-100 bg-faded-light -->
-        <div class="card fc-ED1B2F">
+    <a href="{{ .Permalink }}" aria-label="Link to {{ .Title }}">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border rounded-4">
             <div class="card-body">
-                <h4 class="post-title">{{ .Title }}</h4>
+                <h4 class="fw-medium post-title">{{ .Title }}</h4>
                 {{ if .Params.subtitle }}
-                <h3 class="post-subtitle">
+                <h5 class="post-subtitle text-muted fw-light">
                     {{ .Params.subtitle }}
-                </h3>
+                </h5>
                 {{ end }}
-                <!-- <p class="post-meta">
-                {{ partial "post_meta.html" . }}
-            </p> -->
-                {{ print }}
+                <p class="post-meta">
+                    {{ partial "post_meta_notes.html" . }}
+                </p>
                 <div class="post-entry text-secondary">
                     {{ if .Description }}
                     {{ .Description }}
-
                     {{ else }}
                     {{ .Summary }}
                     {{ end }}
                 </div>
                 <div class="read-more-section">
-                    <h6 class="text-muted link-underline">{{ i18n "readMore" }} <i class="bi bi-arrow-right"></i></h6>
+                    <h6 class="text-muted">{{ i18n "readMore" }} <i class="bi bi-arrow-right"></i></h6>
                 </div>
             </div>
         </div>
