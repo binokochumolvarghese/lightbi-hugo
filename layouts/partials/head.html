@@ -39,18 +39,17 @@
 <meta name="description" content="{{ . }}">
 {{- end }}
 {{ end }}
+
 {{- with .Site.Params.Author.name }}
 <meta name="author" content="{{ . }}">
 {{- end }}
+
 {{- partial "seo/main.html" . }}
+
 <link rel="apple-touch-icon" sizes="180x180" href=" {{ "favicon/apple-touch-icon.png" | absURL }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon/favicon-32x32.png"  | absURL }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon/favicon-16x16.png" | absURL }}">
 
-<!-- Playfair Display font for headings -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
 <!-- Hugo Version number -->
 {{ hugo.Generator -}}
@@ -63,13 +62,23 @@
 {{- with resources.Get "css/main.scss" | resources.ExecuteAsTemplate "style.scss" . | toCSS $options | minify -}}
 <link rel="stylesheet" href="{{ .RelPermalink }}">
 {{- end -}}
+
 <!-- Pagefind search UI styles (generated after: hugo && npx pagefind --source public) -->
 <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
 
+<!-- Google Fonts -->
+{{- if not .Site.Params.selfHosted -}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100..900;1,100..900&family=Geist:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+{{- end -}}
+
+<!-- Custom CSS -->
 {{- partial "head_custom.html" . }}
+
+<!-- Google Analytics -->
 {{ template "_default/google_analytics_async.html" . }}
 
- 
 <!-- GLightbox CSS -->
  <link href="{{ "vendor/glightbox/css/glightbox.min.css" | absURL }}" rel="stylesheet">
 

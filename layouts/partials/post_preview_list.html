@@ -11,7 +11,7 @@
                 <p class="post-meta">
                     {{ partial "post_meta_notes.html" . }}
                 </p>
-                <div class="post-entry text-secondary">
+                <div class="post-entry">
                     {{ if .Description }}
                     {{ .Description }}
                     {{ else }}
@@ -19,7 +19,7 @@
                     {{ end }}
                 </div>
                 <div class="read-more-section">
-                    <h6 class="text-muted">{{ i18n "readMore" }} <i class="bi bi-arrow-right"></i></h6>
+                    <p class="small text-muted text-decoration-none">{{ i18n "readMore" }} <i class="bi bi-arrow-right"></i></p>
                 </div>
             </div>
         </div>

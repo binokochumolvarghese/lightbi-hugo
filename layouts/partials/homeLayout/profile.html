@@ -5,15 +5,15 @@
     <div class="row intro-header mt-10 pb-5">
 
       <div class="col-sm-12 col-md-8 col-lg-8">
-        <h2 class="fw-medium">{{ .Site.Params.profileWelcomeHeading | safeHTML }}</h2>
-        <p class="fw-light">{{ .Site.Params.profileWelcomeSubHeading | safeHTML }}</p>
+        <h2 class="">{{ .Site.Params.profileWelcomeHeading | safeHTML }}</h2>
+        <p class="">{{ .Site.Params.profileWelcomeSubHeading | safeHTML }}</p>
 
-        <p class="fw-light">{{ .Site.Params.profileShortbio | safeHTML }}</p>
+        <p class="">{{ .Site.Params.profileShortbio | safeHTML }}</p>
 
-        <p class="fw-light">If you're new here, feel free to explore the website by clicking the below button.</p>
+        <p class="">{{ .Site.Params.profileExploreText | safeHTML }}</p>
 
         <a href="{{ relLangURL "/about/" }}"  class="">
-          <button type="button" class="btn btn-success bg-cgreen">Explore</button>
+          <button type="button" class="btn btn-success bg-cgreen mt-2">Explore</button>
         </a>
       </div>
 

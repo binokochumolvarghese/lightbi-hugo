@@ -1,39 +1,3 @@
-{{- /* Page nav links row */ -}}
-
-{{- $footerPages := slice
-  (dict "path" "/uses" "title" "Uses")
-  (dict "path" "/now" "title" "Now")
-  (dict "path" "/for" "title" "For")
-  (dict "path" "/changelog" "title" "Changelog")
-  (dict "path" "/credits" "title" "Credits")
-  (dict "path" "/disclaimer" "title" "Disclaimer")
--}}
-{{- $visible := slice -}}
-{{- range $footerPages -}}
-  {{- $entry := . -}}
-  {{- with $.Site.GetPage $entry.path -}}
-    {{- $visible = $visible | append (dict "url" .RelPermalink "title" $entry.title) -}}
-  {{- end -}}
-{{- end -}}
-
-{{- if $visible }}
-<div class="footer-menu-strip bg-body-secondary py-2">
-  <div class="container">
-    <div class="row justify-content-center my-1">
-      <div class="col-md-12 text-center">
-        <ul class="list-inline footer-page-links mb-0">
-          {{- range $i, $link := $visible }}
-          {{- if $i }}
-          <li class="list-inline-item footer-dot">&middot;</li>
-          {{- end }}
-          <li class="list-inline-item"><a href="{{ $link.url }}">{{ $link.title }}</a></li>
-          {{- end }}
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-{{- end }}
 
 <!-- Back to top button -->
 <button id="back-to-top" class="back-to-top" aria-label="Back to top">
@@ -79,7 +43,7 @@
     var pre = block.querySelector('pre');
     if (!pre) return;
     var copyBtn = document.createElement('button');
-    copyBtn.className = 'code-copy-btn';
+    copyBtn.className = 'copy-code-button';
     copyBtn.textContent = 'Copy';
     copyBtn.addEventListener('click', function () {
       var text = (pre.querySelector('code') || pre).innerText;
