@@ -3,7 +3,7 @@
 Lightbi is a modern and elegant theme designed for Hugo, offering a simple yet beautiful user experience.
 
 
-## Hey everyone! I’ve just launched version 2 of the Lightbi theme with Profile mode and Blog mode. Hope you’ll enjoy the new updates! 🎉
+## Hey everyone! I’ve just launched version 3 of the Lightbi theme. Hope you’ll enjoy the new updates! 🎉
 
 - 😎[Lightbi Profile Mode](https://Lightbi-hugo-theme.netlify.app/)
 - 🪶[Lightbi Blog Mode](https://lighbi-blog-mode.netlify.app/en/)
