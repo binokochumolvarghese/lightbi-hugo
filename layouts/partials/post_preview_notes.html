@@ -25,13 +25,13 @@
 
         <div class="card-footer text-secondary d-flex justify-content-between align-items-center px-4 py-3 rounded-bottom-4">
             <div class="blog-tags flex-grow-1 small">
-                <i class="bi bi-tags-fill me-1 text-success"></i>
+                <i class="bi bi-tags-fill  text-success"></i>
                 {{ range .Params.tags }}
-                <a href="{{ $.Site.LanguagePrefix | absURL }}tags/{{ . | urlize }}/" class="text-decoration-none me-2">{{ . }}</a>
+                <a href="{{ $.Site.LanguagePrefix | absURL }}tags/{{ . | urlize }}/" class="tag-pill text-decoration-none rounded-4 me-1">{{ . }}</a>
                 {{ end }}
             </div>
             <div class="small">
-                <a href="{{ .Permalink }}" class="text-decoration-none text-secondary-emphasis small">Link</a>
+                <a href="{{ .Permalink }}" class="tag-pill text-decoration-none rounded-4 me-1  small">Link</a>
             </div>
         </div>
     </div>

@@ -1,0 +1,26 @@
+{{ define "main" }}
+
+<div class="container pb-4 mt-5">
+  <div class="row">
+    <div class="col">
+      <h5 class="fw-light lh-1">
+        This website is dedicated:
+      </h5>
+    </div>
+  </div>
+</div>
+
+
+<div class="container pb-4 mt-5 justify-content-center align-items-center mb-5">
+  <div class="row">
+    <div class="col">
+      <h2 class="fw-light">
+         {{ with .Content }}
+              {{ . }}
+          {{ end }}
+      </h2>
+    </div>
+  </div>
+</div>
+
+{{ end }}

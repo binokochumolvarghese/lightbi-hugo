@@ -10,12 +10,17 @@
 
 // Variables
 :root {
-  --color-primary: #2e7d32;         // Forest Green
-  --color-primary-dark: #1b5e20;
-  --color-accent: #d4a373;          // Warm sand/tan
+  --lb-font-base: "Geist", system-ui, -apple-system, sans-serif;
+  --lb-font-heading: "Libre Baskerville", Georgia, serif;
+  --lb-font-monospace: "Geist Mono", monospace;
+  --lb-font-size-base: 1.05rem;
 
-  --color-text: #222222;
-  --color-heading: #111111;
+  --color-primary: #2e7d32;         
+  --color-primary-dark: #1b5e20;
+  --color-accent: #d4a373;          
+
+  --color-text: #212529;
+  --color-heading: #212529;
   --color-subtle: #666666;
 
   --color-bg: #ffffff;
@@ -34,14 +39,23 @@
   --card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.09), 0 14px 32px rgba(0, 0, 0, 0.11);
   --card-radius: 0.875rem;
   --card-border: 1px solid var(--color-border);
+
+  --border-color: #E5E7EB;
+
+  --lb-line-height-heading: 1.25;
+  --lb-line-height-body: 1.7;
+  --lb-weight-heading: 500;
+  --lb-weight-strong: 600;
 }
 
 
 /* --- General --- */
 
 body {
-  font-size: 1rem;
-  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  font-family: var(--lb-font-base);
+  font-size: var(--lb-font-size-base);
   color: var(--color-text);
   position: relative;
   background: var(--color-bg);
@@ -62,9 +76,29 @@ body {
   }
 }
 
+/* ---- Headings ---- */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.01em;
+  font-family: var(--lb-font-heading, var(--lb-font-base));
+  font-weight: var(--lb-weight-heading);
+  line-height: var(--lb-line-height-heading);
+  margin-bottom: 0.6em;
+}
+
+h1 { font-size: clamp(1.75rem, calc(4vw + 0.5rem), 2.75rem); }
+h2 { font-size: clamp(1.4rem,  calc(3vw + 0.5rem), 2.1rem);  }
+h3 { font-size: clamp(1.2rem,  calc(2.2vw + 0.4rem), 1.6rem); }
+h4 { font-size: clamp(1.05rem, calc(1.6vw + 0.35rem), 1.3rem); }
+h5 { font-size: clamp(0.95rem, calc(1.2vw + 0.3rem), 1.1rem);  }
+h6 { font-size: clamp(0.85rem, calc(1vw + 0.3rem), 1rem);
+     letter-spacing: 0.04em;
+}
+
 p {
-  line-height: 1.5;
-  margin: 6px 0;
+  color: var(--text-primary);
+  font-size: clamp(1rem, calc(0.4vw + 0.9rem), 1.125rem);
+  line-height: var(--lb-line-height-body);
+  font-weight: 400;
 }
 
 p+p {
@@ -227,6 +261,10 @@ img {
 
 .link-underline:hover::before {
   transform: scaleX(1);
+}
+
+.no-underline {
+  text-decoration: none !important;
 }
 
 .section-primary-bg{
@@ -502,12 +540,7 @@ img {
 }
 
 
-
-/* --- home page ---*/
-
-
-
-/* --- Footer --- */
+/* ── Code footer ─────────────────────────────────── */
 
 footer {
   padding: 30px 0;
@@ -517,9 +550,6 @@ footer {
   font-size: 14px;
 }
 
-footer a {
-  color: #596073;
-}
 
 footer .list-inline {
   margin: 0;
@@ -534,6 +564,49 @@ footer .copyright {
 footer .theme-by {
   text-align: center;
   margin: 10px 0 0;
+}
+
+:root[data-palette="code"] footer {
+  background-color: #1a1a1a !important;
+}
+:root[data-palette="code"] footer * {
+  color: #C4B49A !important;
+}
+:root[data-palette="code"] footer a:hover { color: #FAF3E1 !important; }
+
+footer a {
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+footer a:hover {
+  color: var(--text-primary);
+}
+
+footer .list-inline {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Social icon buttons */
+.footer-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary) !important;
+  font-size: 0.95rem;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.footer-icon-btn:hover {
+  color: var(--text-primary) !important;
+  border-color: var(--text-secondary);
+  background: var(--bg-elevated);
 }
 
 @media only screen and (min-width: 768px) {
@@ -581,7 +654,7 @@ footer .theme-by {
 
 .post-preview a {
   text-decoration: none;
-  color: #404040;
+  color: var(--color-text);
 }
 
 .post-preview a:focus,
@@ -591,19 +664,17 @@ footer .theme-by {
 }
 
 .post-preview .post-title {
-  /* font-size: 30px; */
   margin-top: 0;
 }
 
-.post-title {
-  color: #344854
+.post-title{
+    margin-bottom: 0;
 }
+
 
 .post-title:focus,
 .post-title:hover {
   text-decoration: none;
-  color: var(--color-primary);
-    /* #FF0000;  */
 }
 
 .post-preview .post-subtitle {
@@ -644,7 +715,7 @@ footer .theme-by {
 .post-entry {
   width: 100%;
   margin-top: 10px;
-  color: hsl(222deg, 22%, 5%);
+  color: var(--color-heading);
   font-size: 1rem;
 }
 
@@ -682,36 +753,52 @@ footer .theme-by {
   } */
 }
 
-/* --- Tags --- */
+/* =====================================================
+   TAG PILLS
+===================================================== */
 
 .blog-tags {
-  color: #999;
-  font-size: 15px;
+  font-size: 15px; 
 }
 
-// .blog-tags:before {
-//    content: "Tags: ";
-// }
+/* Base pill style */
+.tag-pill,
+.link-pill {
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+/* Light Mode */
+:root[data-bs-theme="light"] .tag-pill,
+:root[data-bs-theme="light"] .link-pill {
+  background-color: #f8f9fa;
+  color: #212529;
+  border: 1px solid #dee2e6;
+}
+
+:root[data-bs-theme="light"] .tag-pill:hover,
+:root[data-bs-theme="light"] .link-pill:hover {
+  background-color: #e9ecef;
+}
+
+/* Dark Mode */
+:root[data-bs-theme="dark"] .tag-pill,
+:root[data-bs-theme="dark"] .link-pill {
+  background-color: #1c1c1c;
+  color: #ffffff;
+  border: 1px solid #2c2c2c;
+}
+
+:root[data-bs-theme="dark"] .tag-pill:hover,
+:root[data-bs-theme="dark"] .link-pill:hover {
+  background-color: #2a2a2a;
+}
 
 .blog-tags a:before {
   content: "#";
-}
-
-.blog-tags a {
-  color: #8C8D8E;
-  text-decoration: none;
-  padding: 0px 5px;
-  background-color: #F8F9FA;
-  border: .1px solid #d3cfcf;
-  border-radius: 0.375rem;
-}
-
-
-
-.blog-tags a:hover {
-  border-radius: 2px;
-  color: rgb(81, 81, 82);
-  background-color: #CCC;
 }
 
 .post-preview .blog-tags {
@@ -739,6 +826,68 @@ footer .theme-by {
     margin-top: 0;
     float: left;
   }
+}
+
+/* =====================================================
+   CODE BLOCKS
+===================================================== */
+
+pre,
+.highlight {
+  /* background: var(--bg-surface); */
+  /* border: 1px solid var(--border-color); */
+  border-radius: var(--radius-sm);
+  /* padding: 1rem; */
+  overflow-x: auto;
+}
+
+code {
+  font-size: .95rem;
+  background: var(--bg-surface);
+  padding: .2rem .4rem;
+  border-radius: var(--radius-sm);
+}
+
+/* Copy Button */
+
+.copy-code-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: .3rem .6rem;
+  font-size: .75rem;
+  border-radius: 0 var(--radius-sm) 0 var(--radius-sm);
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.copy-code-button:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* Copy Button */
+
+.copy-code-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: .3rem .6rem;
+  font-size: .75rem;
+  border-radius: 0 var(--radius-sm) 0 var(--radius-sm);
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.copy-code-button:hover {
+  background: var(--color-primary);
+  color: #fff;
 }
 
 /* --- Post and page headers --- */
@@ -1141,13 +1290,12 @@ ul.share li:hover .fab {
 
 
 // Card styles
-.single-post-card {
-  background-color: #fff;
+.single-post-card, .note-card {
+  background: var(--color-bg);
+  border: var(--card-border) !important;
   text-align: left;
   box-shadow: var(--card-shadow);
   white-space: normal;
-  color: #4B4F56;
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .single-post-card-haiku {
@@ -1158,13 +1306,12 @@ ul.share li:hover .fab {
   white-space: normal;
   color: #4B4F56;
   border-color: var(--color-border);
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .single-post-card:hover,
-.single-post-card-haiku:hover {
-  box-shadow: var(--card-shadow-hover) !important;
-  transform: translateY(-3px);
+.single-post-card-haiku:hover,
+.note-card:hover {
+  border: 1px solid var(--color-primary) !important;
 }
 
 .main .row {
@@ -1185,6 +1332,19 @@ ul.share li:hover .fab {
   background-position: center;
   background-repeat: no-repeat;
   padding: 10px 0;
+}
+
+
+// Notes card design
+
+.note-card h3,
+.note-card h5 {
+    margin-bottom: 0.5rem;
+}
+
+.note-card .card-footer {
+    background-color: var(--color-bg) !important;
+    border-top: 1px solid var(--color-border) !important;
 }
 
 .image-wrapper {
@@ -1226,10 +1386,6 @@ ul.share li:hover .fab {
 
 .card-image-blog {
   height: 100%;
-}
-
-.font-sans {
-  font-family: sans-serif !important;
 }
 
 .page-link {
@@ -1284,28 +1440,6 @@ ul.share li:hover .fab {
   flex-direction: row;
 }
 
-// Notes design
-
-.note-card {
-    background: var(--color-bg);
-    border: var(--card-border) !important;
-    transition: box-shadow 0.25s ease, transform 0.25s ease;
-}
-
-.note-card:hover {
-    box-shadow: var(--card-shadow-hover);
-    transform: translateY(-2px);
-}
-
-.note-card h3,
-.note-card h5 {
-    margin-bottom: 0.5rem;
-}
-
-.note-card .card-footer {
-    background-color: var(--color-bg) !important;
-    border-top: 1px solid var(--color-border) !important;
-}
 
 // about me
 
@@ -1441,10 +1575,14 @@ ul.share li:hover .fab {
 [data-theme="dark"] #dark-mode-toggle::before { content: "\f5a2"; }
 
 {{ if .Site.Params.useHLJS }}
-  @import "highlight.min.scss";
+  @import "highlight.scss";
 {{ else }}
   @import "syntax.scss";
 {{ end }}
 
 @import "codeblock.scss";
 @import "custom.scss";
+
+
+// General styles for the site
+

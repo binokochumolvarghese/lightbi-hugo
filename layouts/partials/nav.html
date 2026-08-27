@@ -6,7 +6,7 @@
       <nav class="navbar navbar-expand-lg navbar-light fixed-top p-0">
         <div class="container">
 
-          <a class="navbar-brand fw-bold" href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
+          <a class="navbar-brand" href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -51,7 +51,6 @@
               {{ with .AllTranslations }}
               <li class="nav-item dropdown">
                 <button class="lang-switcher border-0 bg-transparent d-flex align-items-center gap-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Switch language">
-                  <i class="bi bi-globe2"></i>
                   <span>{{ $.Language.Lang | strings.ToUpper }}</span>
                   <i class="bi bi-chevron-down chevron-icon" style="font-size:0.6rem;"></i>
                 </button>

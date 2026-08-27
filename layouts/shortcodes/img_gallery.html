@@ -1,44 +1,69 @@
 {{ $folder := .Get "folder" }}
-{{ $images := resources.Match (printf "%s/*.{jpg,png}" $folder) }}
+{{ $images := resources.Match (printf "%s/*.{jpg,jpeg,png,webp}" $folder) }}
 
 <div class="container">
     <div class="gallery">
         {{ range $images }}
-        <a href="{{ .RelPermalink }}" class="glightbox" class="gallery-item">
-            <img src="{{ .RelPermalink }}" alt="{{ .Name | plainify }}" class="img-fluid rounded mb-2" />
+        <a href="{{ .RelPermalink }}" class="glightbox gallery-item">
+            <span class="gallery-zoom">
+                <img src="{{ .RelPermalink }}" alt="{{ .Name | plainify }}" class="img-fluid" />
+            </span>
         </a>
         {{ end }}
     </div>
 </div>
 
 <style>
-    /* CSS Columns for Masonry effect */
     .gallery {
         column-count: 3;
-        /* Number of columns */
-        column-gap: 15px;
-        /* Space between columns */
+        column-gap: 16px;
     }
 
     .gallery-item {
         display: inline-block;
         width: 100%;
+        margin-bottom: 16px;
         break-inside: avoid;
-        /* Prevents items from breaking across columns */
+        border-radius: 8px;
+        overflow: hidden;
+        background: #f4f4f4;
+        outline: none; 
+    }
+
+    .gallery-item:focus {
+        outline: none;
+    }
+
+    .gallery-item:focus-visible {
+        outline: 2px solid rgba(0, 0, 0, 0.3); 
+        outline-offset: 2px;
+    }
+
+    .gallery-zoom {
+        display: block;
+        overflow: hidden;
+        border-radius: 8px;
     }
 
     .gallery img {
+        display: block;
         width: 100%;
         height: auto;
-        transition: transform 0.3s ease;
-        border-radius: 4px;
+        opacity: 0;
+        animation: fadeIn 0.5s ease forwards;
+        transition: transform 0.25s ease;
     }
 
-    .gallery img:hover {
-        transform: scale(1.05);
+    .gallery-zoom img {
+        transform: scale(1.03);
     }
 
-    /* Responsive adjustments */
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+        }
+    }
+
     @media (max-width: 992px) {
         .gallery {
             column-count: 3;
@@ -48,6 +73,10 @@
     @media (max-width: 768px) {
         .gallery {
             column-count: 2;
+            column-gap: 12px;
+        }
+        .gallery-item {
+            margin-bottom: 12px;
         }
     }
 
@@ -62,10 +91,10 @@
     }
 </style>
 
-<!-- Initialize GLightbox -->
 <script>
     const lightbox = GLightbox({
         selector: '.glightbox',
-        scrollLock: false  // Prevents GLightbox from locking the scroll
+        scrollLock: false,
+        openEffect: 'fade' 
     });
 </script>

@@ -16,9 +16,9 @@
                 {{ print }}
 
                 {{ if ( eq .Type "ml-space" "ml" "ml-musings") }}
-                    <div class="ml-post text-secondary">
+                    <div class="ml-post ">
                 {{ else }}
-                    <div class="post-entry text-secondary">
+                    <div class="post-entry">
                 {{ end }}
 
                     {{ if .Description }}
@@ -28,7 +28,7 @@
                     {{ end }}
                 </div>
                 <div class="read-more-section">
-                    <h6><a href="{{ .Permalink }}" class="small text-muted " alt="Link to {{ .Title }}">Read more <i class="bi bi-arrow-right"></i></a> </h6>
+                    <p><a href="{{ .Permalink }}" class="small text-muted text-decoration-none" alt="Link to {{ .Title }}">Read more <i class="bi bi-arrow-right"></i></a> </p>
                 </div>
             </div>
         </a>
